@@ -1,0 +1,7 @@
+{
+  "name": "Villays - Luxury Villa Bookings",
+  "description": "A high-end villa booking platform featuring curated signature collections, AI-powered concierge recommendations, and an immersive travel planning experience.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
