@@ -120,6 +120,43 @@
       #root {
         background-color: white;
       }
+      
+      /* Hero background optimization for mobile/PWA (2622x1206 / 6.27 inch screens) */
+      @media (max-width: 767px), (display-mode: standalone), (display-mode: fullscreen) {
+        .hero-bg-container {
+          /* Ensure full coverage on wide mobile screens */
+          min-width: 100vw;
+          min-height: 100dvh;
+        }
+        .hero-bg-container img,
+        .hero-bg-container picture {
+          /* Optimize for 2622x1206 aspect ratio (2.17:1) */
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 40%;
+        }
+      }
+      
+      /* Specific optimization for high-DPI mobile screens */
+      @media (max-width: 767px) and (min-resolution: 2dppx) {
+        .hero-bg-container img {
+          /* Higher quality for retina/high-DPI displays */
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
+        }
+      }
+      
+      /* PWA fullscreen mode - ensure no gaps */
+      @media (display-mode: fullscreen) {
+        .hero-bg-container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+      }
     </style>
   <script type="importmap">
 {
