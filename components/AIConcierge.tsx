@@ -1,7 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { X, Send, Sparkles } from 'lucide-react';
-import { getConciergeResponse } from '../services/geminiService';
 import { ChatMessage } from '../types';
 
 interface AIConciergeProps {
@@ -10,7 +9,7 @@ interface AIConciergeProps {
 
 const AIConcierge: React.FC<AIConciergeProps> = ({ onClose }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Welcome to Villays. I am your personal Luxury Concierge. How can I assist with your escape today?' }
+    { role: 'model', text: 'Welcome to Villays. I am your personal Luxury Concierge. How can I assist with your villa selection today?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -30,16 +29,18 @@ const AIConcierge: React.FC<AIConciergeProps> = ({ onClose }) => {
     setMessages(prev => [...prev, { role: 'user', text: userText }]);
     setIsLoading(true);
 
-    try {
-      const history = messages.map(m => ({ role: m.role, text: m.text }));
-      const response = await getConciergeResponse(userText, history);
-      setMessages(prev => [...prev, { role: 'model', text: response || 'I apologize, I am having trouble connecting. Please try again.' }]);
-    } catch (error) {
-      console.error(error);
-      setMessages(prev => [...prev, { role: 'model', text: 'The luxury line is busy. Please try again in a moment.' }]);
-    } finally {
+    // Simulate response delay
+    setTimeout(() => {
+      const responses = [
+        "Thank you for your interest. Our luxury concierge service will be available soon. Please browse our stunning villa collection in the meantime.",
+        "I appreciate your inquiry. Our team is preparing personalized recommendations for you. Feel free to explore our exclusive properties.",
+        "Your request has been noted. While our AI concierge is being enhanced, please explore our curated selection of premium villas.",
+        "Thank you for reaching out. Our concierge service is coming soon. In the meantime, discover our handpicked luxury destinations."
+      ];
+      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+      setMessages(prev => [...prev, { role: 'model', text: randomResponse }]);
       setIsLoading(false);
-    }
+    }, 1000);
   };
 
   return (
