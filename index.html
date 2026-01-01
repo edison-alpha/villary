@@ -84,10 +84,26 @@
       .safe-top {
         padding-top: env(safe-area-inset-top, 0);
       }
-      /* PWA standalone mode adjustments */
+      /* PWA standalone mode - full screen */
       @media all and (display-mode: standalone) {
+        html, body {
+          height: 100%;
+          overflow: hidden;
+        }
+        #root {
+          height: 100%;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+      /* iOS PWA status bar area */
+      @supports (padding-top: env(safe-area-inset-top)) {
         body {
-          padding-top: env(safe-area-inset-top, 0);
+          padding-top: env(safe-area-inset-top);
+          background-color: #0d5c63;
+        }
+        #root {
+          background-color: white;
         }
       }
     </style>

@@ -58,7 +58,7 @@ export const MobileRatePopup: React.FC<RatePopupProps> = ({ isVisible, price, on
   if (!shouldRender) return null;
 
   return (
-    <div className="fixed top-14 left-0 right-0 z-[90] lg:hidden">
+    <div className="fixed top-0 left-0 right-0 z-[85] lg:hidden" style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 56px)' }}>
       {/* Collapsed Bar - Swipeable, slides from right */}
       {!isExpanded && (
         <div 
