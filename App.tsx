@@ -221,6 +221,7 @@ const App: React.FC = () => {
             onBack={() => setCurrentPage('checkout-rooms')}
             onComplete={() => setCurrentPage('payment')}
             onNavigateAuth={(type) => setCurrentPage(type as Page)}
+            user={user}
           />
         ) : null;
       case 'payment':
@@ -256,6 +257,10 @@ const App: React.FC = () => {
     }
   };
 
+  // Pages that should hide footer
+  const hideFooterPages = ['profile', 'signin', 'signup', 'checkout-rooms', 'suite-detail', 'checkout-details', 'payment', 'confirmation'];
+  const shouldShowFooter = !hideFooterPages.includes(currentPage);
+
   return (
     <div className="min-h-screen flex flex-col relative pb-20 lg:pb-0">
       <Navbar 
@@ -270,7 +275,7 @@ const App: React.FC = () => {
         {renderContent()}
       </main>
 
-      <Footer />
+      {shouldShowFooter && <Footer />}
 
       {/* Floating Concierge Button - Hidden on mobile (using bottom nav instead) */}
       <button 

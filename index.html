@@ -7,10 +7,34 @@
     <meta name="theme-color" content="#0d5c63" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Villays" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="description" content="Villays - Premium Villa Escapes. Experience luxury villa rentals on the Amalfi Coast." />
+    <meta name="application-name" content="Villays" />
+    <meta name="msapplication-TileColor" content="#0d5c63" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no" />
+    
     <title>Villays | Premium Villa Escapes</title>
-    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=180&h=180" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/icons/icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon-167x167.png" />
+    
+    <!-- Apple Splash Screens -->
+    <link rel="apple-touch-startup-image" href="/splash/apple-splash-2048-2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" />
+    <link rel="apple-touch-startup-image" href="/splash/apple-splash-1170-2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)" />
+    <link rel="apple-touch-startup-image" href="/splash/apple-splash-1125-2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,6 +84,12 @@
       .safe-top {
         padding-top: env(safe-area-inset-top, 0);
       }
+      /* PWA standalone mode adjustments */
+      @media all and (display-mode: standalone) {
+        body {
+          padding-top: env(safe-area-inset-top, 0);
+        }
+      }
     </style>
   <script type="importmap">
 {
@@ -75,5 +105,20 @@
   <body class="bg-white text-slate-900 overflow-x-hidden">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
+  
+  <!-- Register Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered:', registration.scope);
+          })
+          .catch((error) => {
+            console.log('SW registration failed:', error);
+          });
+      });
+    }
+  </script>
 </body>
 </html>

@@ -106,29 +106,25 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           {/* Profile */}
           <button 
             onClick={() => onNavigate('profile')}
-            className={`relative flex items-center justify-center transition-all duration-300 ${
+            className={`relative flex items-center justify-center transition-all duration-300 p-1.5 ${
               isActive('profile') || isActive('signin') || isActive('signup')
-                ? 'bg-white/20 backdrop-blur-xl rounded-2xl px-3 py-2' 
-                : 'p-1 hover:bg-white/10 rounded-xl'
+                ? 'bg-white/15 rounded-xl' 
+                : 'hover:bg-white/10 rounded-xl'
             }`}
-            style={(isActive('profile') || isActive('signin') || isActive('signup')) ? {
-              boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.25), 0 4px 12px rgba(0,0,0,0.2)',
-              background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.08) 100%)'
-            } : {}}
           >
             {userAvatar ? (
-              <div className={`w-9 h-9 rounded-full overflow-hidden ring-2 transition-all ${
-                isActive('profile') ? 'ring-white/60 ring-offset-2 ring-offset-transparent' : 'ring-white/30'
+              <div className={`w-8 h-8 rounded-full overflow-hidden transition-all ${
+                isActive('profile') ? 'ring-2 ring-white/60' : 'ring-1 ring-white/30'
               }`}>
                 <img src={userAvatar} alt="Profile" className="w-full h-full object-cover" />
               </div>
             ) : (
-              <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                 isActive('profile') || isActive('signin') 
-                  ? 'bg-white ring-2 ring-white/50' 
-                  : 'bg-white/20 ring-2 ring-white/20'
+                  ? 'bg-white' 
+                  : 'bg-white/20'
               }`}>
-                <User size={18} className={isActive('profile') || isActive('signin') ? 'text-[#0d5c63]' : 'text-white/80'} />
+                <User size={16} className={isActive('profile') || isActive('signin') ? 'text-[#0d5c63]' : 'text-white/80'} />
               </div>
             )}
           </button>

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Star, MapPin, User, Eye, EyeOff, Calendar, Clock, Info } from 'lucide-react';
-import { Villa, Suite } from '../types';
+import { Villa, Suite, User as UserType } from '../types';
 
 interface CheckoutDetailsPageProps {
   villa: Villa;
@@ -11,6 +11,7 @@ interface CheckoutDetailsPageProps {
   onBack: () => void;
   onComplete: () => void;
   onNavigateAuth?: (type: 'signin' | 'signup') => void;
+  user?: UserType | null;
 }
 
 const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({ 
@@ -20,7 +21,8 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
   departureDate, 
   onBack, 
   onComplete, 
-  onNavigateAuth 
+  onNavigateAuth,
+  user 
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -66,15 +68,30 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
           {/* LEFT COLUMN: FORM & DETAILS */}
           <div className="lg:col-span-7 space-y-12">
             
-            {/* Sign In Banner */}
-            <div className="bg-white p-8 rounded-3xl border border-slate-100 flex items-center gap-6 shadow-sm">
-              <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-[#0d5c63]">
-                <User size={24} />
+            {/* Sign In Banner - Only show if not logged in */}
+            {!user && (
+              <div className="bg-white p-8 rounded-3xl border border-slate-100 flex items-center gap-6 shadow-sm">
+                <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-[#0d5c63]">
+                  <User size={24} />
+                </div>
+                <p className="text-sm text-slate-600 flex-grow">
+                  To book with your saved details, please <button onClick={() => onNavigateAuth?.('signin')} className="font-bold text-[#0d5c63] underline">SIGN IN</button> or <button onClick={() => onNavigateAuth?.('signup')} className="font-bold text-[#0d5c63] underline">CREATE AN ACCOUNT</button>
+                </p>
               </div>
-              <p className="text-sm text-slate-600 flex-grow">
-                To book with your saved details, please <button onClick={() => onNavigateAuth?.('signin')} className="font-bold text-[#0d5c63] underline">SIGN IN</button> or <button onClick={() => onNavigateAuth?.('signup')} className="font-bold text-[#0d5c63] underline">CREATE AN ACCOUNT</button>
-              </p>
-            </div>
+            )}
+
+            {/* Welcome Back Banner - Show if logged in */}
+            {user && (
+              <div className="bg-[#0d5c63]/5 p-6 rounded-3xl border border-[#0d5c63]/10 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#0d5c63]">
+                  <img src={user.avatar} alt="Profile" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-slate-800">Welcome back, {user.firstName}!</p>
+                  <p className="text-xs text-slate-500">Booking with your saved details</p>
+                </div>
+              </div>
+            )}
 
             {/* Personal Details Form */}
             <section className="bg-white rounded-[3rem] p-10 md:p-14 shadow-sm border border-slate-100">
