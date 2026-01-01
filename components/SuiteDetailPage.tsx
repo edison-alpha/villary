@@ -46,7 +46,7 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
             <div className="sticky top-28 space-y-8">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-serif font-bold text-slate-800">Reserve This Resort</h2>
-                <button onClick={onBack} className="text-[#0d5c63] hover:underline text-[10px] font-bold uppercase tracking-widest">Back</button>
+                <button onClick={onBack} className="text-[#BC8F48] hover:underline text-[10px] font-bold uppercase tracking-widest">Back</button>
               </div>
               
               <div className="space-y-6">
@@ -80,7 +80,7 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
                 <div className="grid grid-cols-2 gap-y-2">
                   {["120 sqm", "Private Pool", "Oceanfront View", "Breakfast Included", "Free Wi-Fi", "Spa Access"].map((item, i) => (
                     <div key={i} className="flex items-center gap-2 text-[10px] text-slate-500">
-                      <Check size={12} className="text-[#0d5c63]" /> {item}
+                      <Check size={12} className="text-[#BC8F48]" /> {item}
                     </div>
                   ))}
                 </div>
@@ -135,7 +135,7 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
                   <div 
                     key={i} 
                     onClick={() => setActiveImage(img)}
-                    className={`shrink-0 w-32 aspect-[16/10] rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${activeImage === img ? 'border-[#0d5c63]' : 'border-transparent opacity-60'}`}
+                    className={`shrink-0 w-32 aspect-[16/10] rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${activeImage === img ? 'border-[#BC8F48]' : 'border-transparent opacity-60'}`}
                   >
                     <img src={img} className="w-full h-full object-cover" />
                   </div>
@@ -248,7 +248,7 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
                   <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1600" className="w-full h-full object-cover grayscale opacity-50" alt="Map" />
                   <div className="absolute inset-0 flex items-center justify-center">
                      <div className="bg-white px-6 py-4 rounded-xl shadow-xl flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-lg bg-[#0d5c63] flex items-center justify-center text-white"><MapPin size={20} /></div>
+                        <div className="w-10 h-10 rounded-lg bg-[#BC8F48] flex items-center justify-center text-white"><MapPin size={20} /></div>
                         <div>
                            <p className="text-[11px] font-bold text-slate-800">Anantara Selene Bay</p>
                            <p className="text-[9px] text-slate-400 uppercase">Coastal Road East, Abu Dhabi</p>

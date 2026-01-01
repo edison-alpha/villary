@@ -51,8 +51,8 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] hidden sm:block text-slate-400">Suites</span>
             </div>
             <div className="flex items-center gap-2 md:gap-4">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs font-bold bg-[#0d5c63] text-white shadow-lg shadow-[#0d5c63]/20">2</div>
-              <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] hidden sm:block text-[#0d5c63]">Details</span>
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs font-bold bg-[#BC8F48] text-white shadow-lg shadow-[#BC8F48]/20">2</div>
+              <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] hidden sm:block text-[#BC8F48]">Details</span>
             </div>
             <div className="flex items-center gap-2 md:gap-4">
               <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs font-bold bg-slate-100 text-slate-400">3</div>
@@ -71,19 +71,19 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
             {/* Sign In Banner - Only show if not logged in */}
             {!user && (
               <div className="bg-white p-8 rounded-3xl border border-slate-100 flex items-center gap-6 shadow-sm">
-                <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-[#0d5c63]">
+                <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-[#BC8F48]">
                   <User size={24} />
                 </div>
                 <p className="text-sm text-slate-600 flex-grow">
-                  To book with your saved details, please <button onClick={() => onNavigateAuth?.('signin')} className="font-bold text-[#0d5c63] underline">SIGN IN</button> or <button onClick={() => onNavigateAuth?.('signup')} className="font-bold text-[#0d5c63] underline">CREATE AN ACCOUNT</button>
+                  To book with your saved details, please <button onClick={() => onNavigateAuth?.('signin')} className="font-bold text-[#BC8F48] underline">SIGN IN</button> or <button onClick={() => onNavigateAuth?.('signup')} className="font-bold text-[#BC8F48] underline">CREATE AN ACCOUNT</button>
                 </p>
               </div>
             )}
 
             {/* Welcome Back Banner - Show if logged in */}
             {user && (
-              <div className="bg-[#0d5c63]/5 p-6 rounded-3xl border border-[#0d5c63]/10 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#0d5c63]">
+              <div className="bg-[#BC8F48]/5 p-6 rounded-3xl border border-[#BC8F48]/10 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#BC8F48]">
                   <img src={user.avatar} alt="Profile" className="w-full h-full object-cover" />
                 </div>
                 <div>
@@ -100,7 +100,7 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                   <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Title</label>
-                  <select className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63] appearance-none cursor-pointer">
+                  <select className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48] appearance-none cursor-pointer">
                     <option>Mr.</option>
                     <option>Ms.</option>
                     <option>Mrs.</option>
@@ -110,22 +110,22 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
 
                 <div className="flex flex-col">
                   <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">First name*</label>
-                  <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63]" placeholder="e.g. John" />
+                  <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48]" placeholder="e.g. John" />
                 </div>
 
                 <div className="flex flex-col">
                   <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Last name*</label>
-                  <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63]" placeholder="e.g. Doe" />
+                  <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48]" placeholder="e.g. Doe" />
                 </div>
 
                 <div className="md:col-span-2">
                   <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Email address*</label>
-                  <input type="email" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63]" placeholder="email@example.com" />
+                  <input type="email" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48]" placeholder="email@example.com" />
                 </div>
 
                 <div className="md:col-span-2">
                   <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Country*</label>
-                  <select className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63] appearance-none">
+                  <select className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48] appearance-none">
                     <option>Indonesia</option>
                     <option>United Kingdom</option>
                     <option>United States</option>
@@ -137,20 +137,20 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
                 <div className="flex gap-4 items-end">
                   <div className="w-24 shrink-0">
                     <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Prefix</label>
-                    <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-4 text-sm focus:outline-none focus:border-[#0d5c63]" placeholder="ID +62" />
+                    <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-4 text-sm focus:outline-none focus:border-[#BC8F48]" placeholder="ID +62" />
                   </div>
                   <div className="flex-grow">
                     <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Phone Number*</label>
-                    <input type="tel" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63]" placeholder="e.g. 812 3456 789" />
+                    <input type="tel" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48]" placeholder="e.g. 812 3456 789" />
                   </div>
                 </div>
 
                 <div className="md:col-span-2 relative">
                   <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Password*</label>
-                  <input type={showPassword ? "text" : "password"} className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63]" placeholder="Minimum 8 characters" />
+                  <input type={showPassword ? "text" : "password"} className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48]" placeholder="Minimum 8 characters" />
                   <button 
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-6 top-[42px] text-slate-400 hover:text-[#0d5c63]"
+                    className="absolute right-6 top-[42px] text-slate-400 hover:text-[#BC8F48]"
                   >
                     {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                   </button>
@@ -158,7 +158,7 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
               </div>
 
               <div className="mt-8 flex items-center gap-4">
-                <input type="checkbox" id="bookingForSomeone" className="w-5 h-5 rounded border-slate-300 text-[#0d5c63] focus:ring-[#0d5c63]" />
+                <input type="checkbox" id="bookingForSomeone" className="w-5 h-5 rounded border-slate-300 text-[#BC8F48] focus:ring-[#BC8F48]" />
                 <label htmlFor="bookingForSomeone" className="text-sm text-slate-600 font-medium">I am booking for someone else</label>
               </div>
             </section>
@@ -168,7 +168,7 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
               <h2 className="text-3xl font-serif text-slate-800 mb-4">Special requests</h2>
               <p className="text-slate-400 text-sm mb-8">Please let us know of any additional requests to help us ensure you have a comfortable stay</p>
               <textarea 
-                className="w-full bg-slate-50 border border-slate-100 rounded-[2rem] p-8 text-sm focus:outline-none focus:border-[#0d5c63] min-h-[150px]"
+                className="w-full bg-slate-50 border border-slate-100 rounded-[2rem] p-8 text-sm focus:outline-none focus:border-[#BC8F48] min-h-[150px]"
                 placeholder="Type in your special requests and we will do our best to try to accommodate them."
               ></textarea>
             </section>
@@ -176,7 +176,7 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
             {/* Action Button */}
             <button 
               onClick={onComplete}
-              className="w-full bg-[#0d5c63] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#0a4a50] transition-all shadow-2xl shadow-[#0d5c63]/20 uppercase tracking-widest"
+              className="w-full bg-[#BC8F48] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#A67B3D] transition-all shadow-2xl shadow-[#BC8F48]/20 uppercase tracking-widest"
             >
               Proceed to final step
             </button>
@@ -190,9 +190,9 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
                 
                 <div className="flex flex-col items-center mb-10">
                   <div className="flex gap-1 mb-2">
-                    {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-[#0d5c63] text-[#0d5c63]" />)}
+                    {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-[#BC8F48] text-[#BC8F48]" />)}
                   </div>
-                  <h4 className="text-2xl font-serif text-[#0d5c63] text-center">{villa.name}</h4>
+                  <h4 className="text-2xl font-serif text-[#BC8F48] text-center">{villa.name}</h4>
                   <p className="flex items-center gap-1 text-[10px] text-slate-400 uppercase tracking-widest mt-2 font-bold">
                     <MapPin size={10} /> {villa.location}
                   </p>
@@ -242,12 +242,12 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
                       <h5 className="text-lg font-serif text-slate-800 font-bold">Total</h5>
                       <p className="text-[9px] text-slate-400 uppercase tracking-widest font-bold">(Tax included)</p>
                     </div>
-                    <span className="text-3xl font-serif font-bold text-[#0d5c63]">${total.toLocaleString()}</span>
+                    <span className="text-3xl font-serif font-bold text-[#BC8F48]">${total.toLocaleString()}</span>
                   </div>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-slate-50 flex items-center gap-3 text-slate-400 text-[10px] font-bold uppercase tracking-widest">
-                  <Info size={14} className="text-[#0d5c63]" />
+                  <Info size={14} className="text-[#BC8F48]" />
                   <span>Currency: Hotel rate in USD</span>
                 </div>
               </div>

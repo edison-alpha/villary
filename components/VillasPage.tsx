@@ -28,7 +28,7 @@ const VillasPage: React.FC<VillasPageProps> = ({ onSelectVilla }) => {
       {/* Header */}
       <div className="bg-slate-50 border-b border-slate-100 py-20 px-6">
         <div className="container mx-auto text-center md:text-left">
-          <h1 className="text-6xl font-serif text-[#0d5c63] mb-6">Our Collection</h1>
+          <h1 className="text-6xl font-serif text-[#4A3426] mb-6">Our Collection</h1>
           <p className="text-slate-500 max-w-2xl text-lg leading-relaxed mx-auto md:mx-0">
             Browse our hand-picked selection of the world's most exclusive properties. 
             Each villa is vetted for exceptional design and superior service.
@@ -46,13 +46,13 @@ const VillasPage: React.FC<VillasPageProps> = ({ onSelectVilla }) => {
               placeholder="Search by name or destination..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-12 pr-4 py-4 focus:outline-none focus:border-[#0d5c63] transition-all"
+              className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-12 pr-4 py-4 focus:outline-none focus:border-[#4A3426] transition-all"
             />
           </div>
 
           <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 no-scrollbar w-full lg:w-auto">
             <div className="flex items-center gap-2 pr-4 border-r border-slate-200 mr-2 shrink-0">
-                <Filter size={18} className="text-[#0d5c63]" />
+                <Filter size={18} className="text-[#4A3426]" />
                 <span className="text-sm font-bold text-slate-700">Filters:</span>
             </div>
             {filters.map(f => (
@@ -61,7 +61,7 @@ const VillasPage: React.FC<VillasPageProps> = ({ onSelectVilla }) => {
                 onClick={() => setActiveFilter(f)}
                 className={`px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-all ${
                   activeFilter === f 
-                  ? 'bg-[#0d5c63] text-white shadow-lg shadow-[#0d5c63]/20' 
+                  ? 'bg-[#4A3426] text-white shadow-lg shadow-[#4A3426]/20' 
                   : 'bg-slate-50 text-slate-500 hover:bg-slate-100'
                 }`}
               >
@@ -85,7 +85,7 @@ const VillasPage: React.FC<VillasPageProps> = ({ onSelectVilla }) => {
                 <h3 className="text-2xl font-serif text-slate-700 mb-2">No properties match your search</h3>
                 <button 
                     onClick={() => {setSearchQuery(''); setActiveFilter('All');}}
-                    className="mt-8 text-[#0d5c63] font-bold border-b-2 border-[#0d5c63]"
+                    className="mt-8 text-[#4A3426] font-bold border-b-2 border-[#4A3426]"
                 >
                     Clear all filters
                 </button>

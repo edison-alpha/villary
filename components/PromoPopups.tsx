@@ -81,13 +81,13 @@ export const MobileRatePopup: React.FC<RatePopupProps> = ({ isVisible, price, on
               <div className="flex items-center gap-0.5">
                 {[1,2,3,4,5].map(i => <Star key={i} size={10} className="fill-amber-400 text-amber-400" />)}
               </div>
-              <span className="text-base font-bold text-[#0d5c63]">${price.toLocaleString()}</span>
+              <span className="text-base font-bold text-[#BC8F48]">${price.toLocaleString()}</span>
               <span className="text-[10px] text-slate-400">/night</span>
             </div>
             <div className="flex items-center gap-1.5">
               <button 
                 onClick={(e) => { e.stopPropagation(); onBook(); }}
-                className="bg-[#0d5c63] text-white px-3 py-1.5 rounded-full text-[10px] font-bold flex items-center gap-1"
+                className="bg-[#BC8F48] text-white px-3 py-1.5 rounded-full text-[10px] font-bold flex items-center gap-1"
               >
                 Book <ChevronDown size={12} className="rotate-[-90deg]" />
               </button>
@@ -113,7 +113,7 @@ export const MobileRatePopup: React.FC<RatePopupProps> = ({ isVisible, price, on
           />
           <div className="mx-3 mt-2 bg-white rounded-2xl shadow-2xl overflow-hidden animate-in slide-in-from-top duration-200">
             {/* Header */}
-            <div className="bg-[#0d5c63] text-white px-4 py-3 flex items-center justify-between">
+            <div className="bg-[#BC8F48] text-white px-4 py-3 flex items-center justify-between">
               <div>
                 <p className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-70">Exclusive Daily Rate</p>
                 <p className="text-xl font-serif font-bold">${price.toLocaleString()} <span className="text-xs opacity-50 font-sans">/night</span></p>
@@ -129,16 +129,16 @@ export const MobileRatePopup: React.FC<RatePopupProps> = ({ isVisible, price, on
             {/* Details */}
             <div className="p-4 space-y-2.5">
               <div className="flex justify-between items-center text-sm py-2 border-b border-slate-100">
-                <span className="text-slate-500">Estate Manager</span>
-                <span className="font-semibold text-slate-800">24/7 Priority</span>
+                <span className="text-slate-500">Pengelola</span>
+                <span className="font-semibold text-slate-800">24/7 Siap Membantu</span>
               </div>
               <div className="flex justify-between items-center text-sm py-2 border-b border-slate-100">
-                <span className="text-slate-500">Breakfast</span>
-                <span className="font-semibold text-slate-800">Included</span>
+                <span className="text-slate-500">Sarapan</span>
+                <span className="font-semibold text-slate-800">Termasuk</span>
               </div>
               <div className="flex justify-between items-center text-sm py-2">
-                <span className="text-slate-500">Cancellation</span>
-                <span className="font-semibold text-slate-800">Flexible</span>
+                <span className="text-slate-500">Pembatalan</span>
+                <span className="font-semibold text-slate-800">Fleksibel</span>
               </div>
             </div>
             
@@ -148,13 +148,13 @@ export const MobileRatePopup: React.FC<RatePopupProps> = ({ isVisible, price, on
                 onClick={onClose}
                 className="flex-1 bg-slate-100 text-slate-600 py-3 rounded-xl font-bold text-sm active:scale-[0.98] transition-all"
               >
-                Dismiss
+                Tutup
               </button>
               <button 
                 onClick={onBook}
-                className="flex-[2] bg-[#0d5c63] text-white py-3 rounded-xl font-bold text-sm active:scale-[0.98] transition-all"
+                className="flex-[2] bg-[#BC8F48] text-white py-3 rounded-xl font-bold text-sm active:scale-[0.98] transition-all"
               >
-                Check Availability
+                Cek Ketersediaan
               </button>
             </div>
           </div>
@@ -187,7 +187,7 @@ export const WelcomeDiscountPopup: React.FC<WelcomePopupProps> = ({ isVisible, o
         </button>
         
         {/* Header */}
-        <div className="bg-gradient-to-br from-[#0d5c63] to-[#0a4a50] px-6 py-8 text-center text-white">
+        <div className="bg-gradient-to-br from-[#BC8F48] to-[#A67B3D] px-6 py-8 text-center text-white">
           <Gift size={32} className="mx-auto mb-2 opacity-90" />
           <p className="text-5xl font-serif font-bold">15%</p>
           <p className="text-xs uppercase tracking-[0.2em] opacity-80 mt-1">OFF YOUR FIRST STAY</p>
@@ -195,22 +195,22 @@ export const WelcomeDiscountPopup: React.FC<WelcomePopupProps> = ({ isVisible, o
         
         {/* Content */}
         <div className="p-5 text-center">
-          <h3 className="text-lg font-semibold text-slate-800 mb-1.5">Welcome to Villays!</h3>
+          <h3 className="text-lg font-semibold text-slate-800 mb-1.5">Selamat Datang di Omah Turu!</h3>
           <p className="text-slate-500 text-sm mb-4">
-            Use code <span className="font-bold text-[#0d5c63] bg-[#0d5c63]/10 px-2 py-0.5 rounded">WELCOME15</span>
+            Use code <span className="font-bold text-[#BC8F48] bg-[#BC8F48]/10 px-2 py-0.5 rounded">WELCOME15</span>
           </p>
           
           <button 
             onClick={onClaim}
-            className="w-full bg-[#0d5c63] text-white py-3 rounded-xl font-bold text-sm active:scale-[0.98] transition-all"
+            className="w-full bg-[#BC8F48] text-white py-3 rounded-xl font-bold text-sm active:scale-[0.98] transition-all"
           >
-            Claim Discount
+            Klaim Diskon
           </button>
           <button 
             onClick={onClose}
             className="text-slate-400 text-xs font-medium mt-3 block mx-auto"
           >
-            Maybe later
+            Nanti saja
           </button>
         </div>
       </div>
@@ -292,20 +292,20 @@ export const LimitedOfferPopup: React.FC<LimitedOfferPopupProps> = ({ isVisible,
           
           <h3 className="text-lg font-semibold text-slate-800 mb-1.5">Flash Sale!</h3>
           <p className="text-slate-500 text-sm mb-4">
-            Book 3+ nights and save $500 on any Villays property.
+            Pesan 3+ malam dan hemat Rp 500.000 untuk properti Omah Turu manapun.
           </p>
           
           <button 
             onClick={onBook}
-            className="w-full bg-[#0d5c63] text-white py-3 rounded-xl font-bold text-sm active:scale-[0.98] transition-all"
+            className="w-full bg-[#BC8F48] text-white py-3 rounded-xl font-bold text-sm active:scale-[0.98] transition-all"
           >
-            Book Now & Save
+            Pesan Sekarang & Hemat
           </button>
           <button 
             onClick={onClose}
             className="text-slate-400 text-xs font-medium mt-3 block mx-auto"
           >
-            No thanks
+            Tidak, terima kasih
           </button>
         </div>
       </div>
@@ -354,31 +354,31 @@ export const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isVisible, onC
         
         {/* Content */}
         <div className="p-5 text-center">
-          <div className="w-10 h-10 bg-[#0d5c63] rounded-full flex items-center justify-center mx-auto -mt-10 border-4 border-white shadow-lg">
+          <div className="w-10 h-10 bg-[#BC8F48] rounded-full flex items-center justify-center mx-auto -mt-10 border-4 border-white shadow-lg">
             <Bell size={16} className="text-white" />
           </div>
           
-          <h3 className="text-lg font-semibold text-slate-800 mt-3 mb-1.5">Stay Inspired</h3>
+          <h3 className="text-lg font-semibold text-slate-800 mt-3 mb-1.5">Tetap Terhubung</h3>
           <p className="text-slate-500 text-sm mb-4">
-            Get exclusive offers and travel tips.
+            Dapatkan penawaran eksklusif dan tips wisata Jogja.
           </p>
           
           <input 
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm mb-3 focus:outline-none focus:border-[#0d5c63] focus:ring-1 focus:ring-[#0d5c63]"
+            placeholder="Masukkan email Anda"
+            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm mb-3 focus:outline-none focus:border-[#BC8F48] focus:ring-1 focus:ring-[#BC8F48]"
           />
           
           <button 
             onClick={handleSubmit}
-            className="w-full bg-[#0d5c63] text-white py-2.5 rounded-xl font-bold text-sm active:scale-[0.98] transition-all"
+            className="w-full bg-[#BC8F48] text-white py-2.5 rounded-xl font-bold text-sm active:scale-[0.98] transition-all"
           >
-            Subscribe
+            Berlangganan
           </button>
           <p className="text-[9px] text-slate-400 mt-3">
-            By subscribing, you agree to our Privacy Policy
+            Dengan berlangganan, Anda menyetujui Kebijakan Privasi kami
           </p>
         </div>
       </div>
@@ -424,8 +424,8 @@ export const FloatingPromoBanner: React.FC<PromoBannerProps> = ({ isVisible, onC
         onClick={onClick}
       >
         <div className="flex-grow min-w-0">
-          <p className="font-bold text-xs">Special Offer!</p>
-          <p className="text-[10px] opacity-90">20% off weekend stays</p>
+          <p className="font-bold text-xs">Promo Spesial!</p>
+          <p className="text-[10px] opacity-90">Diskon 20% menginap akhir pekan</p>
         </div>
         <button 
           onClick={(e) => { e.stopPropagation(); onClose(); }}

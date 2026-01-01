@@ -21,10 +21,10 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[100] lg:hidden">
       <div className="mx-3 mb-2" style={{ marginBottom: 'calc(8px + env(safe-area-inset-bottom, 0px))' }}>
-        {/* Theme-matched container with teal/dark gradient */}
-        <div className="backdrop-blur-2xl rounded-[2rem] px-3 py-2.5 flex items-center justify-between border border-[#0d5c63]/30"
+        {/* Theme-matched container with warm brown gradient */}
+        <div className="backdrop-blur-2xl rounded-[2rem] px-3 py-2.5 flex items-center justify-between border border-[#4A3426]/30"
           style={{
-            background: 'linear-gradient(135deg, rgba(13,92,99,0.85) 0%, rgba(10,74,80,0.95) 100%)',
+            background: 'linear-gradient(135deg, rgba(74,52,38,0.92) 0%, rgba(61,42,30,0.98) 100%)',
             boxShadow: '0 8px 32px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.1)',
             backdropFilter: 'blur(20px) saturate(150%)',
             WebkitBackdropFilter: 'blur(20px) saturate(150%)'
@@ -124,7 +124,7 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                   ? 'bg-white' 
                   : 'bg-white/20'
               }`}>
-                <User size={16} className={isActive('profile') || isActive('signin') ? 'text-[#0d5c63]' : 'text-white/80'} />
+                <User size={16} className={isActive('profile') || isActive('signin') ? 'text-[#4A3426]' : 'text-white/80'} />
               </div>
             )}
           </button>

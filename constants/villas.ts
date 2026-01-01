@@ -1,130 +1,131 @@
 
 import { Villa, Suite } from '../types';
 
-const AMALFI_SUITES: Suite[] = [
+const JOGLO_SUITES: Suite[] = [
   {
-    id: "suite-garden",
-    name: "Garden Suite",
-    size: "243 sq.m / 2616 sq.ft",
-    view: "Menoreh Hills and surrounding farmland",
-    location: "Throughout the hotel",
-    description: "A serene sanctuary featuring panoramic views of the meticulously manicured terraced gardens and the lush Kedu Plain. The master bathroom is an architectural haven of local limestone, featuring a deep-soaking volcanic stone bathtub and a separate tropical rain shower. A private sun-drenched terrace offers a secluded space for morning meditation or al-fresco breakfast amidst the scent of wild jasmine.",
+    id: "suite-taman",
+    name: "Kamar Taman",
+    size: "45 sq.m / 484 sq.ft",
+    view: "Taman tropis dan hutan pinus",
+    location: "Sayap timur joglo utama",
+    description: "Kamar yang tenang dengan pemandangan taman tropis yang asri dan hutan pinus Tawangmangu. Dilengkapi dengan tempat tidur berukir kayu jati, kamar mandi dengan bathtub batu alam, dan teras pribadi untuk menikmati kopi pagi sambil mendengar kicau burung. Interior bergaya Jawa klasik dengan sentuhan modern yang nyaman.",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1200",
-    basePrice: 1650,
-    inclusions: ["American Breakfast for two each day", "Flexible Cancellation before 1 week"]
+    basePrice: 850000,
+    inclusions: ["Sarapan tradisional Jawa untuk 2 orang", "Welcome drink jamu tradisional", "Pembatalan fleksibel H-7"]
   },
   {
-    id: "suite-pool",
-    name: "Garden Pool Suite",
-    size: "243 sq.m / 2616 sq.ft",
-    view: "Views of the Menoreh Hills and farmland",
-    location: "Throughout the resort",
-    description: "Perched for ultimate privacy, this suite boasts a private heated plunge pool that seems to float over the rugged Amalfi cliffs and the azure Tyrrhenian Sea. The interiors blend contemporary Italian luxury with Mediterranean heritage, while the spa-inspired bathroom features hand-carved stone basins, premium Ortigia toiletries, and a glass-enclosed rain shower designed to capture the golden hour light.",
+    id: "suite-hutan",
+    name: "Kamar Hutan",
+    size: "55 sq.m / 592 sq.ft",
+    view: "Pemandangan hutan pinus dan Gunung Lawu",
+    location: "Paviliun terpisah di area hutan",
+    description: "Kamar premium dengan pemandangan langsung ke hutan pinus yang sejuk dan siluet Gunung Lawu yang megah di kejauhan. Dilengkapi dengan kolam rendam pribadi bergaya Jawa, tempat tidur king size dengan kanopi batik, dan pendopo kecil untuk bersantai. Nikmati udara pegunungan yang segar dengan kenyamanan modern.",
     image: "https://images.unsplash.com/photo-1590490359683-658d3d23f972?auto=format&fit=crop&q=80&w=1200",
-    basePrice: 1980,
-    inclusions: ["American Breakfast for two each day", "Private Pool Service", "Flexible Cancellation"]
+    basePrice: 1250000,
+    inclusions: ["Sarapan tradisional untuk 2 orang", "Kolam rendam pribadi", "Afternoon tea dengan jajanan pasar"]
   },
   {
-    id: "suite-dalem",
-    name: "Dalem Jiwo Suite (2 Bedrooms)",
-    size: "1200 sq.m / 12917 sq.ft",
-    view: "Rice terrace, Menoreh Hills and Borobudur Temple",
-    location: "Private setting to the side of the main resort",
-    description: "The estate's crown jewel. A 1,200 sq.m palatial masterpiece offering 360-degree views of the historic horizon and the shimmering coastline. It features two grand master suites, each equipped with a panoramic bathroom including a circular sunken tub, dual rain showers, and walk-in dressing rooms. Guests enjoy a private 15m emerald-tiled infinity pool, a dedicated butler's pantry for discreet service, and a sprawling central rotunda for bespoke private dining under the stars.",
+    id: "suite-joglo-agung",
+    name: "Joglo Agung Suite (2 Kamar)",
+    size: "150 sq.m / 1615 sq.ft",
+    view: "Panorama 360° hutan pinus & Gunung Lawu",
+    location: "Joglo utama dengan area privat",
+    description: "Pengalaman menginap paling eksklusif di Omah Turu. Joglo berusia 150 tahun yang telah direstorasi dengan penuh cinta, menampilkan ukiran kayu jati asli dan arsitektur tradisional Jawa yang megah. Terdiri dari 2 kamar tidur utama, ruang tamu dengan pendopo terbuka, kolam renang infinity pribadi menghadap Gunung Lawu, dan dapur tradisional. Dilengkapi dengan butler pribadi dan chef untuk pengalaman kuliner Jawa yang autentik.",
     image: "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=1200",
-    basePrice: 7850,
-    inclusions: ["Champagne on arrival", "Private Chef & Butler", "24/7 Priority Concierge"]
+    basePrice: 3500000,
+    inclusions: ["Jamu welcome drink & snack tradisional", "Chef & Butler pribadi", "Tur wisata Tawangmangu gratis", "Concierge 24 jam"]
   }
 ];
 
 export const ALL_VILLAS: Villa[] = [
   { 
-    id: "villays-flagship",
-    name: "Villays Estate Amalfi", 
-    price: 2450, 
-    rating: 5.0,
-    reviews: 156,
+    id: "omah-turu-joglo",
+    name: "Omah Turu Joglo", 
+    price: 850000, 
+    rating: 4.9,
+    reviews: 234,
     image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2400", 
-    location: "Positano, Amalfi Coast, Italy",
-    tags: ["Exclusive", "Fully Staffed", "Ocean Front"],
-    description: "Not all luxury retreats are created equal. We have visited thousands to find the one that truly speaks to the soul. Villays Amalfi is not just a residence; it's a 1,200m² masterpiece of Mediterranean heritage. Perched on the Kedu Plain's vertical equivalents in Italy, it mirrors the aura of zen and tranquility of its historical neighbors. From the private limestone path leading to the sea to the hand-carved stone baths, every inch is a testament to timeless Italian grace.",
+    location: "Tawangmangu, Karanganyar, Jawa Tengah",
+    tags: ["Heritage", "Joglo Tradisional", "View Gunung Lawu"],
+    description: "Omah Turu Joglo adalah penginapan heritage yang menawarkan pengalaman menginap autentik di rumah joglo tradisional Jawa berusia lebih dari 100 tahun. Terletak di area hutan pinus Tawangmangu dengan pemandangan Gunung Lawu yang memukau. Udara pegunungan yang sejuk dan suasana alam yang asri menjadikan tempat ini sempurna untuk melepas penat. Setiap sudut joglo ini menyimpan cerita dan filosofi Jawa yang dalam.",
     amenities: [
-      "25m Heated Infinity Pool", 
-      "Private Cinema with 4K Laser Projection", 
-      "Fully Equipped Wellness Spa & Sauna", 
-      "Smart Home Automation (Control4)", 
-      "Professional Grade Gym (Technogym)"
+      "Kolam Renang Infinity dengan View Gunung Lawu", 
+      "Pendopo untuk Yoga & Meditasi", 
+      "Spa Tradisional Jawa (Lulur & Pijat)", 
+      "Trekking ke Air Terjun", 
+      "Kelas Memasak Masakan Jawa"
     ],
     architecture: [
-      "Belle Époque Heritage Facade", 
-      "Local Hand-Cut Limestone Walls", 
-      "Floor-to-Ceiling Disappearing Glass Walls"
+      "Joglo Jawa Klasik Usia 150 Tahun", 
+      "Ukiran Kayu Jati Asli Buatan Tangan", 
+      "Gebyok Antik dengan Motif Wayang"
     ],
     attractions: [
-      "Path of the Gods (Sentiero degli Dei)", 
-      "Li Galli Private Islands", 
-      "Spiaggia Grande Positano"
+      "Air Terjun Grojogan Sewu (15 menit)", 
+      "Candi Cetho (30 menit)", 
+      "Candi Sukuh (25 menit)",
+      "Puncak Gunung Lawu (2 jam trekking)"
     ],
-    livingArea: 1200,
-    bedrooms: 6,
-    postedAt: "Just Verified",
-    curator: "Villays Signature",
-    suites: AMALFI_SUITES
+    livingArea: 500,
+    bedrooms: 5,
+    postedAt: "Terverifikasi",
+    curator: "Omah Turu Heritage",
+    suites: JOGLO_SUITES
   }
 ];
 
 export const PRACTICAL_INFO = {
-  address: "Via Cristoforo Colombo, 84017 Positano SA, Italy",
-  internet: { public: "Free High-Speed", room: "Private Fiber Optic (1Gbps)" },
-  children: "Children of all ages are welcome. Specialized childcare services available.",
-  checkInOut: { checkIn: "3:00 PM", checkOut: "11:00 AM", flexible: "Subject to availability" },
-  transport: "Complimentary airport transfer. Private helipad access on-site.",
-  smoking: "Non-smoking indoors. Designated terrace areas available.",
-  pets: "Small pets welcome with prior notice. Specialized pet-concierge available.",
-  parking: "Valet parking & secure underground garage (Free of charge)"
+  address: "Area Hutan, Gondosuli, Kec. Tawangmangu, Kabupaten Karanganyar, Jawa Tengah 57792",
+  internet: { public: "WiFi Gratis", room: "WiFi Fiber Optik Cepat" },
+  children: "Anak-anak semua usia dipersilakan. Tersedia area bermain dan aktivitas edukasi budaya.",
+  checkInOut: { checkIn: "14:00 WIB", checkOut: "12:00 WIB", flexible: "Fleksibel sesuai ketersediaan" },
+  transport: "Penjemputan dari Bandara Adi Soemarmo Solo/Stasiun Solo Balapan. Rental mobil tersedia.",
+  smoking: "Dilarang merokok di dalam ruangan. Area merokok tersedia di taman.",
+  pets: "Hewan peliharaan kecil diperbolehkan dengan pemberitahuan sebelumnya.",
+  parking: "Parkir gratis di area penginapan"
 };
 
 export const ESTATE_CONTENT = {
   staff: [
-    { title: "Estate Manager", desc: "Your direct link to the region, available 24/7." },
-    { title: "Executive Chef", desc: "Bespoke menu planning focusing on organic local produce." },
-    { title: "Lifestyle Butler", desc: "Expert in itinerary planning and seamless guest comfort." }
+    { title: "Pengelola Omah", desc: "Siap membantu kebutuhan Anda 24 jam dengan keramahan khas Jawa." },
+    { title: "Juru Masak", desc: "Menyajikan masakan Jawa autentik dari resep turun-temurun." },
+    { title: "Pemandu Wisata", desc: "Ahli sejarah dan wisata alam Tawangmangu untuk pengalaman bermakna." }
   ],
   alwaysIncluded: [
-    "Welcome signature cocktails upon arrival",
-    "Daily a la carte breakfast in the lemon grove",
-    "Daily housekeeping & evening turndown service",
-    "Complimentary luxury mini-bar (replenished daily)",
-    "Pre-arrival grocery stocking service",
-    "Unlimited access to Wellness & Spa facilities"
+    "Jamu tradisional & teh Jawa saat kedatangan",
+    "Sarapan tradisional Jawa setiap hari",
+    "Pembersihan kamar & layanan turndown",
+    "Minuman di minibar (teh, kopi, air mineral)",
+    "Akses kolam renang & fasilitas umum",
+    "WiFi gratis di seluruh area"
   ],
   dining: [
-    { title: "The Terrace Room", desc: "Mediterranean fine dining under the stars." },
-    { title: "Azure Bar", desc: "Mixology at the cliff's edge with sunset views." }
+    { title: "Pendopo Makan", desc: "Sajian masakan Jawa autentik dengan suasana tradisional." },
+    { title: "Teras Kopi", desc: "Kopi Jawa dan jajanan pasar dengan pemandangan Gunung Lawu." }
   ],
   leisure: [
-    { title: "Limestone Spa", desc: "Traditional Italian wellness treatments and Turkish Hammam." },
-    { title: "The Fitness Pavilion", desc: "State-of-the-art Technogym equipment with sea views." }
+    { title: "Spa Tradisional", desc: "Perawatan lulur, boreh, dan pijat tradisional Jawa." },
+    { title: "Pendopo Yoga", desc: "Sesi yoga pagi dengan pemandangan hutan pinus dan Gunung Lawu." }
   ]
 };
 
 export const INSPIRATIONS = [
   { 
-    title: "The Shore Suite", 
-    location: "Flagship Space", 
+    title: "Joglo Agung", 
+    location: "Suite Utama", 
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
-    excerpt: "Where Time Rests by the Sea. On a cliff top above the Gulf of Salerno, days slow to the rhythm of tides and timeless traditions."
+    excerpt: "Kemegahan arsitektur Jawa dalam balutan kenyamanan modern. Rasakan filosofi hidup Jawa di setiap sudut joglo bersejarah ini."
   },
   { 
-    title: "Ravello", 
-    location: "Villa Cimbrone", 
+    title: "Pagi di Pegunungan", 
+    location: "Pemandangan Alam", 
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
-    excerpt: "A Story in Three Acts. In the gardens of Villa Cimbrone, light and shadow paint a poem in stone."
+    excerpt: "Bangun dengan udara sejuk pegunungan dan pemandangan Gunung Lawu yang megah. Nikmati kopi Jawa di tengah hutan pinus."
   },
   { 
-    title: "Where Wilderness Writes the Story", 
-    location: "Amalfi Coast", 
+    title: "Wisata Alam", 
+    location: "Tawangmangu", 
     image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&q=80&w=800",
-    excerpt: "The horizon stretches wider, the silence sharper. Exploring the hidden coves of the Tyrrhenian Sea."
+    excerpt: "Jelajahi keindahan alam Tawangmangu dari Air Terjun Grojogan Sewu hingga Candi Cetho. Setiap perjalanan adalah petualangan."
   }
 ];

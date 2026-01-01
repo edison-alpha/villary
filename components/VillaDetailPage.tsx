@@ -23,10 +23,10 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
       {/* 1. The Editorial Intro */}
       <section className="container mx-auto px-4 md:px-6 pt-16 md:pt-32 pb-12 md:pb-24 border-b border-slate-100">
         <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-serif text-[#0d5c63] mb-4 md:mb-8">{villa.name}</h2>
+            <h2 className="text-3xl md:text-5xl font-serif text-[#4A3426] mb-4 md:mb-8">{villa.name}</h2>
             <div className="flex items-center justify-center gap-1 md:gap-2 mb-6 md:mb-10">
-                {[1,2,3,4,5].map(i => <Star key={i} size={14} className="fill-[#0d5c63] text-[#0d5c63]" />)}
-                <span className="ml-2 md:ml-4 text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-400">Villays Heritage Collection</span>
+                {[1,2,3,4,5].map(i => <Star key={i} size={14} className="fill-[#4A3426] text-[#4A3426]" />)}
+                <span className="ml-2 md:ml-4 text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-400">Omah Turu Heritage Collection</span>
             </div>
             <p className="text-lg md:text-2xl text-slate-600 font-light leading-relaxed italic px-2">
                 "{villa.description}"
@@ -58,11 +58,11 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
 
             {/* Inclusions Section */}
             <div className="bg-slate-50 rounded-2xl md:rounded-[4rem] p-6 md:p-16">
-              <h3 className="text-xl md:text-2xl font-serif text-[#0d5c63] mb-6 md:mb-10">Always included in this estate</h3>
+              <h3 className="text-xl md:text-2xl font-serif text-[#4A3426] mb-6 md:mb-10">Always included in this estate</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {ESTATE_CONTENT.alwaysIncluded.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 md:gap-4 text-sm text-slate-600">
-                    <Check size={14} className="text-[#0d5c63] mt-1 shrink-0" />
+                    <Check size={14} className="text-[#4A3426] mt-1 shrink-0" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -105,7 +105,7 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
 
           {/* Right Column: Booking Sidebar - Hidden on Mobile */}
           <div className="lg:col-span-4 hidden lg:block">
-            <div className="sticky top-28 bg-[#0d5c63] text-white rounded-[3rem] p-12 shadow-2xl">
+            <div className="sticky top-28 bg-[#4A3426] text-white rounded-[3rem] p-12 shadow-2xl">
               <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-60 mb-2 text-center">Exclusive Daily Rate</p>
               <h4 className="text-4xl font-serif font-bold text-center mb-10">${villa.price.toLocaleString()} <span className="text-lg opacity-40 font-sans">/night</span></h4>
               
@@ -126,7 +126,7 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
 
               <button 
                 onClick={onBookNow}
-                className="w-full bg-white text-[#0d5c63] py-5 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all"
+                className="w-full bg-white text-[#4A3426] py-5 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all"
               >
                 Check Availability
               </button>
@@ -148,7 +148,7 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
 
 const InfoItem = ({ icon, label, value }: { icon: React.ReactNode, label: string, value: string }) => (
   <div className="flex gap-3 md:gap-4">
-    <div className="w-9 h-9 md:w-10 md:h-10 bg-slate-50 rounded-lg md:rounded-xl flex items-center justify-center text-[#0d5c63] shrink-0">
+    <div className="w-9 h-9 md:w-10 md:h-10 bg-slate-50 rounded-lg md:rounded-xl flex items-center justify-center text-[#4A3426] shrink-0">
       {icon}
     </div>
     <div>
@@ -161,8 +161,8 @@ const InfoItem = ({ icon, label, value }: { icon: React.ReactNode, label: string
 const AccordionItem = ({ title, isOpen, onClick, children }: { title: string, isOpen: boolean, onClick: () => void, children?: React.ReactNode }) => (
   <div className="border-b border-slate-100">
     <button onClick={onClick} className="w-full py-4 md:py-8 flex items-center justify-between text-left group">
-      <span className={`text-lg md:text-2xl font-serif ${isOpen ? 'text-[#0d5c63]' : 'text-slate-800'} group-hover:text-[#0d5c63] transition-colors`}>{title}</span>
-      {isOpen ? <ChevronUp size={20} className="text-[#0d5c63]" /> : <ChevronDown size={20} className="text-slate-300" />}
+      <span className={`text-lg md:text-2xl font-serif ${isOpen ? 'text-[#4A3426]' : 'text-slate-800'} group-hover:text-[#4A3426] transition-colors`}>{title}</span>
+      {isOpen ? <ChevronUp size={20} className="text-[#4A3426]" /> : <ChevronDown size={20} className="text-slate-300" />}
     </button>
     <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
       {children}

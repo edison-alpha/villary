@@ -240,13 +240,13 @@ const App: React.FC = () => {
             <div className="w-16 h-16 md:w-24 md:h-24 bg-green-50 text-green-500 rounded-full flex items-center justify-center mb-6 md:mb-8">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-12 md:h-12"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             </div>
-            <h2 className="text-3xl md:text-5xl font-serif text-[#0d5c63] mb-3 md:mb-4">Request Received</h2>
+            <h2 className="text-3xl md:text-5xl font-serif text-[#4A3426] mb-3 md:mb-4">Request Received</h2>
             <p className="text-slate-500 max-w-lg mx-auto text-sm md:text-lg leading-relaxed">
-              Thank you for choosing Villays. Your personal estate manager will contact you within the next 2 hours to finalize your itinerary.
+              Terima kasih telah memilih Omah Turu. Manajer properti kami akan menghubungi Anda dalam 2 jam untuk finalisasi itinerary.
             </p>
             <button 
               onClick={() => setCurrentPage('home')}
-              className="mt-8 md:mt-12 bg-[#0d5c63] text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-bold shadow-xl active:scale-95 transition-all text-sm md:text-base"
+              className="mt-8 md:mt-12 bg-[#4A3426] text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-bold shadow-xl active:scale-95 transition-all text-sm md:text-base"
             >
               Return Home
             </button>
@@ -262,7 +262,7 @@ const App: React.FC = () => {
   const shouldShowFooter = !hideFooterPages.includes(currentPage);
 
   return (
-    <div className="min-h-screen flex flex-col relative pb-20 lg:pb-0">
+    <div className="min-h-screen flex flex-col relative pb-20 lg:pb-0 bg-[#FDFBF7]">
       <Navbar 
         onNavigate={(page) => setCurrentPage(page as Page)} 
         currentPage={currentPage} 
@@ -280,7 +280,7 @@ const App: React.FC = () => {
       {/* Floating Concierge Button - Hidden on mobile (using bottom nav instead) */}
       <button 
         onClick={() => setShowConcierge(!showConcierge)}
-        className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 bg-[#0d5c63] text-white p-3 md:p-4 rounded-full shadow-2xl hover:bg-[#0a4a50] transition-all transform hover:scale-110 active:scale-95 hidden lg:flex items-center gap-2"
+        className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 bg-[#BC8F48] text-white p-3 md:p-4 rounded-full shadow-2xl hover:bg-[#A67B3D] transition-all transform hover:scale-110 active:scale-95 hidden lg:flex items-center gap-2"
       >
         <div className="p-1.5 md:p-2 bg-white/10 rounded-full">
             <Sparkles size={16} />
@@ -316,7 +316,7 @@ const App: React.FC = () => {
                 <input 
                   type="text" 
                   placeholder="Search villas, locations..." 
-                  className="w-full bg-slate-100 rounded-xl px-4 py-3 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#0d5c63]"
+                  className="w-full bg-slate-100 rounded-xl px-4 py-3 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A3426]"
                   autoFocus
                 />
                 <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

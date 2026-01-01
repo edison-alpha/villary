@@ -71,7 +71,7 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
               </div>
               <button 
                 onClick={() => fileInputRef.current?.click()}
-                className="absolute -bottom-1 -right-1 p-1.5 bg-[#0d5c63] text-white rounded-full shadow-lg"
+                className="absolute -bottom-1 -right-1 p-1.5 bg-[#4A3426] text-white rounded-full shadow-lg"
               >
                 <Camera size={12} />
               </button>
@@ -86,11 +86,11 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
             <div className="flex-grow">
               <h2 className="text-base font-semibold text-slate-900">{firstName} {lastName}</h2>
               <p className="text-sm text-slate-500">{email}</p>
-              <p className="text-xs text-[#0d5c63] font-medium mt-0.5">{user.points} Points</p>
+              <p className="text-xs text-[#4A3426] font-medium mt-0.5">{user.points} Points</p>
             </div>
             <button 
               onClick={() => setActiveSection(activeSection === 'edit' ? null : 'edit')}
-              className="text-[#0d5c63] text-sm font-semibold"
+              className="text-[#4A3426] text-sm font-semibold"
             >
               Edit
             </button>
@@ -105,14 +105,14 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="First name"
-                  className="bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0d5c63]/20"
+                  className="bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A3426]/20"
                 />
                 <input 
                   type="text" 
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Last name"
-                  className="bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0d5c63]/20"
+                  className="bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A3426]/20"
                 />
               </div>
               <input 
@@ -120,12 +120,12 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
-                className="w-full bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0d5c63]/20"
+                className="w-full bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A3426]/20"
               />
               <button 
                 onClick={handleSave}
                 disabled={isSaving}
-                className="w-full bg-[#0d5c63] text-white py-3 rounded-xl font-semibold text-sm active:scale-[0.98] transition-all disabled:opacity-50"
+                className="w-full bg-[#4A3426] text-white py-3 rounded-xl font-semibold text-sm active:scale-[0.98] transition-all disabled:opacity-50"
               >
                 {isSaving ? 'Saving...' : (showSuccess ? '✓ Saved' : 'Save Changes')}
               </button>
@@ -158,7 +158,7 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
           {/* Support Section */}
           <SettingsSection title="Support">
             <SettingsItem icon={<HelpCircle size={20} />} label="Help Center" />
-            <SettingsItem icon={<Info size={20} />} label="About Villays" />
+            <SettingsItem icon={<Info size={20} />} label="Tentang Omah Turu" />
           </SettingsSection>
 
           {/* Logout & Delete */}
@@ -178,7 +178,7 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
         </div>
 
         {/* App Version */}
-        <p className="text-center text-slate-300 text-xs mt-8">Villays v1.0.0</p>
+        <p className="text-center text-slate-300 text-xs mt-8">Omah Turu v1.0.0</p>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 's
       {/* Modal Container */}
       <div className="relative bg-white w-full max-w-lg rounded-[3rem] overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300">
         {/* Header Image/Pattern */}
-        <div className="h-32 bg-[#0d5c63] relative overflow-hidden">
+        <div className="h-32 bg-[#BC8F48] relative overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
               <defs>
@@ -46,13 +46,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 's
              <div className="bg-white px-8 py-3 rounded-t-3xl flex gap-8 shadow-sm">
                 <button 
                   onClick={() => setAuthType('signin')}
-                  className={`text-xs font-bold uppercase tracking-widest transition-all ${authType === 'signin' ? 'text-[#0d5c63]' : 'text-slate-300'}`}
+                  className={`text-xs font-bold uppercase tracking-widest transition-all ${authType === 'signin' ? 'text-[#BC8F48]' : 'text-slate-300'}`}
                 >
                   Sign In
                 </button>
                 <button 
                   onClick={() => setAuthType('signup')}
-                  className={`text-xs font-bold uppercase tracking-widest transition-all ${authType === 'signup' ? 'text-[#0d5c63]' : 'text-slate-300'}`}
+                  className={`text-xs font-bold uppercase tracking-widest transition-all ${authType === 'signup' ? 'text-[#BC8F48]' : 'text-slate-300'}`}
                 >
                   Sign Up
                 </button>
@@ -63,7 +63,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 's
         {/* Content */}
         <div className="p-10 pt-12">
           <div className="text-center mb-10">
-            <h3 className="text-3xl font-serif text-[#0d5c63] mb-2">
+            <h3 className="text-3xl font-serif text-[#BC8F48] mb-2">
               {authType === 'signin' ? 'Welcome Back' : 'Create Account'}
             </h3>
             <p className="text-slate-400 text-sm font-light">
@@ -80,7 +80,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 's
                   <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1 block">First Name</label>
                   <input 
                     type="text" 
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:border-[#BC8F48] transition-all"
                     placeholder="John"
                   />
                 </div>
@@ -88,7 +88,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 's
                   <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1 block">Last Name</label>
                   <input 
                     type="text" 
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:border-[#BC8F48] transition-all"
                     placeholder="Doe"
                   />
                 </div>
@@ -101,7 +101,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 's
                 <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                 <input 
                   type="email" 
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-14 pr-5 py-3.5 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
+                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-14 pr-5 py-3.5 text-sm focus:outline-none focus:border-[#BC8F48] transition-all"
                   placeholder="name@luxury.com"
                 />
               </div>
@@ -113,13 +113,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 's
                 <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                 <input 
                   type={showPassword ? "text" : "password"}
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-14 pr-14 py-3.5 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
+                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-14 pr-14 py-3.5 text-sm focus:outline-none focus:border-[#BC8F48] transition-all"
                   placeholder="••••••••"
                 />
                 <button 
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-300 hover:text-[#0d5c63] transition-colors"
+                  className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-300 hover:text-[#BC8F48] transition-colors"
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
@@ -129,15 +129,15 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 's
             {authType === 'signin' && (
               <div className="flex items-center justify-between px-1">
                 <label className="flex items-center gap-2 cursor-pointer group">
-                  <input type="checkbox" className="w-4 h-4 rounded border-slate-200 text-[#0d5c63] focus:ring-[#0d5c63]" />
+                  <input type="checkbox" className="w-4 h-4 rounded border-slate-200 text-[#BC8F48] focus:ring-[#BC8F48]" />
                   <span className="text-xs text-slate-400 group-hover:text-slate-600">Remember me</span>
                 </label>
-                <button type="button" className="text-xs font-bold text-[#0d5c63] hover:underline">Forgot password?</button>
+                <button type="button" className="text-xs font-bold text-[#BC8F48] hover:underline">Forgot password?</button>
               </div>
             )}
 
             <button 
-              className="w-full bg-[#0d5c63] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-xl shadow-[#0d5c63]/20 hover:bg-[#0a4a50] transition-all mt-4"
+              className="w-full bg-[#BC8F48] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-xl shadow-[#BC8F48]/20 hover:bg-[#A67B3D] transition-all mt-4"
               onClick={() => {
                 alert(`${authType === 'signin' ? 'Signing in' : 'Creating account'}...`);
                 onClose();
@@ -176,7 +176,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 's
               <button 
                 type="button"
                 onClick={() => setAuthType(authType === 'signin' ? 'signup' : 'signin')}
-                className="ml-2 font-bold text-[#0d5c63] hover:underline"
+                className="ml-2 font-bold text-[#BC8F48] hover:underline"
               >
                 {authType === 'signin' ? 'Create Account' : 'Sign In'}
               </button>

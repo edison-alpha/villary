@@ -99,10 +99,10 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
                 onClick={() => !isPast && handleDateClick(date)}
                 className={`
                   h-8 flex items-center justify-center cursor-pointer text-[11px] font-medium transition-all relative
-                  ${status === 'start' ? 'bg-[#0d5c63] text-white rounded-md z-10' : ''}
-                  ${status === 'end' ? 'bg-[#0d5c63] text-white rounded-md z-10' : ''}
-                  ${status === 'range' ? 'bg-[#0d5c63]/10 text-[#0d5c63]' : 'text-slate-700 hover:bg-slate-50 rounded-md'}
-                  ${isToday && !status ? 'text-[#0d5c63] font-bold' : ''}
+                  ${status === 'start' ? 'bg-[#BC8F48] text-white rounded-md z-10' : ''}
+                  ${status === 'end' ? 'bg-[#BC8F48] text-white rounded-md z-10' : ''}
+                  ${status === 'range' ? 'bg-[#BC8F48]/10 text-[#BC8F48]' : 'text-slate-700 hover:bg-slate-50 rounded-md'}
+                  ${isToday && !status ? 'text-[#BC8F48] font-bold' : ''}
                   ${isPast ? 'text-slate-200 cursor-not-allowed' : ''}
                 `}
               >
@@ -124,10 +124,10 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
         <div className="grid grid-cols-2 gap-2 md:hidden mb-3">
           {/* Location */}
           <div className="col-span-2 bg-slate-50 rounded-2xl p-3">
-            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1">Location</p>
+            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1">Lokasi</p>
             <div className="flex items-center gap-2">
-              <MapPin size={14} className="text-[#0d5c63] shrink-0" />
-              <span className="text-sm font-semibold text-slate-800 truncate">Amalfi Coast, Italy</span>
+              <MapPin size={14} className="text-[#BC8F48] shrink-0" />
+              <span className="text-sm font-semibold text-slate-800 truncate">Tawangmangu, Karanganyar</span>
             </div>
           </div>
           
@@ -162,19 +162,19 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
         {/* Mobile: Full Width Button */}
         <button 
           onClick={() => arrivalDate && departureDate && onBook?.(arrivalDate, departureDate)}
-          className="md:hidden bg-[#0d5c63] hover:bg-[#0a4a50] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg active:scale-[0.98] w-full"
+          className="md:hidden bg-[#BC8F48] hover:bg-[#A67B3D] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg active:scale-[0.98] w-full"
         >
-          <Search size={18} /> Book Your Stay
+          <Search size={18} /> Pesan Sekarang
         </button>
         
         {/* Desktop: Original Horizontal Layout */}
         <div className="hidden md:flex md:flex-row items-stretch flex-grow">
           {/* Locality */}
           <div className="flex-[1.5] border-r border-slate-100 p-4 md:p-5 md:pl-8">
-             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Location</p>
+             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Lokasi</p>
              <div className="flex items-center gap-2 text-sm text-slate-700">
-               <MapPin size={14} className="text-[#0d5c63]" />
-               <input type="text" defaultValue="Amalfi Coast, Italy" className="w-full bg-transparent focus:outline-none font-semibold text-slate-800" />
+               <MapPin size={14} className="text-[#BC8F48]" />
+               <input type="text" defaultValue="Tawangmangu, Karanganyar" className="w-full bg-transparent focus:outline-none font-semibold text-slate-800" />
              </div>
           </div>
 
@@ -209,9 +209,9 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
           <div className="p-2 flex items-center">
             <button 
               onClick={() => arrivalDate && departureDate && onBook?.(arrivalDate, departureDate)}
-              className="bg-[#0d5c63] hover:bg-[#0a4a50] text-white px-10 h-full rounded-full font-bold flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 w-full md:w-auto min-h-[56px]"
+              className="bg-[#BC8F48] hover:bg-[#A67B3D] text-white px-10 h-full rounded-full font-bold flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 w-full md:w-auto min-h-[56px]"
             >
-              <Search size={18} /> Book Stay
+              <Search size={18} /> Pesan
             </button>
           </div>
         </div>
@@ -231,7 +231,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
             <h3 className="font-bold text-slate-800">Select Dates</h3>
             <button 
               onClick={() => setShowPicker(null)}
-              className="text-[#0d5c63] font-bold text-sm"
+              className="text-[#BC8F48] font-bold text-sm"
             >
               Done
             </button>
@@ -241,13 +241,13 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
             <div className="relative max-w-[600px] mx-auto">
                <button 
                   onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1))}
-                  className="absolute -left-2 md:-left-2 top-0 text-slate-300 hover:text-[#0d5c63] transition-colors p-2"
+                  className="absolute -left-2 md:-left-2 top-0 text-slate-300 hover:text-[#BC8F48] transition-colors p-2"
                >
                   <ChevronLeft size={20} />
                </button>
                <button 
                   onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1))}
-                  className="absolute -right-2 md:-right-2 top-0 text-slate-300 hover:text-[#0d5c63] transition-colors p-2"
+                  className="absolute -right-2 md:-right-2 top-0 text-slate-300 hover:text-[#BC8F48] transition-colors p-2"
                >
                   <ChevronRight size={20} />
                </button>
@@ -265,7 +265,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
           <div className="p-4 md:p-6 md:pt-6 border-t border-slate-100 bg-white" style={{ paddingBottom: 'max(16px, env(safe-area-inset-bottom, 16px))' }}>
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#0d5c63]"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#BC8F48]"></div>
                 {arrivalDate && departureDate ? `${arrivalDate.toLocaleDateString('en-GB')} - ${departureDate.toLocaleDateString('en-GB')}` : 'Select your dates'}
               </div>
               <div className="flex gap-4 w-full md:w-auto">
@@ -300,9 +300,9 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
                 <p className="text-[10px] text-slate-400 uppercase">Ages 13+</p>
               </div>
               <div className="flex items-center gap-4">
-                <button onClick={() => setAdults(Math.max(1, adults - 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#0d5c63] active:bg-slate-50 transition-all"><Minus size={16} /></button>
+                <button onClick={() => setAdults(Math.max(1, adults - 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#BC8F48] active:bg-slate-50 transition-all"><Minus size={16} /></button>
                 <span className="font-bold text-lg w-6 text-center">{adults}</span>
-                <button onClick={() => setAdults(Math.min(10, adults + 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#0d5c63] active:bg-slate-50 transition-all"><Plus size={16} /></button>
+                <button onClick={() => setAdults(Math.min(10, adults + 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#BC8F48] active:bg-slate-50 transition-all"><Plus size={16} /></button>
               </div>
             </div>
             <div className="flex items-center justify-between">
@@ -311,13 +311,13 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
                 <p className="text-[10px] text-slate-400 uppercase">Ages 2-12</p>
               </div>
               <div className="flex items-center gap-4">
-                <button onClick={() => setChildrenCount(Math.max(0, childrenCount - 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#0d5c63] active:bg-slate-50 transition-all"><Minus size={16} /></button>
+                <button onClick={() => setChildrenCount(Math.max(0, childrenCount - 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#BC8F48] active:bg-slate-50 transition-all"><Minus size={16} /></button>
                 <span className="font-bold text-lg w-6 text-center">{childrenCount}</span>
-                <button onClick={() => setChildrenCount(Math.min(10, childrenCount + 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#0d5c63] active:bg-slate-50 transition-all"><Plus size={16} /></button>
+                <button onClick={() => setChildrenCount(Math.min(10, childrenCount + 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#BC8F48] active:bg-slate-50 transition-all"><Plus size={16} /></button>
               </div>
             </div>
           </div>
-          <button onClick={() => setShowPicker(null)} className="w-full mt-8 bg-[#0d5c63] text-white py-4 rounded-full font-bold text-xs uppercase tracking-widest active:scale-[0.98] transition-all" style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}>Apply</button>
+          <button onClick={() => setShowPicker(null)} className="w-full mt-8 bg-[#BC8F48] text-white py-4 rounded-full font-bold text-xs uppercase tracking-widest active:scale-[0.98] transition-all" style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}>Apply</button>
         </div>
       )}
 

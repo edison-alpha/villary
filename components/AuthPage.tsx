@@ -63,13 +63,13 @@ const AuthPage: React.FC<AuthPageProps> = ({ initialType, onSwitch, onBack, onAu
         <div className="w-full max-w-md">
           <button 
             onClick={onBack}
-            className="flex items-center gap-2 text-slate-400 font-bold text-xs uppercase tracking-widest hover:text-[#0d5c63] transition-colors mb-16"
+            className="flex items-center gap-2 text-slate-400 font-bold text-xs uppercase tracking-widest hover:text-[#BC8F48] transition-colors mb-16"
           >
             <ArrowLeft size={14} /> Back to home
           </button>
 
           <div className="mb-12">
-            <h1 className="text-5xl font-serif text-[#0d5c63] mb-4">
+            <h1 className="text-5xl font-serif text-[#BC8F48] mb-4">
               {initialType === 'signin' ? 'Sign In' : 'Sign Up'}
             </h1>
             <p className="text-slate-400 font-light">
@@ -87,7 +87,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ initialType, onSwitch, onBack, onAu
                   <input 
                     type="text" required
                     value={firstName} onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48] transition-all"
                     placeholder="John"
                   />
                 </div>
@@ -96,7 +96,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ initialType, onSwitch, onBack, onAu
                   <input 
                     type="text" required
                     value={lastName} onChange={(e) => setLastName(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48] transition-all"
                     placeholder="Doe"
                   />
                 </div>
@@ -110,7 +110,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ initialType, onSwitch, onBack, onAu
                 <input 
                   type="email" required
                   value={email} onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-16 pr-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
+                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-16 pr-6 py-4 text-sm focus:outline-none focus:border-[#BC8F48] transition-all"
                   placeholder="name@email.com"
                 />
               </div>
@@ -123,13 +123,13 @@ const AuthPage: React.FC<AuthPageProps> = ({ initialType, onSwitch, onBack, onAu
                 <input 
                   type={showPassword ? "text" : "password"} required
                   value={password} onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-16 pr-14 py-4 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
+                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-16 pr-14 py-4 text-sm focus:outline-none focus:border-[#BC8F48] transition-all"
                   placeholder="••••••••"
                 />
                 <button 
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 hover:text-[#0d5c63]"
+                  className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 hover:text-[#BC8F48]"
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
@@ -139,7 +139,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ initialType, onSwitch, onBack, onAu
             <button 
               type="submit"
               disabled={isLoading}
-              className="w-full bg-[#0d5c63] text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl shadow-[#0d5c63]/20 hover:bg-[#0a4a50] transition-all uppercase tracking-widest disabled:opacity-50"
+              className="w-full bg-[#BC8F48] text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl shadow-[#BC8F48]/20 hover:bg-[#A67B3D] transition-all uppercase tracking-widest disabled:opacity-50"
             >
               {isLoading ? 'Verifying Credentials...' : (initialType === 'signin' ? <><LogIn size={20} /> Sign In</> : <><UserPlus size={20} /> Register</>)}
             </button>
@@ -151,7 +151,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ initialType, onSwitch, onBack, onAu
               <button 
                 type="button"
                 onClick={() => onSwitch(initialType === 'signin' ? 'signup' : 'signin')}
-                className="ml-2 font-bold text-[#0d5c63] hover:underline uppercase tracking-widest text-xs"
+                className="ml-2 font-bold text-[#BC8F48] hover:underline uppercase tracking-widest text-xs"
               >
                 {initialType === 'signin' ? 'Create Account' : 'Sign In'}
               </button>

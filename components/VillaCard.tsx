@@ -12,7 +12,7 @@ const VillaCard: React.FC<VillaCardProps> = ({ villa, onClick }) => {
   return (
     <div 
       onClick={() => onClick(villa.id)}
-      className="relative group w-full aspect-[4/5] rounded-[3rem] overflow-hidden cursor-pointer shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[#0d5c63]/20"
+      className="relative group w-full aspect-[4/5] rounded-[3rem] overflow-hidden cursor-pointer shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[#BC8F48]/20"
     >
       {/* Full Bleed Image */}
       <img 

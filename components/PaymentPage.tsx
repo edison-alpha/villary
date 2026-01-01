@@ -56,8 +56,8 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
               <span className="text-[8px] md:text-[9px] font-bold uppercase tracking-wider hidden sm:block text-slate-400">Details</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs font-bold bg-[#0d5c63] text-white shadow-lg shadow-[#0d5c63]/20">3</div>
-              <span className="text-[8px] md:text-[9px] font-bold uppercase tracking-wider hidden sm:block text-[#0d5c63]">Payment</span>
+              <div className="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs font-bold bg-[#BC8F48] text-white shadow-lg shadow-[#BC8F48]/20">3</div>
+              <span className="text-[8px] md:text-[9px] font-bold uppercase tracking-wider hidden sm:block text-[#BC8F48]">Payment</span>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
       <div className="max-w-5xl mx-auto px-4 md:px-6 mt-6 md:mt-12">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-slate-400 hover:text-[#0d5c63] mb-4 md:mb-6 text-xs font-bold uppercase tracking-widest transition-colors"
+          className="flex items-center gap-2 text-slate-400 hover:text-[#BC8F48] mb-4 md:mb-6 text-xs font-bold uppercase tracking-widest transition-colors"
         >
           <ChevronLeft size={14} /> Back
         </button>
@@ -139,7 +139,7 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
                     onClick={() => setActiveTab('mobile')}
                     className={`flex-1 py-2 px-3 md:px-4 rounded-lg text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all ${
                       activeTab === 'mobile' 
-                        ? 'bg-[#0d5c63] text-white' 
+                        ? 'bg-[#BC8F48] text-white' 
                         : 'bg-slate-50 text-slate-400 hover:bg-slate-100'
                     }`}
                   >
@@ -149,7 +149,7 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
                     onClick={() => setActiveTab('atm')}
                     className={`flex-1 py-2 px-3 md:px-4 rounded-lg text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all ${
                       activeTab === 'atm' 
-                        ? 'bg-[#0d5c63] text-white' 
+                        ? 'bg-[#BC8F48] text-white' 
                         : 'bg-slate-50 text-slate-400 hover:bg-slate-100'
                     }`}
                   >
@@ -162,46 +162,46 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
                   {activeTab === 'mobile' ? (
                     <ol className="space-y-2 text-[11px] md:text-xs text-slate-600">
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">1.</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">1.</span>
                         <span>Login to Mandiri Mobile app</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">2.</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">2.</span>
                         <span>Select "Bayar" → "Multipayment"</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">3.</span>
-                        <span>Select "Villays" as service provider</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">3.</span>
+                        <span>Pilih "Omah Turu" sebagai penyedia layanan</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">4.</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">4.</span>
                         <span>Enter VA: <strong className="font-mono text-[10px] md:text-xs">{vaNumber}</strong></span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">5.</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">5.</span>
                         <span>Confirm and complete payment</span>
                       </li>
                     </ol>
                   ) : (
                     <ol className="space-y-2 text-[11px] md:text-xs text-slate-600">
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">1.</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">1.</span>
                         <span>Insert ATM card and enter PIN</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">2.</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">2.</span>
                         <span>Select "Bayar/Beli" → "Multipayment"</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">3.</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">3.</span>
                         <span>Enter company code: <strong>70012</strong></span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">4.</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">4.</span>
                         <span>Enter VA: <strong className="font-mono text-[10px] md:text-xs">{vaNumber}</strong></span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="font-bold text-[#0d5c63] shrink-0">5.</span>
+                        <span className="font-bold text-[#BC8F48] shrink-0">5.</span>
                         <span>Confirm payment and complete</span>
                       </li>
                     </ol>
@@ -239,7 +239,7 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
                 </div>
                 <div className="pt-3 border-t border-slate-100">
                   <p className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-wider mb-1">Total</p>
-                  <p className="text-xl md:text-2xl font-bold text-[#0d5c63]">${total.toLocaleString()}</p>
+                  <p className="text-xl md:text-2xl font-bold text-[#BC8F48]">${total.toLocaleString()}</p>
                   <p className="text-[8px] md:text-[9px] text-slate-400 mt-0.5">Tax included</p>
                 </div>
               </div>
@@ -257,7 +257,7 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
               {/* Action Button */}
               <button 
                 onClick={onComplete}
-                className="w-full bg-[#0d5c63] text-white py-3.5 md:py-4 rounded-xl font-bold text-xs hover:bg-[#0a4a50] transition-all shadow-lg shadow-[#0d5c63]/20 uppercase tracking-widest active:scale-95"
+                className="w-full bg-[#BC8F48] text-white py-3.5 md:py-4 rounded-xl font-bold text-xs hover:bg-[#A67B3D] transition-all shadow-lg shadow-[#BC8F48]/20 uppercase tracking-widest active:scale-95"
               >
                 I Have Paid
               </button>

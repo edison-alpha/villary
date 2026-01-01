@@ -3,13 +3,13 @@ import React from 'react';
 
 const Stats: React.FC = () => {
   const stats = [
-    { value: "50+", label: "Vibrant Countries Served" },
-    { value: "2M", label: "Happy Customers Globally" },
-    { value: "85%", label: "Repeat Booking Rate" },
+    { value: "150+", label: "Tahun Usia Joglo" },
+    { value: "5000+", label: "Tamu Puas" },
+    { value: "4.9", label: "Rating Google" },
   ];
 
   return (
-    <section className="bg-[#0d5c63] py-12 md:py-20 text-white">
+    <section className="bg-[#4A3426] py-12 md:py-20 text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3">
           {stats.map((stat, idx) => (

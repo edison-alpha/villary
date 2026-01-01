@@ -56,13 +56,13 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
               >
                 <div className={`w-8 h-8 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center text-xs md:text-sm font-black transition-all ${
                   step.id === currentStep 
-                  ? 'bg-[#0d5c63] text-white shadow-xl shadow-[#0d5c63]/30' 
+                  ? 'bg-[#BC8F48] text-white shadow-xl shadow-[#BC8F48]/30' 
                   : 'bg-slate-100 text-slate-400'
                 }`}>
                   {step.id}
                 </div>
                 <div className="hidden md:block">
-                    <p className={`text-[10px] font-black uppercase tracking-[0.3em] ${step.id === currentStep ? 'text-[#0d5c63]' : 'text-slate-300'}`}>Step {step.id}</p>
+                    <p className={`text-[10px] font-black uppercase tracking-[0.3em] ${step.id === currentStep ? 'text-[#BC8F48]' : 'text-slate-300'}`}>Step {step.id}</p>
                     <p className={`text-xs font-bold ${step.id === currentStep ? 'text-slate-800' : 'text-slate-400'}`}>{step.name}</p>
                 </div>
               </div>
@@ -76,24 +76,24 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
         <div>
           <button 
             onClick={onBack}
-            className="group flex items-center gap-2 md:gap-3 text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] hover:text-[#0d5c63] transition-colors mb-4 md:mb-8"
+            className="group flex items-center gap-2 md:gap-3 text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] hover:text-[#BC8F48] transition-colors mb-4 md:mb-8"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return to Estate
           </button>
-          <h2 className="text-3xl md:text-6xl font-serif text-[#0d5c63] leading-tight">Your Private <br className="hidden md:block" /> Sanctuary Awaits</h2>
+          <h2 className="text-3xl md:text-6xl font-serif text-[#BC8F48] leading-tight">Your Private <br className="hidden md:block" /> Sanctuary Awaits</h2>
           <p className="text-slate-400 mt-2 md:mt-4 font-medium tracking-wide text-sm md:text-base">Handpicked selection for your stay in {villa.location}</p>
         </div>
 
         <div className="flex items-center gap-6 md:gap-12 bg-white px-6 md:px-10 py-4 md:py-6 rounded-2xl md:rounded-[2.5rem] shadow-xl border border-slate-50 w-full lg:w-auto">
           <div className="flex flex-col gap-1 md:gap-2 flex-1 lg:flex-none">
-            <span className="text-[8px] md:text-[9px] font-black text-[#0d5c63] uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center gap-1 md:gap-2">
+            <span className="text-[8px] md:text-[9px] font-black text-[#BC8F48] uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center gap-1 md:gap-2">
                 <Calendar size={10} /> Stay Interval
             </span>
             <span className="text-xs md:text-sm font-bold text-slate-800">{formatDateRange(arrivalDate, departureDate)}</span>
           </div>
           <div className="w-px h-10 md:h-12 bg-slate-100"></div>
           <div className="flex flex-col gap-1 md:gap-2 flex-1 lg:flex-none">
-            <span className="text-[8px] md:text-[9px] font-black text-[#0d5c63] uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center gap-1 md:gap-2">
+            <span className="text-[8px] md:text-[9px] font-black text-[#BC8F48] uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center gap-1 md:gap-2">
                 <Users size={10} /> Party Size
             </span>
             <span className="text-xs md:text-sm font-bold text-slate-800">2 Adults, 1 Minor</span>
@@ -107,7 +107,7 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
           <div 
             key={suite.id} 
             className={`bg-white rounded-3xl md:rounded-[4.5rem] overflow-hidden shadow-xl md:shadow-2xl transition-all duration-700 border-2 ${
-                selectedSuiteId === suite.id ? 'border-[#0d5c63] ring-4 md:ring-8 ring-[#0d5c63]/5' : 'border-white hover:border-slate-100'
+                selectedSuiteId === suite.id ? 'border-[#BC8F48] ring-4 md:ring-8 ring-[#BC8F48]/5' : 'border-white hover:border-slate-100'
             }`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12">
@@ -119,8 +119,8 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3s]" 
                   />
                   <div className="absolute top-4 left-4 md:top-10 md:left-10 flex flex-wrap gap-2 md:gap-3">
-                    <span className="bg-white/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#0d5c63] shadow-lg">Heritage Suite</span>
-                    <span className="bg-[#0d5c63]/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white shadow-lg">Best Value</span>
+                    <span className="bg-white/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#BC8F48] shadow-lg">Heritage Suite</span>
+                    <span className="bg-[#BC8F48]/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white shadow-lg">Best Value</span>
                   </div>
                 </div>
 
@@ -137,7 +137,7 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
                   </div>
                   <button 
                     onClick={() => onViewDetails?.(suite)}
-                    className="group flex items-center gap-2 md:gap-3 text-[#0d5c63] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all border-b-2 border-[#0d5c63]/20 pb-2"
+                    className="group flex items-center gap-2 md:gap-3 text-[#BC8F48] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all border-b-2 border-[#BC8F48]/20 pb-2"
                   >
                     View Experience <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -165,7 +165,7 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
                     <div className="mb-6 md:mb-10">
                         <p className="text-[9px] md:text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] md:tracking-[0.4em] mb-2 md:mb-4">Starting At</p>
                         <div className="flex items-center justify-center gap-2 md:gap-3">
-                            <span className="text-3xl md:text-5xl font-serif font-bold text-[#0d5c63]">${suite.basePrice.toLocaleString()}</span>
+                            <span className="text-3xl md:text-5xl font-serif font-bold text-[#BC8F48]">${suite.basePrice.toLocaleString()}</span>
                             <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest">/ Night</span>
                         </div>
                     </div>
@@ -174,7 +174,7 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
                         className={`w-full py-4 md:py-6 rounded-xl md:rounded-[1.5rem] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all duration-500 shadow-xl text-sm md:text-base ${
                             selectedSuiteId === suite.id 
                             ? 'bg-slate-800 text-white shadow-slate-800/20 scale-95' 
-                            : 'bg-[#0d5c63] text-white hover:bg-[#0a4a50] shadow-[#0d5c63]/30 active:scale-95'
+                            : 'bg-[#BC8F48] text-white hover:bg-[#A67B3D] shadow-[#BC8F48]/30 active:scale-95'
                         }`}
                     >
                         {selectedSuiteId === suite.id ? (
@@ -222,7 +222,7 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
 
                 <button 
                     onClick={() => onProceed(villa.suites!.find(s => s.id === selectedSuiteId)!)}
-                    className="w-full md:w-auto bg-[#0d5c63] text-white px-6 md:px-16 py-3 md:py-6 rounded-xl md:rounded-2xl font-bold md:font-black uppercase tracking-[0.15em] md:tracking-[0.3em] hover:bg-[#0a4a50] transition-all flex items-center justify-center gap-2 md:gap-4 group shadow-2xl active:scale-95 text-xs md:text-base"
+                    className="w-full md:w-auto bg-[#BC8F48] text-white px-6 md:px-16 py-3 md:py-6 rounded-xl md:rounded-2xl font-bold md:font-black uppercase tracking-[0.15em] md:tracking-[0.3em] hover:bg-[#A67B3D] transition-all flex items-center justify-center gap-2 md:gap-4 group shadow-2xl active:scale-95 text-xs md:text-base"
                 >
                     Complete Booking <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </button>

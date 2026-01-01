@@ -1,11 +1,11 @@
 {
-  "name": "Villays - Premium Villa Escapes",
-  "short_name": "Villays",
-  "description": "Experience luxury villa rentals on the Amalfi Coast",
+  "name": "Omah Turu - Tempat Istirahat Eksklusif",
+  "short_name": "Omah Turu",
+  "description": "Tempat istirahat eksklusif dengan nuansa tradisional Jawa yang menenangkan",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0d5c63",
+  "background_color": "#FDFBF7",
+  "theme_color": "#4A3426",
   "orientation": "portrait-primary",
   "scope": "/",
   "icons": [
@@ -69,9 +69,9 @@
   ],
   "shortcuts": [
     {
-      "name": "Book Now",
-      "short_name": "Book",
-      "description": "Start booking your villa",
+      "name": "Pesan Sekarang",
+      "short_name": "Pesan",
+      "description": "Mulai pemesanan penginapan Anda",
       "url": "/?action=book",
       "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
     }

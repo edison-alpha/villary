@@ -1,4 +1,4 @@
-const CACHE_NAME = 'villays-v1';
+const CACHE_NAME = 'omahturu-v1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -84,7 +84,7 @@ self.addEventListener('fetch', (event) => {
 // Handle push notifications (for future use)
 self.addEventListener('push', (event) => {
   const options = {
-    body: event.data?.text() || 'New notification from Villays',
+    body: event.data?.text() || 'Notifikasi baru dari Omah Turu',
     icon: '/icons/icon-192x192.png',
     badge: '/icons/icon-72x72.png',
     vibrate: [100, 50, 100],
@@ -95,7 +95,7 @@ self.addEventListener('push', (event) => {
   };
 
   event.waitUntil(
-    self.registration.showNotification('Villays', options)
+    self.registration.showNotification('Omah Turu', options)
   );
 });
 

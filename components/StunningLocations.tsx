@@ -18,7 +18,7 @@ const StunningLocations: React.FC<StunningLocationsProps> = ({ onSelectVilla }) 
     <section className="py-32 container mx-auto px-6">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 mb-20">
         <div>
-          <h2 className="text-4xl font-serif text-[#0d5c63] mb-6">Sail to the World's Most <br /> Stunning Locations</h2>
+          <h2 className="text-4xl font-serif text-[#4A3426] mb-6">Sail to the World's Most <br /> Stunning Locations</h2>
           <p className="text-slate-500 max-w-lg leading-relaxed">
             From Mediterranean paradises to the peaks of the Swiss Alps, our hand-selected villas are checked for 200+ quality points.
           </p>
@@ -30,7 +30,7 @@ const StunningLocations: React.FC<StunningLocationsProps> = ({ onSelectVilla }) 
               onClick={() => setActiveFilter(filter)}
               className={`px-8 py-3 rounded-full text-sm font-semibold transition-all ${
                 activeFilter === filter 
-                ? 'bg-white text-[#0d5c63] shadow-md' 
+                ? 'bg-white text-[#4A3426] shadow-md' 
                 : 'text-slate-400 hover:text-slate-600'
               }`}
             >
