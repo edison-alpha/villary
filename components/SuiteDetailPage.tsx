@@ -275,11 +275,11 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <h2 className="text-5xl font-serif text-center mb-16 text-slate-800">Discover More Places</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-             <DiscoveryCard title="Private Wellness & Spa" img="https://images.unsplash.com/photo-1540555700478-4be289fbecee?auto=format&fit=crop&q=80&w=800" />
-             <DiscoveryCard title="Infinity Pool by the Ocean" img="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=800" />
+             <DiscoveryCard title="Private Wellness & Spa" img="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800" />
+             <DiscoveryCard title="Infinity Pool by the Ocean" img="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800" />
              <div className="space-y-8">
-                <DiscoveryCard title="Glass Kayaking" img="https://images.unsplash.com/photo-1544923246-77307dd654ca?auto=format&fit=crop&q=80&w=800" isSmall />
-                <DiscoveryCard title="Lava Shell Massage" img="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800" isSmall />
+                <DiscoveryCard title="Glass Kayaking" img="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&q=80&w=800" isSmall />
+                <DiscoveryCard title="Lava Shell Massage" img="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=800" isSmall />
              </div>
           </div>
         </div>
