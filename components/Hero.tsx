@@ -9,19 +9,23 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onBookNow }) => {
   return (
-    <section className="relative min-h-[100svh] w-full flex flex-col justify-between items-center bg-slate-100">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <section 
+      className="relative w-full flex flex-col justify-between items-center bg-slate-100"
+      style={{ minHeight: 'calc(100dvh)' }}
+    >
+      {/* Background Image - Full screen including safe areas */}
+      <div className="absolute inset-0 z-0 overflow-hidden" style={{ top: 'calc(-1 * env(safe-area-inset-top, 0px))' }}>
         <img 
           src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2400" 
           alt="Villays Estate" 
           className="w-full h-full object-cover"
+          style={{ height: 'calc(100% + env(safe-area-inset-top, 0px))' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
       </div>
 
-      {/* Top Margin for Navbar */}
-      <div className="h-16 md:h-32"></div>
+      {/* Top Margin for Navbar + Safe Area */}
+      <div className="h-20 md:h-32" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}></div>
 
       {/* Main Branding - Centered vertically on mobile */}
       <div className="relative z-10 text-center text-white px-4 md:px-6 flex-grow flex flex-col justify-center md:flex-grow-0 md:block -mt-8 md:mt-0">
