@@ -19,13 +19,13 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   const isActive = (page: string) => currentPage === page;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[100] lg:hidden">
-      <div className="mx-3">
+    <div className="fixed bottom-0 left-0 right-0 z-[100] lg:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
+      <div className="mx-3 mb-2">
         {/* Theme-matched container with teal/dark gradient */}
-        <div className="backdrop-blur-2xl rounded-t-[2rem] px-3 py-2.5 flex items-center justify-between border border-[#0d5c63]/30 border-b-0"
+        <div className="backdrop-blur-2xl rounded-[2rem] px-3 py-2.5 flex items-center justify-between border border-[#0d5c63]/30"
           style={{
-            background: 'linear-gradient(135deg, rgba(13,92,99,0.95) 0%, rgba(10,74,80,1) 100%)',
-            boxShadow: '0 -4px 32px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.1)',
+            background: 'linear-gradient(135deg, rgba(13,92,99,0.85) 0%, rgba(10,74,80,0.95) 100%)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.1)',
             backdropFilter: 'blur(20px) saturate(150%)',
             WebkitBackdropFilter: 'blur(20px) saturate(150%)'
           }}
@@ -130,16 +130,6 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           </button>
         </div>
       </div>
-      {/* Safe area filler for iPhone home indicator */}
-      <div 
-        className="mx-3"
-        style={{
-          height: 'env(safe-area-inset-bottom, 0px)',
-          background: 'linear-gradient(135deg, rgba(13,92,99,0.95) 0%, rgba(10,74,80,1) 100%)',
-          borderBottomLeftRadius: '0',
-          borderBottomRightRadius: '0'
-        }}
-      />
     </div>
   );
 };
