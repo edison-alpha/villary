@@ -2,6 +2,7 @@
 import React from 'react';
 import BookingWidget from './BookingWidget';
 import { Instagram, MessageCircle, Youtube } from 'lucide-react';
+import heroImage from '../assets/hero.png';
 
 interface HeroProps {
   onBookNow?: () => void;
@@ -26,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow }) => {
         }}
       >
         <img 
-          src="/assets/hero.png" 
+          src={heroImage} 
           alt="Omah Turu" 
           className="w-full h-full object-cover"
         />

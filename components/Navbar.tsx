@@ -2,6 +2,7 @@
 import React from 'react';
 import { Search, Heart, LogIn, ShoppingBag } from 'lucide-react';
 import { User as UserType } from '../types';
+import brandLogo from '../assets/brand.png';
 
 interface NavbarProps {
   onNavigate: (page: string) => void;
@@ -36,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage, onBookNow, onS
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => onNavigate('home')}>
           <img 
-            src="/assets/brand.png" 
+            src={brandLogo} 
             alt="Omah Turu" 
             className="h-8 md:h-10 w-auto object-contain"
           />

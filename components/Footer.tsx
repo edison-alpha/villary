@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Instagram, Twitter, Linkedin, Youtube, ArrowRight, Target } from 'lucide-react';
+import brandLogo from '../assets/brand.png';
 
 const Footer: React.FC = () => {
   return (
@@ -27,7 +28,7 @@ const Footer: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16 mb-12 md:mb-24">
             <div className="col-span-2 lg:col-span-1">
-              <img src="/assets/brand.png" alt="Omah Turu" className="h-10 md:h-12 w-auto object-contain mb-4 md:mb-8" />
+              <img src={brandLogo} alt="Omah Turu" className="h-10 md:h-12 w-auto object-contain mb-4 md:mb-8" />
               <p className="text-[#8D6E63] text-sm leading-relaxed max-w-xs mb-6 md:mb-8">
                   Penginapan joglo tradisional di lereng Gunung Lawu, Tawangmangu. Rasakan ketenangan alam pegunungan dengan kenyamanan modern.
               </p>
