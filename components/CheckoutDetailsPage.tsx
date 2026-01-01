@@ -37,31 +37,31 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
   const total = suite.basePrice * nights;
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-40">
-      {/* 1. Progress Step Indicator */}
-      <div className="bg-white border-b border-slate-100 py-12">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex items-center justify-center gap-12 md:gap-24">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold bg-green-500 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <div className="bg-slate-50 min-h-screen pb-20 md:pb-40">
+      {/* Progress Step Indicator */}
+      <div className="bg-white border-b border-slate-100 py-6 md:py-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-12">
+          <div className="flex items-center justify-center gap-6 md:gap-24">
+            <div className="flex items-center gap-2 md:gap-4">
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs font-bold bg-green-500 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] hidden md:block text-slate-400">Suites & Rates</span>
+              <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] hidden sm:block text-slate-400">Suites</span>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold bg-[#0d5c63] text-white shadow-lg shadow-[#0d5c63]/20">2</div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] hidden md:block text-[#0d5c63]">Personal Details</span>
+            <div className="flex items-center gap-2 md:gap-4">
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs font-bold bg-[#0d5c63] text-white shadow-lg shadow-[#0d5c63]/20">2</div>
+              <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] hidden sm:block text-[#0d5c63]">Details</span>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold bg-slate-100 text-slate-400">3</div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] hidden md:block text-slate-300">Final Step</span>
+            <div className="flex items-center gap-2 md:gap-4">
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs font-bold bg-slate-100 text-slate-400">3</div>
+              <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] hidden sm:block text-slate-300">Final</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 mt-6 md:mt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 items-start">
           
           {/* LEFT COLUMN: FORM & DETAILS */}
           <div className="lg:col-span-7 space-y-12">

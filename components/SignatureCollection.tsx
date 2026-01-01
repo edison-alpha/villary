@@ -10,31 +10,31 @@ const SignatureCollection: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-16">
+    <section className="py-16 md:py-32 bg-white">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 md:mb-16">
           <div className="max-w-2xl">
-            <h2 className="text-6xl font-serif text-[#0d5c63] mb-6">Discover Our <br /> Signature Spaces</h2>
-            <p className="text-slate-500 text-lg leading-relaxed">
+            <h2 className="text-3xl md:text-6xl font-serif text-[#0d5c63] mb-4 md:mb-6">Discover Our <br /> Signature Spaces</h2>
+            <p className="text-slate-500 text-sm md:text-lg leading-relaxed">
               Every corner of Villays has been meticulously curated to offer an unparalleled sense of luxury and privacy.
             </p>
           </div>
-          <div className="mt-8 md:mt-0 flex gap-4">
-             <button className="p-4 rounded-full border border-slate-200 text-slate-400 hover:bg-[#0d5c63] hover:text-white transition-all">
-                <ArrowUpRight size={24} />
+          <div className="mt-6 md:mt-0 flex gap-4">
+             <button className="p-3 md:p-4 rounded-full border border-slate-200 text-slate-400 hover:bg-[#0d5c63] hover:text-white active:scale-95 transition-all">
+                <ArrowUpRight size={20} />
              </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {spaces.map((item, idx) => (
             <div key={idx} className="group cursor-pointer">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] mb-6">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl md:rounded-[3rem] mb-4 md:mb-6">
                 <img src={item.image} alt={item.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
               </div>
-              <h3 className="text-2xl font-serif font-bold text-slate-800">{item.name}</h3>
-              <p className="text-slate-400 text-sm mt-1 uppercase tracking-widest font-semibold">Flagship Space</p>
+              <h3 className="text-xl md:text-2xl font-serif font-bold text-slate-800">{item.name}</h3>
+              <p className="text-slate-400 text-xs md:text-sm mt-1 uppercase tracking-widest font-semibold">Flagship Space</p>
             </div>
           ))}
         </div>

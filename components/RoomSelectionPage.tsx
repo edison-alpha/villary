@@ -44,18 +44,17 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
   const nights = calculateNights(arrivalDate, departureDate);
 
   return (
-    <div className="bg-[#fcfdfd] min-h-screen pb-60">
+    <div className="bg-[#fcfdfd] min-h-screen pb-40 md:pb-60">
       {/* 1. Interactive Step Indicator */}
-      <div className="bg-white border-b border-slate-100 py-10 sticky top-0 z-[80] shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex items-center justify-center gap-8 md:gap-24">
+      <div className="bg-white border-b border-slate-100 py-4 md:py-10 sticky top-0 z-[80] shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 md:px-12">
+          <div className="flex items-center justify-center gap-4 md:gap-24">
             {steps.map((step) => (
               <div 
                 key={step.id} 
-                className={`flex items-center gap-4 group transition-all ${step.active ? 'opacity-100' : 'opacity-40 hover:opacity-100 cursor-pointer'}`}
-                onClick={() => !step.active && step.id < currentStep && onBack()}
+                className={`flex items-center gap-2 md:gap-4 group transition-all ${step.active ? 'opacity-100' : 'opacity-40'}`}
               >
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-sm font-black transition-all transform group-hover:scale-110 ${
+                <div className={`w-8 h-8 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center text-xs md:text-sm font-black transition-all ${
                   step.id === currentStep 
                   ? 'bg-[#0d5c63] text-white shadow-xl shadow-[#0d5c63]/30' 
                   : 'bg-slate-100 text-slate-400'
@@ -73,89 +72,89 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
       </div>
 
       {/* 2. Selection Header */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-20 mb-16 flex flex-col md:flex-row items-end justify-between gap-10">
-        <div className="animate-in fade-in slide-in-from-left duration-700">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 pt-8 md:pt-20 mb-8 md:mb-16 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 md:gap-10">
+        <div>
           <button 
             onClick={onBack}
-            className="group flex items-center gap-3 text-slate-400 font-bold text-[10px] uppercase tracking-[0.3em] hover:text-[#0d5c63] transition-colors mb-8"
+            className="group flex items-center gap-2 md:gap-3 text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] hover:text-[#0d5c63] transition-colors mb-4 md:mb-8"
           >
-            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Return to Estate
+            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return to Estate
           </button>
-          <h2 className="text-6xl font-serif text-[#0d5c63] leading-tight">Your Private <br /> Sanctuary Awaits</h2>
-          <p className="text-slate-400 mt-4 font-medium tracking-wide">Handpicked selection for your stay in {villa.location}</p>
+          <h2 className="text-3xl md:text-6xl font-serif text-[#0d5c63] leading-tight">Your Private <br className="hidden md:block" /> Sanctuary Awaits</h2>
+          <p className="text-slate-400 mt-2 md:mt-4 font-medium tracking-wide text-sm md:text-base">Handpicked selection for your stay in {villa.location}</p>
         </div>
 
-        <div className="flex items-center gap-12 bg-white px-10 py-6 rounded-[2.5rem] shadow-xl border border-slate-50 animate-in fade-in slide-in-from-right duration-700">
-          <div className="flex flex-col gap-2">
-            <span className="text-[9px] font-black text-[#0d5c63] uppercase tracking-[0.3em] flex items-center gap-2">
-                <Calendar size={12} /> Stay Interval
+        <div className="flex items-center gap-6 md:gap-12 bg-white px-6 md:px-10 py-4 md:py-6 rounded-2xl md:rounded-[2.5rem] shadow-xl border border-slate-50 w-full lg:w-auto">
+          <div className="flex flex-col gap-1 md:gap-2 flex-1 lg:flex-none">
+            <span className="text-[8px] md:text-[9px] font-black text-[#0d5c63] uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center gap-1 md:gap-2">
+                <Calendar size={10} /> Stay Interval
             </span>
-            <span className="text-sm font-bold text-slate-800">{formatDateRange(arrivalDate, departureDate)}</span>
+            <span className="text-xs md:text-sm font-bold text-slate-800">{formatDateRange(arrivalDate, departureDate)}</span>
           </div>
-          <div className="w-px h-12 bg-slate-100"></div>
-          <div className="flex flex-col gap-2">
-            <span className="text-[9px] font-black text-[#0d5c63] uppercase tracking-[0.3em] flex items-center gap-2">
-                <Users size={12} /> Party Size
+          <div className="w-px h-10 md:h-12 bg-slate-100"></div>
+          <div className="flex flex-col gap-1 md:gap-2 flex-1 lg:flex-none">
+            <span className="text-[8px] md:text-[9px] font-black text-[#0d5c63] uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center gap-1 md:gap-2">
+                <Users size={10} /> Party Size
             </span>
-            <span className="text-sm font-bold text-slate-800">2 Adults, 1 Minor</span>
+            <span className="text-xs md:text-sm font-bold text-slate-800">2 Adults, 1 Minor</span>
           </div>
         </div>
       </div>
 
       {/* 3. Room List */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-24">
-        {villa.suites?.map((suite, idx) => (
+      <div className="max-w-7xl mx-auto px-4 md:px-12 space-y-8 md:space-y-24">
+        {villa.suites?.map((suite) => (
           <div 
             key={suite.id} 
-            className={`bg-white rounded-[4.5rem] overflow-hidden shadow-2xl transition-all duration-700 border-2 ${
-                selectedSuiteId === suite.id ? 'border-[#0d5c63] ring-8 ring-[#0d5c63]/5 scale-[1.02]' : 'border-white hover:border-slate-100'
+            className={`bg-white rounded-3xl md:rounded-[4.5rem] overflow-hidden shadow-xl md:shadow-2xl transition-all duration-700 border-2 ${
+                selectedSuiteId === suite.id ? 'border-[#0d5c63] ring-4 md:ring-8 ring-[#0d5c63]/5' : 'border-white hover:border-slate-100'
             }`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12">
-              <div className="lg:col-span-8 p-12 md:p-16">
-                <div className="relative aspect-[16/9] rounded-[3.5rem] overflow-hidden mb-12 shadow-2xl group cursor-pointer" onClick={() => onViewDetails?.(suite)}>
+              <div className="lg:col-span-8 p-4 md:p-16">
+                <div className="relative aspect-[4/3] md:aspect-[16/9] rounded-2xl md:rounded-[3.5rem] overflow-hidden mb-6 md:mb-12 shadow-xl md:shadow-2xl group cursor-pointer" onClick={() => onViewDetails?.(suite)}>
                   <img 
                     src={suite.image} 
                     alt={suite.name} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3s]" 
                   />
-                  <div className="absolute top-10 left-10 flex gap-3">
-                    <span className="bg-white/90 backdrop-blur-xl px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-[#0d5c63] shadow-lg">Heritage Suite</span>
-                    <span className="bg-[#0d5c63]/90 backdrop-blur-xl px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-white shadow-lg">Best Value</span>
+                  <div className="absolute top-4 left-4 md:top-10 md:left-10 flex flex-wrap gap-2 md:gap-3">
+                    <span className="bg-white/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#0d5c63] shadow-lg">Heritage Suite</span>
+                    <span className="bg-[#0d5c63]/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white shadow-lg">Best Value</span>
                   </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-start gap-10">
+                <div className="flex flex-col md:flex-row justify-between items-start gap-4 md:gap-10">
                   <div className="max-w-xl">
-                    <h3 className="text-4xl font-serif font-bold text-slate-800 mb-6">{suite.name}</h3>
-                    <div className="flex gap-4 mb-8">
-                       <span className="px-5 py-2 rounded-xl bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-widest">{suite.size}</span>
-                       <span className="px-5 py-2 rounded-xl bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-widest">{suite.view}</span>
+                    <h3 className="text-2xl md:text-4xl font-serif font-bold text-slate-800 mb-3 md:mb-6">{suite.name}</h3>
+                    <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8">
+                       <span className="px-3 md:px-5 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-slate-50 text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">{suite.size}</span>
+                       <span className="px-3 md:px-5 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-slate-50 text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">{suite.view}</span>
                     </div>
-                    <p className="text-slate-500 text-lg leading-relaxed italic">
+                    <p className="text-slate-500 text-sm md:text-lg leading-relaxed italic">
                         {suite.description.split('.')[0]}.
                     </p>
                   </div>
                   <button 
                     onClick={() => onViewDetails?.(suite)}
-                    className="group flex items-center gap-3 text-[#0d5c63] font-bold text-xs uppercase tracking-[0.3em] hover:tracking-[0.4em] transition-all border-b-2 border-[#0d5c63]/20 pb-2"
+                    className="group flex items-center gap-2 md:gap-3 text-[#0d5c63] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all border-b-2 border-[#0d5c63]/20 pb-2"
                   >
-                    View Experience <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    View Experience <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
 
-              <div className="lg:col-span-4 bg-[#f8fafb] p-12 md:p-16 border-l border-slate-100 flex flex-col justify-between">
+              <div className="lg:col-span-4 bg-[#f8fafb] p-6 md:p-16 border-t lg:border-t-0 lg:border-l border-slate-100 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] mb-10">Rate Inclusion</h4>
-                  <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm mb-10">
-                    <ul className="space-y-6">
-                      {suite.inclusions.map((inc, i) => (
-                        <li key={i} className="flex items-center gap-4 text-xs text-slate-600 font-bold uppercase tracking-widest">
-                          <div className="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center">
-                            <Check size={12} className="text-green-600" strokeWidth={4} />
+                  <h4 className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] md:tracking-[0.4em] mb-6 md:mb-10">Rate Inclusion</h4>
+                  <div className="bg-white rounded-2xl md:rounded-[2.5rem] p-6 md:p-10 border border-slate-100 shadow-sm mb-6 md:mb-10">
+                    <ul className="space-y-4 md:space-y-6">
+                      {suite.inclusions.slice(0, 4).map((inc, i) => (
+                        <li key={i} className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs text-slate-600 font-bold uppercase tracking-widest">
+                          <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+                            <Check size={10} className="text-green-600" strokeWidth={4} />
                           </div>
-                          {inc}
+                          <span className="truncate">{inc}</span>
                         </li>
                       ))}
                     </ul>
@@ -163,23 +162,23 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
                 </div>
 
                 <div className="text-center">
-                    <div className="mb-10">
-                        <p className="text-[10px] text-slate-400 font-black uppercase tracking-[0.4em] mb-4">Starting At</p>
-                        <div className="flex items-center justify-center gap-3">
-                            <span className="text-5xl font-serif font-bold text-[#0d5c63]">${suite.basePrice.toLocaleString()}</span>
-                            <span className="text-xs text-slate-400 font-bold uppercase tracking-widest">/ Night</span>
+                    <div className="mb-6 md:mb-10">
+                        <p className="text-[9px] md:text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] md:tracking-[0.4em] mb-2 md:mb-4">Starting At</p>
+                        <div className="flex items-center justify-center gap-2 md:gap-3">
+                            <span className="text-3xl md:text-5xl font-serif font-bold text-[#0d5c63]">${suite.basePrice.toLocaleString()}</span>
+                            <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest">/ Night</span>
                         </div>
                     </div>
                     <button 
                         onClick={() => setSelectedSuiteId(suite.id === selectedSuiteId ? null : suite.id)}
-                        className={`w-full py-6 rounded-[1.5rem] font-black uppercase tracking-[0.3em] transition-all duration-500 shadow-xl ${
+                        className={`w-full py-4 md:py-6 rounded-xl md:rounded-[1.5rem] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all duration-500 shadow-xl text-sm md:text-base ${
                             selectedSuiteId === suite.id 
                             ? 'bg-slate-800 text-white shadow-slate-800/20 scale-95' 
-                            : 'bg-[#0d5c63] text-white hover:bg-[#0a4a50] shadow-[#0d5c63]/30 hover:-translate-y-1'
+                            : 'bg-[#0d5c63] text-white hover:bg-[#0a4a50] shadow-[#0d5c63]/30 active:scale-95'
                         }`}
                     >
                         {selectedSuiteId === suite.id ? (
-                            <span className="flex items-center justify-center gap-3"><Check size={20} /> Selected</span>
+                            <span className="flex items-center justify-center gap-2 md:gap-3"><Check size={18} /> Selected</span>
                         ) : 'Reserve Suite'}
                     </button>
                 </div>
@@ -189,26 +188,32 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
         ))}
       </div>
 
-      {/* 4. Sticky Bottom Summary Bar - Enhanced Glassmorphism */}
+      {/* 4. Sticky Bottom Summary Bar - Mobile Optimized */}
       {selectedSuiteId && (
-        <div className="fixed bottom-12 left-0 right-0 z-[90] flex justify-center px-6 animate-in slide-in-from-bottom-full duration-700">
-            <div className="bg-slate-900/90 backdrop-blur-2xl text-white px-12 py-8 rounded-[3.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-10 md:gap-24 max-w-7xl w-full border border-white/10">
-                <div className="flex items-center gap-8">
-                    <div className="w-16 h-16 rounded-[1.5rem] overflow-hidden border-2 border-white/20">
+        <div className="fixed bottom-20 lg:bottom-0 left-0 right-0 z-[90] p-3 md:p-0 md:bottom-12 md:flex md:justify-center md:px-6">
+            <div className="bg-slate-900/95 backdrop-blur-2xl text-white px-4 md:px-12 py-3 md:py-8 rounded-2xl md:rounded-[3.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-3 md:gap-24 max-w-7xl w-full border border-white/10">
+                <div className="flex items-center gap-3 md:gap-8 w-full md:w-auto">
+                    <div className="w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-[1.5rem] overflow-hidden border-2 border-white/20 shrink-0">
                         <img 
                             src={villa.suites?.find(s => s.id === selectedSuiteId)?.image} 
                             className="w-full h-full object-cover" 
                         />
                     </div>
-                    <div>
-                        <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mb-1">Selected Sanctuary</p>
-                        <p className="text-lg font-serif font-bold tracking-wide">{villa.suites?.find(s => s.id === selectedSuiteId)?.name}</p>
+                    <div className="flex-grow md:flex-grow-0 min-w-0">
+                        <p className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-white/40 mb-0.5 md:mb-1">Selected</p>
+                        <p className="text-sm md:text-lg font-serif font-bold tracking-wide truncate">{villa.suites?.find(s => s.id === selectedSuiteId)?.name}</p>
+                    </div>
+                    <div className="md:hidden text-right shrink-0">
+                        <p className="text-[8px] font-black uppercase tracking-[0.2em] text-white/40">{nights} Nights</p>
+                        <p className="text-lg font-serif font-bold">
+                            ${((villa.suites?.find(s => s.id === selectedSuiteId)?.basePrice || 0) * nights).toLocaleString()}
+                        </p>
                     </div>
                 </div>
 
-                <div className="w-px h-12 bg-white/10 hidden md:block"></div>
+                <div className="hidden md:block w-px h-12 bg-white/10"></div>
                 
-                <div className="flex-grow text-center md:text-left">
+                <div className="hidden md:block flex-grow text-center md:text-left">
                     <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mb-1">Investment for {nights} Nights</p>
                     <p className="text-4xl font-serif font-bold">
                         ${((villa.suites?.find(s => s.id === selectedSuiteId)?.basePrice || 0) * nights).toLocaleString()}
@@ -217,9 +222,9 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
 
                 <button 
                     onClick={() => onProceed(villa.suites!.find(s => s.id === selectedSuiteId)!)}
-                    className="w-full md:w-auto bg-[#0d5c63] text-white px-16 py-6 rounded-2xl font-black uppercase tracking-[0.3em] hover:bg-[#0a4a50] transition-all flex items-center justify-center gap-4 group shadow-2xl"
+                    className="w-full md:w-auto bg-[#0d5c63] text-white px-6 md:px-16 py-3 md:py-6 rounded-xl md:rounded-2xl font-bold md:font-black uppercase tracking-[0.15em] md:tracking-[0.3em] hover:bg-[#0a4a50] transition-all flex items-center justify-center gap-2 md:gap-4 group shadow-2xl active:scale-95 text-xs md:text-base"
                 >
-                    Complete Booking <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    Complete Booking <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </button>
             </div>
         </div>

@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import { User, Camera, Mail, Shield, CreditCard, LogOut, ArrowLeft, Check, Trash2 } from 'lucide-react';
+import { User, Camera, Mail, Shield, CreditCard, LogOut, ArrowLeft, Check, Trash2, ChevronRight, Bell, HelpCircle, Info, Heart, Bookmark, Clock, Settings } from 'lucide-react';
 import { User as UserType } from '../types';
 
 interface MyProfilePageProps {
@@ -17,6 +17,7 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
   const [avatar, setAvatar] = useState(user.avatar);
   const [isSaving, setIsSaving] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +33,6 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
 
   const handleSave = () => {
     setIsSaving(true);
-    // Simulate API call
     setTimeout(() => {
       onUpdate({
         ...user,
@@ -48,127 +48,157 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfdfd] pt-32 pb-40">
-      <div className="max-w-5xl mx-auto px-6">
-        <button 
-          onClick={onBack}
-          className="flex items-center gap-2 text-slate-400 font-bold text-[10px] uppercase tracking-[0.3em] hover:text-[#0d5c63] transition-colors mb-12"
-        >
-          <ArrowLeft size={14} /> Back to sanctuary
-        </button>
-
-        <div className="flex flex-col lg:flex-row gap-16">
-          {/* Sidebar Navigation */}
-          <aside className="lg:w-72 space-y-2">
-            <h1 className="text-4xl font-serif text-slate-800 mb-8">Account Settings</h1>
-            <nav className="space-y-1">
-              <ProfileNavLink icon={<User size={18}/>} label="Personal Information" active />
-              <ProfileNavLink icon={<Shield size={18}/>} label="Security & Privacy" />
-              <ProfileNavLink icon={<CreditCard size={18}/>} label="Billing & Payments" />
-              <button 
-                onClick={onLogout}
-                className="w-full flex items-center gap-4 p-4 rounded-2xl text-red-500 hover:bg-red-50 transition-all font-bold text-xs uppercase tracking-widest mt-8"
-              >
-                <LogOut size={18} /> Logout
-              </button>
-            </nav>
-          </aside>
-
-          {/* Main Form Content */}
-          <main className="flex-grow">
-            <div className="bg-white rounded-[3rem] p-10 md:p-14 shadow-sm border border-slate-100">
-              {/* Profile Image Section */}
-              <div className="flex flex-col items-center mb-16">
-                <div className="relative group">
-                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                    <img src={avatar} alt="Profile" className="w-full h-full object-cover" />
-                  </div>
-                  <button 
-                    onClick={() => fileInputRef.current?.click()}
-                    className="absolute bottom-0 right-0 p-3 bg-[#0d5c63] text-white rounded-full shadow-lg hover:scale-110 transition-all"
-                  >
-                    <Camera size={18} />
-                  </button>
-                  <input 
-                    type="file" 
-                    ref={fileInputRef} 
-                    className="hidden" 
-                    accept="image/*" 
-                    onChange={handleImageUpload} 
-                  />
-                </div>
-                <div className="text-center mt-6">
-                  <h3 className="text-xl font-serif font-bold text-slate-800">{firstName} {lastName}</h3>
-                  <p className="text-[10px] text-[#0d5c63] font-bold uppercase tracking-widest mt-1">{user.points} Villays Points</p>
-                </div>
-              </div>
-
-              {/* Form Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">First Name</label>
-                  <input 
-                    type="text" 
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Last Name</label>
-                  <input 
-                    type="text" 
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
-                  />
-                </div>
-                <div className="md:col-span-2 space-y-2">
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
-                  <div className="relative">
-                    <Mail className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
-                    <input 
-                      type="email" 
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-16 pr-6 py-4 text-sm focus:outline-none focus:border-[#0d5c63] transition-all"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-12 flex items-center justify-between pt-10 border-t border-slate-100">
-                <div className="flex items-center gap-2 text-slate-400 text-[10px] font-medium uppercase tracking-widest">
-                  <Trash2 size={14} className="cursor-pointer hover:text-red-400" /> Delete My Account
-                </div>
-                <div className="flex gap-4">
-                  <button 
-                    onClick={onBack}
-                    className="px-8 py-4 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-slate-800"
-                  >
-                    Discard Changes
-                  </button>
-                  <button 
-                    onClick={handleSave}
-                    disabled={isSaving}
-                    className="bg-[#0d5c63] text-white px-10 py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest shadow-xl shadow-[#0d5c63]/20 hover:bg-[#0a4a50] transition-all disabled:opacity-50 flex items-center gap-2"
-                  >
-                    {isSaving ? 'Synchronizing...' : (showSuccess ? <><Check size={14}/> Saved</> : 'Update Profile')}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </main>
+    <div className="min-h-screen bg-slate-50 pt-2 md:pt-32 pb-32 md:pb-40">
+      <div className="max-w-lg mx-auto px-4 md:px-6">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-3 md:mb-6">
+          <button 
+            onClick={onBack}
+            className="p-2 -ml-2 text-slate-600 hover:text-slate-900 transition-colors"
+          >
+            <ArrowLeft size={24} />
+          </button>
+          <h1 className="text-lg font-semibold text-slate-900">Settings</h1>
+          <div className="w-10"></div>
         </div>
+
+        {/* Profile Card */}
+        <div className="bg-white rounded-2xl p-4 mb-4 shadow-sm">
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-slate-100">
+                <img src={avatar} alt="Profile" className="w-full h-full object-cover" />
+              </div>
+              <button 
+                onClick={() => fileInputRef.current?.click()}
+                className="absolute -bottom-1 -right-1 p-1.5 bg-[#0d5c63] text-white rounded-full shadow-lg"
+              >
+                <Camera size={12} />
+              </button>
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                className="hidden" 
+                accept="image/*" 
+                onChange={handleImageUpload} 
+              />
+            </div>
+            <div className="flex-grow">
+              <h2 className="text-base font-semibold text-slate-900">{firstName} {lastName}</h2>
+              <p className="text-sm text-slate-500">{email}</p>
+              <p className="text-xs text-[#0d5c63] font-medium mt-0.5">{user.points} Points</p>
+            </div>
+            <button 
+              onClick={() => setActiveSection(activeSection === 'edit' ? null : 'edit')}
+              className="text-[#0d5c63] text-sm font-semibold"
+            >
+              Edit
+            </button>
+          </div>
+          
+          {/* Edit Profile Form - Expandable */}
+          {activeSection === 'edit' && (
+            <div className="mt-4 pt-4 border-t border-slate-100 space-y-3 animate-in slide-in-from-top duration-200">
+              <div className="grid grid-cols-2 gap-3">
+                <input 
+                  type="text" 
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder="First name"
+                  className="bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0d5c63]/20"
+                />
+                <input 
+                  type="text" 
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder="Last name"
+                  className="bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0d5c63]/20"
+                />
+              </div>
+              <input 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className="w-full bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0d5c63]/20"
+              />
+              <button 
+                onClick={handleSave}
+                disabled={isSaving}
+                className="w-full bg-[#0d5c63] text-white py-3 rounded-xl font-semibold text-sm active:scale-[0.98] transition-all disabled:opacity-50"
+              >
+                {isSaving ? 'Saving...' : (showSuccess ? '✓ Saved' : 'Save Changes')}
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Settings Sections */}
+        <div className="space-y-4">
+          {/* Account Section */}
+          <SettingsSection title="Account">
+            <SettingsItem icon={<User size={20} />} label="Personal Information" />
+            <SettingsItem icon={<Shield size={20} />} label="Security & Privacy" />
+            <SettingsItem icon={<Bell size={20} />} label="Notifications" />
+          </SettingsSection>
+
+          {/* Payments Section */}
+          <SettingsSection title="Payments">
+            <SettingsItem icon={<CreditCard size={20} />} label="Payment Methods" />
+            <SettingsItem icon={<Clock size={20} />} label="Booking History" />
+            <SettingsItem icon={<Bookmark size={20} />} label="Saved Properties" />
+          </SettingsSection>
+
+          {/* Preferences Section */}
+          <SettingsSection title="Preferences">
+            <SettingsItem icon={<Heart size={20} />} label="Favorites" />
+            <SettingsItem icon={<Settings size={20} />} label="App Settings" />
+          </SettingsSection>
+
+          {/* Support Section */}
+          <SettingsSection title="Support">
+            <SettingsItem icon={<HelpCircle size={20} />} label="Help Center" />
+            <SettingsItem icon={<Info size={20} />} label="About Villays" />
+          </SettingsSection>
+
+          {/* Logout & Delete */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <button 
+              onClick={onLogout}
+              className="w-full flex items-center gap-4 px-4 py-4 text-red-500 hover:bg-red-50 transition-colors"
+            >
+              <LogOut size={20} />
+              <span className="text-sm font-medium">Log Out</span>
+            </button>
+          </div>
+
+          <button className="w-full text-center text-red-400 text-xs font-medium py-4 hover:text-red-500 transition-colors">
+            Delete Account
+          </button>
+        </div>
+
+        {/* App Version */}
+        <p className="text-center text-slate-300 text-xs mt-8">Villays v1.0.0</p>
       </div>
     </div>
   );
 };
 
-const ProfileNavLink = ({ icon, label, active = false }: { icon: React.ReactNode, label: string, active?: boolean }) => (
-  <button className={`w-full flex items-center gap-4 p-4 rounded-2xl text-xs font-bold uppercase tracking-widest transition-all ${active ? 'bg-[#0d5c63] text-white shadow-lg' : 'text-slate-400 hover:bg-slate-100'}`}>
-    <span className={active ? 'text-white' : 'text-slate-400'}>{icon}</span>
-    {label}
+const SettingsSection = ({ title, children }: { title: string, children: React.ReactNode }) => (
+  <div>
+    <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-4 mb-2">{title}</h3>
+    <div className="bg-white rounded-2xl overflow-hidden shadow-sm divide-y divide-slate-100">
+      {children}
+    </div>
+  </div>
+);
+
+const SettingsItem = ({ icon, label, value, danger = false }: { icon: React.ReactNode, label: string, value?: string, danger?: boolean }) => (
+  <button className={`w-full flex items-center gap-4 px-4 py-3.5 hover:bg-slate-50 transition-colors ${danger ? 'text-red-500' : ''}`}>
+    <span className={danger ? 'text-red-500' : 'text-slate-400'}>{icon}</span>
+    <span className={`flex-grow text-left text-sm ${danger ? 'text-red-500 font-medium' : 'text-slate-700'}`}>{label}</span>
+    {value && <span className="text-sm text-slate-400">{value}</span>}
+    <ChevronRight size={18} className="text-slate-300" />
   </button>
 );
 

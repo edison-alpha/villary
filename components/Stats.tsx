@@ -9,15 +9,15 @@ const Stats: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#0d5c63] py-20 text-white">
-      <div className="container mx-auto px-6">
+    <section className="bg-[#0d5c63] py-12 md:py-20 text-white">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3">
           {stats.map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center py-8 md:py-0 border-white/10 last:border-0 md:border-r border-b md:border-b-0">
-              <span className="text-7xl font-serif font-bold mb-2 tracking-tighter">
+            <div key={idx} className="flex flex-col items-center py-6 md:py-0 border-white/10 last:border-0 md:border-r border-b md:border-b-0">
+              <span className="text-5xl md:text-7xl font-serif font-bold mb-1 md:mb-2 tracking-tighter">
                 {stat.value}
               </span>
-              <p className="text-white/50 font-medium uppercase tracking-[0.3em] text-[10px]">
+              <p className="text-white/50 font-medium uppercase tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[10px] text-center">
                 {stat.label}
               </p>
             </div>
