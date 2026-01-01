@@ -12,13 +12,14 @@ import VillaDetailPage from './components/VillaDetailPage';
 import RoomSelectionPage from './components/RoomSelectionPage';
 import SuiteDetailPage from './components/SuiteDetailPage';
 import CheckoutDetailsPage from './components/CheckoutDetailsPage';
+import PaymentPage from './components/PaymentPage';
 import AuthPage from './components/AuthPage';
 import MyProfilePage from './components/MyProfilePage';
 import Inspirations from './components/Inspirations';
 import { ALL_VILLAS } from './constants/villas';
 import { Suite, User } from './types';
 
-type Page = 'home' | 'checkout-rooms' | 'suite-detail' | 'checkout-details' | 'confirmation' | 'signin' | 'signup' | 'profile';
+type Page = 'home' | 'checkout-rooms' | 'suite-detail' | 'checkout-details' | 'payment' | 'confirmation' | 'signin' | 'signup' | 'profile';
 
 const App: React.FC = () => {
   const [showConcierge, setShowConcierge] = useState(false);
@@ -131,8 +132,18 @@ const App: React.FC = () => {
             arrivalDate={bookingDates.arrival}
             departureDate={bookingDates.departure}
             onBack={() => setCurrentPage('checkout-rooms')}
-            onComplete={() => setCurrentPage('confirmation')}
+            onComplete={() => setCurrentPage('payment')}
             onNavigateAuth={(type) => setCurrentPage(type as Page)}
+          />
+        ) : null;
+      case 'payment':
+        return selectedSuite ? (
+          <PaymentPage 
+            villa={villaysEstate}
+            suite={selectedSuite}
+            total={(selectedSuite.basePrice * Math.ceil(Math.abs(bookingDates.departure.getTime() - bookingDates.arrival.getTime()) / (1000 * 60 * 60 * 24))) + 480}
+            onBack={() => setCurrentPage('checkout-details')}
+            onComplete={() => setCurrentPage('confirmation')}
           />
         ) : null;
       case 'confirmation':
