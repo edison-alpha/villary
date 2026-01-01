@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Sparkles, Gift, Clock, Percent, Bell, ChevronDown, Star } from 'lucide-react';
+import { X, Gift, Clock, Percent, Bell, ChevronDown, Star } from 'lucide-react';
 
 // Top Banner for Rate Card (below navbar) - Swipeable, slides from right
 interface RatePopupProps {
@@ -413,9 +413,12 @@ export const FloatingPromoBanner: React.FC<PromoBannerProps> = ({ isVisible, onC
   if (!shouldRender) return null;
 
   return (
-    <div className={`fixed top-16 right-0 z-[85] lg:hidden transition-transform duration-300 ease-out ${
-      isAnimating ? 'translate-x-0' : 'translate-x-full'
-    }`}>
+    <div 
+      className={`fixed right-0 z-[85] lg:hidden transition-transform duration-300 ease-out ${
+        isAnimating ? 'translate-x-0' : 'translate-x-full'
+      }`}
+      style={{ top: 'calc(env(safe-area-inset-top, 0px) + 64px)' }}
+    >
       <div 
         className="mr-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white pl-4 pr-2 py-2.5 rounded-l-2xl shadow-lg flex items-center gap-3 cursor-pointer"
         onClick={onClick}

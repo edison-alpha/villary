@@ -86,24 +86,36 @@
       }
       /* PWA standalone mode - full screen */
       @media all and (display-mode: standalone) {
-        html, body {
+        html {
           height: 100%;
+        }
+        body {
+          height: 100%;
+          min-height: 100%;
+          min-height: -webkit-fill-available;
           overflow: hidden;
+          position: fixed;
+          width: 100%;
         }
         #root {
           height: 100%;
           overflow-y: auto;
+          overflow-x: hidden;
           -webkit-overflow-scrolling: touch;
+          overscroll-behavior-y: contain;
         }
       }
-      /* iOS PWA status bar area */
+      /* iOS PWA status bar area - use theme color for status bar background */
       @supports (padding-top: env(safe-area-inset-top)) {
+        html {
+          background-color: #0d5c63;
+        }
         body {
-          padding-top: env(safe-area-inset-top);
           background-color: #0d5c63;
         }
         #root {
           background-color: white;
+          min-height: 100%;
         }
       }
     </style>
