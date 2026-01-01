@@ -15,9 +15,9 @@ const Hero: React.FC<HeroProps> = ({ onBookNow }) => {
         paddingBottom: 'env(safe-area-inset-bottom, 0px)'
       }}
     >
-      {/* Background Image - Optimized for mobile/PWA (2622x1206 / 6.27 inch screens) */}
+      {/* Background Image - Full screen including safe areas */}
       <div 
-        className="absolute z-0 overflow-hidden hero-bg-container"
+        className="absolute z-0 overflow-hidden"
         style={{ 
           top: 'calc(-1 * env(safe-area-inset-top, 0px))',
           left: 0,
@@ -25,28 +25,11 @@ const Hero: React.FC<HeroProps> = ({ onBookNow }) => {
           bottom: 'calc(-1 * env(safe-area-inset-bottom, 0px))'
         }}
       >
-        {/* Picture element for responsive images based on screen size */}
-        <picture className="w-full h-full block">
-          {/* Mobile/PWA optimized - wider aspect ratio (2622x1206 ≈ 2.17:1) */}
-          <source 
-            media="(max-width: 767px), (display-mode: standalone), (display-mode: fullscreen)" 
-            srcSet="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=85&w=2622&h=1206&crop=center"
-          />
-          {/* Tablet */}
-          <source 
-            media="(min-width: 768px) and (max-width: 1023px)" 
-            srcSet="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1920&h=1080"
-          />
-          {/* Desktop fallback */}
-          <img 
-            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2400" 
-            alt="Villays Estate" 
-            className="w-full h-full object-cover"
-            style={{
-              objectPosition: 'center 40%'
-            }}
-          />
-        </picture>
+        <img 
+          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2400" 
+          alt="Villays Estate" 
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
       </div>
 
