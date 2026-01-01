@@ -81,6 +81,9 @@
       .safe-top {
         padding-top: env(safe-area-inset-top, 0);
       }
+      .safe-bottom {
+        padding-bottom: env(safe-area-inset-bottom, 0);
+      }
       /* PWA standalone mode - full screen no gaps */
       @media all and (display-mode: standalone) {
         html, body {
@@ -94,6 +97,7 @@
           left: 0;
           right: 0;
           bottom: 0;
+          background-color: #0d5c63;
         }
         #root {
           height: 100%;
@@ -102,6 +106,18 @@
           overflow-x: hidden;
           -webkit-overflow-scrolling: touch;
           overscroll-behavior-y: contain;
+        }
+        /* Fill safe area bottom with theme color */
+        body::after {
+          content: '';
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: env(safe-area-inset-bottom, 0);
+          background: linear-gradient(135deg, rgba(13,92,99,0.95) 0%, rgba(10,74,80,1) 100%);
+          z-index: 99;
+          pointer-events: none;
         }
       }
       /* iOS Safari full height fix */
@@ -112,10 +128,10 @@
       }
       /* Theme color for status bar area */
       html {
-        background-color: #1e293b;
+        background-color: #0a4a50;
       }
       body {
-        background-color: #1e293b;
+        background-color: #0a4a50;
       }
       #root {
         background-color: white;
