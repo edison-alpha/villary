@@ -19,8 +19,8 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   const isActive = (page: string) => currentPage === page;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[100] lg:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
-      <div className="mx-3 mb-2">
+    <div className="fixed bottom-0 left-0 right-0 z-[100] lg:hidden">
+      <div className="mx-3 mb-2" style={{ marginBottom: 'calc(8px + env(safe-area-inset-bottom, 0px))' }}>
         {/* Theme-matched container with teal/dark gradient */}
         <div className="backdrop-blur-2xl rounded-[2rem] px-3 py-2.5 flex items-center justify-between border border-[#0d5c63]/30"
           style={{
