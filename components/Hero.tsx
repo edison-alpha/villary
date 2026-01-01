@@ -10,16 +10,25 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ onBookNow }) => {
   return (
     <section 
-      className="relative w-full flex flex-col justify-between items-center bg-slate-100"
-      style={{ minHeight: 'calc(100dvh)' }}
+      className="relative w-full flex flex-col justify-between items-center bg-slate-900 min-h-dvh"
+      style={{ 
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)'
+      }}
     >
       {/* Background Image - Full screen including safe areas */}
-      <div className="absolute inset-0 z-0 overflow-hidden" style={{ top: 'calc(-1 * env(safe-area-inset-top, 0px))' }}>
+      <div 
+        className="absolute z-0 overflow-hidden"
+        style={{ 
+          top: 'calc(-1 * env(safe-area-inset-top, 0px))',
+          left: 0,
+          right: 0,
+          bottom: 'calc(-1 * env(safe-area-inset-bottom, 0px))'
+        }}
+      >
         <img 
           src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2400" 
           alt="Villays Estate" 
           className="w-full h-full object-cover"
-          style={{ height: 'calc(100% + env(safe-area-inset-top, 0px))' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
       </div>

@@ -81,26 +81,23 @@
       .safe-top {
         padding-top: env(safe-area-inset-top, 0);
       }
-      /* PWA standalone mode - full screen */
+      /* PWA standalone mode - full screen no gaps */
       @media all and (display-mode: standalone) {
-        html {
+        html, body {
           height: 100%;
-          height: 100dvh;
-        }
-        body {
-          height: 100%;
-          height: 100dvh;
-          min-height: 100dvh;
-          min-height: -webkit-fill-available;
+          width: 100%;
+          margin: 0;
+          padding: 0;
           overflow: hidden;
           position: fixed;
-          width: 100%;
           top: 0;
           left: 0;
+          right: 0;
+          bottom: 0;
         }
         #root {
           height: 100%;
-          height: 100dvh;
+          width: 100%;
           overflow-y: auto;
           overflow-x: hidden;
           -webkit-overflow-scrolling: touch;
@@ -109,15 +106,18 @@
       }
       /* iOS Safari full height fix */
       @supports (-webkit-touch-callout: none) {
-        html, body, #root {
+        body {
           min-height: -webkit-fill-available;
         }
       }
       /* Theme color for status bar area */
       html {
-        background-color: #0d5c63;
+        background-color: #1e293b;
       }
       body {
+        background-color: #1e293b;
+      }
+      #root {
         background-color: white;
       }
     </style>
