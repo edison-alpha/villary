@@ -262,7 +262,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
           </div>
           
           {/* Bottom Actions */}
-          <div className="p-4 md:p-6 md:pt-6 border-t border-slate-100 safe-bottom bg-white">
+          <div className="p-4 md:p-6 md:pt-6 border-t border-slate-100 bg-white" style={{ paddingBottom: 'max(16px, env(safe-area-inset-bottom, 16px))' }}>
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#0d5c63]"></div>
@@ -317,7 +317,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ onBook }) => {
               </div>
             </div>
           </div>
-          <button onClick={() => setShowPicker(null)} className="w-full mt-8 bg-[#0d5c63] text-white py-4 rounded-full font-bold text-xs uppercase tracking-widest active:scale-[0.98] transition-all safe-bottom">Apply</button>
+          <button onClick={() => setShowPicker(null)} className="w-full mt-8 bg-[#0d5c63] text-white py-4 rounded-full font-bold text-xs uppercase tracking-widest active:scale-[0.98] transition-all" style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}>Apply</button>
         </div>
       )}
 
