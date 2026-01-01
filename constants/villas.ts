@@ -112,19 +112,19 @@ export const INSPIRATIONS = [
   { 
     title: "The Shore Suite", 
     location: "Flagship Space", 
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800",
     excerpt: "Where Time Rests by the Sea. On a cliff top above the Gulf of Salerno, days slow to the rhythm of tides and timeless traditions."
   },
   { 
     title: "Ravello", 
     location: "Villa Cimbrone", 
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
     excerpt: "A Story in Three Acts. In the gardens of Villa Cimbrone, light and shadow paint a poem in stone."
   },
   { 
     title: "Where Wilderness Writes the Story", 
     location: "Amalfi Coast", 
-    image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1520250497591-112f1824798c?auto=format&fit=crop&q=80&w=800",
     excerpt: "The horizon stretches wider, the silence sharper. Exploring the hidden coves of the Tyrrhenian Sea."
   }
 ];
