@@ -111,48 +111,48 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
             }`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12">
-              <div className="lg:col-span-8 p-4 md:p-16">
-                <div className="relative aspect-[4/3] md:aspect-[16/9] rounded-2xl md:rounded-[3.5rem] overflow-hidden mb-6 md:mb-12 shadow-xl md:shadow-2xl group cursor-pointer" onClick={() => onViewDetails?.(suite)}>
+              <div className="lg:col-span-8 p-5 md:p-16">
+                <div className="relative aspect-[4/3] md:aspect-[16/9] rounded-2xl md:rounded-[3.5rem] overflow-hidden mb-5 md:mb-12 shadow-xl md:shadow-2xl group cursor-pointer" onClick={() => onViewDetails?.(suite)}>
                   <img 
                     src={suite.image} 
                     alt={suite.name} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3s]" 
                   />
-                  <div className="absolute top-4 left-4 md:top-10 md:left-10 flex flex-wrap gap-2 md:gap-3">
-                    <span className="bg-white/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#BC8F48] shadow-lg">Suite Heritage</span>
-                    <span className="bg-[#BC8F48]/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white shadow-lg">Terbaik</span>
+                  <div className="absolute top-3 left-3 md:top-10 md:left-10 flex flex-wrap gap-2 md:gap-3">
+                    <span className="bg-white/90 backdrop-blur-xl px-3 md:px-6 py-1.5 md:py-3 rounded-full text-[10px] md:text-[10px] font-bold uppercase tracking-wider md:tracking-[0.3em] text-[#BC8F48] shadow-lg">Suite Heritage</span>
+                    <span className="bg-[#BC8F48]/90 backdrop-blur-xl px-3 md:px-6 py-1.5 md:py-3 rounded-full text-[10px] md:text-[10px] font-bold uppercase tracking-wider md:tracking-[0.3em] text-white shadow-lg">Terbaik</span>
                   </div>
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between items-start gap-4 md:gap-10">
                   <div className="max-w-xl">
-                    <h3 className="text-2xl md:text-4xl font-serif font-bold text-slate-800 mb-3 md:mb-6">{suite.name}</h3>
-                    <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8">
-                       <span className="px-3 md:px-5 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-slate-50 text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">{suite.size}</span>
-                       <span className="px-3 md:px-5 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-slate-50 text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">{suite.view}</span>
+                    <h3 className="text-xl md:text-4xl font-serif font-bold text-slate-800 mb-2 md:mb-6">{suite.name}</h3>
+                    <div className="flex flex-wrap gap-2 md:gap-4 mb-3 md:mb-8">
+                       <span className="px-3 md:px-5 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-slate-50 text-xs md:text-[10px] font-semibold text-slate-500 uppercase tracking-wide">{suite.size}</span>
+                       <span className="px-3 md:px-5 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-slate-50 text-xs md:text-[10px] font-semibold text-slate-500 uppercase tracking-wide">{suite.view}</span>
                     </div>
-                    <p className="text-slate-500 text-sm md:text-lg leading-relaxed italic">
+                    <p className="text-slate-500 text-sm md:text-lg leading-relaxed">
                         {suite.description.split('.')[0]}.
                     </p>
                   </div>
                   <button 
                     onClick={() => onViewDetails?.(suite)}
-                    className="group flex items-center gap-2 md:gap-3 text-[#BC8F48] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all border-b-2 border-[#BC8F48]/20 pb-2"
+                    className="group flex items-center gap-2 md:gap-3 text-[#BC8F48] font-bold text-xs md:text-xs uppercase tracking-wider md:tracking-[0.3em] transition-all border-b-2 border-[#BC8F48]/20 pb-2"
                   >
                     Lihat Detail <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
 
-              <div className="lg:col-span-4 bg-[#f8fafb] p-6 md:p-16 border-t lg:border-t-0 lg:border-l border-slate-100 flex flex-col justify-between">
+              <div className="lg:col-span-4 bg-[#f8fafb] p-5 md:p-16 border-t lg:border-t-0 lg:border-l border-slate-100 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] md:tracking-[0.4em] mb-6 md:mb-10">Termasuk</h4>
-                  <div className="bg-white rounded-2xl md:rounded-[2.5rem] p-6 md:p-10 border border-slate-100 shadow-sm mb-6 md:mb-10">
-                    <ul className="space-y-4 md:space-y-6">
+                  <h4 className="text-xs md:text-[10px] font-bold text-slate-400 uppercase tracking-widest md:tracking-[0.4em] mb-4 md:mb-10">Termasuk</h4>
+                  <div className="bg-white rounded-2xl md:rounded-[2.5rem] p-5 md:p-10 border border-slate-100 shadow-sm mb-5 md:mb-10">
+                    <ul className="space-y-3 md:space-y-6">
                       {suite.inclusions.slice(0, 4).map((inc, i) => (
-                        <li key={i} className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs text-slate-600 font-bold uppercase tracking-widest">
-                          <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-green-50 flex items-center justify-center shrink-0">
-                            <Check size={10} className="text-green-600" strokeWidth={4} />
+                        <li key={i} className="flex items-center gap-3 md:gap-4 text-xs md:text-xs text-slate-600 font-medium">
+                          <div className="w-5 h-5 md:w-5 md:h-5 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+                            <Check size={12} className="text-green-600" strokeWidth={3} />
                           </div>
                           <span className="truncate">{inc}</span>
                         </li>
@@ -162,16 +162,16 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
                 </div>
 
                 <div className="text-center">
-                    <div className="mb-6 md:mb-10">
-                        <p className="text-[9px] md:text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] md:tracking-[0.4em] mb-2 md:mb-4">Mulai Dari</p>
+                    <div className="mb-5 md:mb-10">
+                        <p className="text-xs md:text-[10px] text-slate-400 font-bold uppercase tracking-widest md:tracking-[0.4em] mb-2 md:mb-4">Mulai Dari</p>
                         <div className="flex items-center justify-center gap-2 md:gap-3">
-                            <span className="text-3xl md:text-5xl font-serif font-bold text-[#BC8F48]">Rp {suite.basePrice.toLocaleString('id-ID')}</span>
-                            <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest">/ Malam</span>
+                            <span className="text-xl md:text-5xl font-serif font-bold text-[#BC8F48]">Rp {suite.basePrice.toLocaleString('id-ID')}</span>
                         </div>
+                        <span className="text-sm md:text-xs text-slate-400 font-medium mt-1 block">per malam</span>
                     </div>
                     <button 
                         onClick={() => setSelectedSuiteId(suite.id === selectedSuiteId ? null : suite.id)}
-                        className={`w-full py-4 md:py-6 rounded-xl md:rounded-[1.5rem] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all duration-500 shadow-xl text-sm md:text-base ${
+                        className={`w-full py-4 md:py-6 rounded-xl md:rounded-[1.5rem] font-bold uppercase tracking-wider md:tracking-[0.3em] transition-all duration-500 shadow-xl text-sm md:text-base ${
                             selectedSuiteId === suite.id 
                             ? 'bg-slate-800 text-white shadow-slate-800/20 scale-95' 
                             : 'bg-[#BC8F48] text-white hover:bg-[#A67B3D] shadow-[#BC8F48]/30 active:scale-95'

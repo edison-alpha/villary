@@ -38,11 +38,11 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
           The global Navbar in App.tsx now handles navigation.
       */}
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-10">
-        <div className="flex flex-col lg:flex-row gap-16">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-12 py-6 md:py-10">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
           
-          {/* LEFT SIDEBAR: RESERVE THIS RESORT */}
-          <aside className="lg:w-[320px] shrink-0">
+          {/* LEFT SIDEBAR: RESERVE THIS RESORT - Hidden on mobile, shown at bottom */}
+          <aside className="hidden lg:block lg:w-[320px] shrink-0">
             <div className="sticky top-28 space-y-8">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-serif font-bold text-slate-800">Reservasi</h2>
@@ -117,25 +117,30 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
           {/* MAIN CONTENT AREA */}
           <main className="flex-grow">
             
+            {/* Mobile Back Button */}
+            <button onClick={onBack} className="lg:hidden flex items-center gap-2 text-slate-400 font-medium text-xs uppercase tracking-wider hover:text-[#BC8F48] transition-colors mb-4">
+              <ArrowLeft size={16} /> Kembali
+            </button>
+
             {/* HERO GALLERY */}
-            <section className="space-y-8 mb-16">
-              <div className="relative aspect-[16/8] rounded-xl overflow-hidden bg-slate-100 shadow-sm">
+            <section className="space-y-4 md:space-y-8 mb-8 md:mb-16">
+              <div className="relative aspect-[4/3] md:aspect-[16/8] rounded-2xl md:rounded-xl overflow-hidden bg-slate-100 shadow-sm">
                 <img src={activeImage} className="w-full h-full object-cover" alt={suite.name} />
-                <div className="absolute bottom-6 left-6 flex gap-2">
-                  {["Resorts", "Top Highlights", "Best Value Resorts"].map(tag => (
-                    <button key={tag} className="bg-white/20 backdrop-blur-md text-white border border-white/20 px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest hover:bg-white hover:text-slate-900 transition-all">
+                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 flex flex-wrap gap-2">
+                  {["Resorts", "Top Highlights", "Best Value"].map(tag => (
+                    <button key={tag} className="bg-white/20 backdrop-blur-md text-white border border-white/20 px-3 md:px-4 py-1.5 rounded-full text-[10px] md:text-[9px] font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all">
                       {tag}
                     </button>
                   ))}
                 </div>
               </div>
               
-              <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
+              <div className="flex gap-2 md:gap-4 overflow-x-auto pb-2 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
                 {[suite.image, "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600", "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=600", "https://images.unsplash.com/photo-1540518614846-7eba43376461?auto=format&fit=crop&q=80&w=600", "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=600"].map((img, i) => (
                   <div 
                     key={i} 
                     onClick={() => setActiveImage(img)}
-                    className={`shrink-0 w-32 aspect-[16/10] rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${activeImage === img ? 'border-[#BC8F48]' : 'border-transparent opacity-60'}`}
+                    className={`shrink-0 w-20 md:w-32 aspect-[4/3] md:aspect-[16/10] rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${activeImage === img ? 'border-[#BC8F48]' : 'border-transparent opacity-60'}`}
                   >
                     <img src={img} className="w-full h-full object-cover" />
                   </div>
@@ -144,18 +149,18 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
             </section>
 
             {/* SUITE TITLE & DESCRIPTION */}
-            <section className="mb-16 space-y-4">
-              <h1 className="text-3xl font-serif text-slate-800">{villa.name}</h1>
-              <p className="text-[10px] text-slate-400 font-medium tracking-wide">Area Hutan, Gondosuli, Kec. Tawangmangu, Kabupaten Karanganyar, Jawa Tengah 57792</p>
+            <section className="mb-8 md:mb-16 space-y-3 md:space-y-4">
+              <h1 className="text-2xl md:text-3xl font-serif text-slate-800">{villa.name}</h1>
+              <p className="text-xs md:text-[10px] text-slate-400 font-medium tracking-wide">Area Hutan, Gondosuli, Kec. Tawangmangu, Kabupaten Karanganyar, Jawa Tengah 57792</p>
               <p className="text-slate-500 text-sm leading-relaxed max-w-3xl">
                 Sebuah tempat peristirahatan yang elegan, suite seluas 120 m² ini menawarkan pemandangan Gunung Lawu yang memukau, kolam renang pribadi, dan teras yang sempurna untuk menikmati momen golden hour. Di dalamnya, temukan furnitur tradisional Jawa yang diukir tangan, fasilitas premium, dan kamar mandi bergaya spa untuk memanjakan diri Anda.
               </p>
             </section>
 
             {/* HOTEL FEATURE GRID */}
-            <section className="mb-16">
-              <h3 className="text-[11px] font-bold text-slate-800 uppercase tracking-widest mb-8 border-b border-slate-100 pb-4">Fasilitas</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6">
+            <section className="mb-8 md:mb-16">
+              <h3 className="text-xs md:text-[11px] font-bold text-slate-800 uppercase tracking-widest mb-4 md:mb-8 border-b border-slate-100 pb-3 md:pb-4">Fasilitas</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 md:gap-y-6">
                 <FeatureRow icon={<Wifi size={14}/>} title="Wi-Fi Kecepatan Tinggi" />
                 <FeatureRow icon={<Coffee size={14}/>} title="Housekeeping Harian" />
                 <FeatureRow icon={<Car size={14}/>} title="Parkir Gratis" />
@@ -169,31 +174,31 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
             </section>
 
             {/* BOOKING RULES */}
-            <section className="mb-16">
-              <h3 className="text-[11px] font-bold text-slate-800 uppercase tracking-widest mb-8 border-b border-slate-100 pb-4">Aturan Pemesanan</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12">
+            <section className="mb-8 md:mb-16">
+              <h3 className="text-xs md:text-[11px] font-bold text-slate-800 uppercase tracking-widest mb-4 md:mb-8 border-b border-slate-100 pb-3 md:pb-4">Aturan Pemesanan</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-4 gap-x-12">
                 <div className="flex items-start gap-3">
                    <Clock size={16} className="text-slate-400 shrink-0 mt-0.5" />
-                   <p className="text-[11px] text-slate-500">Check-in dari 14:00 - 23:59</p>
+                   <p className="text-xs md:text-[11px] text-slate-500">Check-in dari 14:00 - 23:59</p>
                 </div>
                 <div className="flex items-start gap-3">
                    <Dog size={16} className="text-slate-400 shrink-0 mt-0.5" />
-                   <p className="text-[11px] text-slate-500">Hewan peliharaan tidak diperbolehkan</p>
+                   <p className="text-xs md:text-[11px] text-slate-500">Hewan peliharaan tidak diperbolehkan</p>
                 </div>
                 <div className="flex items-start gap-3">
                    <Clock size={16} className="text-slate-400 shrink-0 mt-0.5" />
-                   <p className="text-[11px] text-slate-500">Check-out dari 06:00 - 12:00</p>
+                   <p className="text-xs md:text-[11px] text-slate-500">Check-out dari 06:00 - 12:00</p>
                 </div>
                 <div className="flex items-start gap-3">
                    <Info size={16} className="text-slate-400 shrink-0 mt-0.5" />
-                   <p className="text-[11px] text-slate-500">Usia minimum untuk check-in adalah 18 tahun</p>
+                   <p className="text-xs md:text-[11px] text-slate-500">Usia minimum untuk check-in adalah 18 tahun</p>
                 </div>
                 <div className="flex items-start gap-3">
                    <Info size={16} className="text-slate-400 shrink-0 mt-0.5" />
-                   <p className="text-[11px] text-slate-500">Ketentuan pembatalan dan pembayaran tergantung tipe kamar. Harap tinjau ketentuan sebelum memesan.</p>
+                   <p className="text-xs md:text-[11px] text-slate-500">Ketentuan pembatalan dan pembayaran tergantung tipe kamar.</p>
                 </div>
-                <div className="space-y-3">
-                   <p className="text-[11px] text-slate-500">Metode Pembayaran</p>
+                <div className="space-y-2 md:space-y-3">
+                   <p className="text-xs md:text-[11px] text-slate-500">Metode Pembayaran</p>
                    <div className="flex gap-2 opacity-50">
                       <CreditCard size={18} />
                       <CreditCard size={18} />
@@ -301,6 +306,23 @@ const SuiteDetailPage: React.FC<SuiteDetailPageProps> = ({ villa, suite, onBack,
           Internal Footer removed to fix duplication. 
           The global Footer in App.tsx now handles the site footer.
       */}
+
+      {/* Mobile Sticky Bottom Bar */}
+      <div className="lg:hidden fixed bottom-20 left-0 right-0 z-[90] p-3">
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-xl p-4 flex items-center justify-between">
+          <div>
+            <p className="text-[10px] text-slate-400 uppercase tracking-wider">Mulai dari</p>
+            <p className="text-xl font-serif font-bold text-[#BC8F48]">Rp {suite.basePrice.toLocaleString('id-ID')}</p>
+            <p className="text-[10px] text-slate-400">per malam</p>
+          </div>
+          <button 
+            onClick={onBook}
+            className="bg-[#BC8F48] text-white px-6 py-3 rounded-xl font-bold text-sm uppercase tracking-wider shadow-lg active:scale-95 transition-all"
+          >
+            Pesan Sekarang
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
