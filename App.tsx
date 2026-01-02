@@ -15,19 +15,23 @@ import CheckoutDetailsPage from './components/CheckoutDetailsPage';
 import PaymentPage from './components/PaymentPage';
 import AuthPage from './components/AuthPage';
 import MyProfilePage from './components/MyProfilePage';
+import BookingHistoryPage from './components/BookingHistoryPage';
+import ActiveBookingsPage from './components/ActiveBookingsPage';
+import FavoriteRoomsPage from './components/FavoriteRoomsPage';
 import Inspirations from './components/Inspirations';
 import MobileBottomNav from './components/MobileBottomNav';
 import { WelcomeDiscountPopup, LimitedOfferPopup, NewsletterPopup, FloatingPromoBanner, MobileRatePopup } from './components/PromoPopups';
 import { ALL_VILLAS } from './constants/villas';
-import { Suite, User } from './types';
+import { Suite, User, Booking } from './types';
 
-type Page = 'home' | 'checkout-rooms' | 'suite-detail' | 'checkout-details' | 'payment' | 'confirmation' | 'signin' | 'signup' | 'profile';
+type Page = 'home' | 'checkout-rooms' | 'suite-detail' | 'checkout-details' | 'payment' | 'confirmation' | 'signin' | 'signup' | 'profile' | 'booking-history' | 'active-bookings' | 'favorite-rooms';
 
 const App: React.FC = () => {
   const [showConcierge, setShowConcierge] = useState(false);
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [selectedSuite, setSelectedSuite] = useState<Suite | null>(null);
   const [user, setUser] = useState<User | null>(null);
+  const [currentBooking, setCurrentBooking] = useState<Booking | null>(null);
   
   // Popup states
   const [showWelcomePopup, setShowWelcomePopup] = useState(false);
@@ -111,6 +115,49 @@ const App: React.FC = () => {
     localStorage.removeItem('villays_user');
     setCurrentPage('home');
   };
+
+  // Generate unique booking code
+  const generateBookingCode = (): string => {
+    const prefix = 'OT'; // Omah Turu
+    const timestamp = Date.now().toString(36).toUpperCase();
+    const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+    return `${prefix}-${timestamp}-${random}`;
+  };
+
+  const handlePaymentComplete = () => {
+    if (selectedSuite) {
+      const nights = Math.ceil(Math.abs(bookingDates.departure.getTime() - bookingDates.arrival.getTime()) / (1000 * 60 * 60 * 24));
+      const total = selectedSuite.basePrice * nights + 480;
+      
+      const newBooking: Booking = {
+        id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
+        bookingCode: generateBookingCode(),
+        villaId: villaysEstate.id,
+        villaName: villaysEstate.name,
+        suiteId: selectedSuite.id,
+        suiteName: selectedSuite.name,
+        arrivalDate: bookingDates.arrival,
+        departureDate: bookingDates.departure,
+        total: total,
+        status: 'confirmed',
+        createdAt: new Date(),
+      };
+      
+      setCurrentBooking(newBooking);
+      
+      // Save to localStorage for history
+      const existingBookings = JSON.parse(localStorage.getItem('villays_bookings') || '[]');
+      existingBookings.push({
+        ...newBooking,
+        arrivalDate: newBooking.arrivalDate.toISOString(),
+        departureDate: newBooking.departureDate.toISOString(),
+        createdAt: newBooking.createdAt.toISOString(),
+      });
+      localStorage.setItem('villays_bookings', JSON.stringify(existingBookings));
+      
+      setCurrentPage('confirmation');
+    }
+  };
   
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -190,7 +237,25 @@ const App: React.FC = () => {
       case 'signup':
         return <AuthPage initialType="signup" onSwitch={(type) => setCurrentPage(type as Page)} onBack={() => setCurrentPage('home')} onAuthSuccess={handleAuthSuccess} />;
       case 'profile':
-        return user ? <MyProfilePage user={user} onUpdate={handleUpdateProfile} onLogout={handleLogout} onBack={() => setCurrentPage('home')} /> : null;
+        return user ? <MyProfilePage user={user} onUpdate={handleUpdateProfile} onLogout={handleLogout} onBack={() => setCurrentPage('home')} onNavigate={(page) => setCurrentPage(page as Page)} /> : null;
+      case 'booking-history':
+        return <BookingHistoryPage onBack={() => setCurrentPage('profile')} />;
+      case 'active-bookings':
+        return <ActiveBookingsPage onBack={() => setCurrentPage('profile')} />;
+      case 'favorite-rooms':
+        return (
+          <FavoriteRoomsPage 
+            onBack={() => setCurrentPage('profile')} 
+            onViewRoom={(suite) => {
+              setSelectedSuite(suite);
+              setCurrentPage('suite-detail');
+            }}
+            onBookRoom={(suite) => {
+              setSelectedSuite(suite);
+              setCurrentPage('checkout-details');
+            }}
+          />
+        );
       case 'checkout-rooms':
         return (
           <RoomSelectionPage 
@@ -231,7 +296,7 @@ const App: React.FC = () => {
             suite={selectedSuite}
             total={(selectedSuite.basePrice * Math.ceil(Math.abs(bookingDates.departure.getTime() - bookingDates.arrival.getTime()) / (1000 * 60 * 60 * 24))) + 480}
             onBack={() => setCurrentPage('checkout-details')}
-            onComplete={() => setCurrentPage('confirmation')}
+            onComplete={handlePaymentComplete}
           />
         ) : null;
       case 'confirmation':
@@ -240,15 +305,57 @@ const App: React.FC = () => {
             <div className="w-16 h-16 md:w-24 md:h-24 bg-green-50 text-green-500 rounded-full flex items-center justify-center mb-6 md:mb-8">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-12 md:h-12"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             </div>
-            <h2 className="text-3xl md:text-5xl font-serif text-[#4A3426] mb-3 md:mb-4">Request Received</h2>
+            <h2 className="text-3xl md:text-5xl font-serif text-[#4A3426] mb-3 md:mb-4">Pemesanan Berhasil!</h2>
+            
+            {/* Booking Code Display */}
+            {currentBooking && (
+              <div className="bg-[#BC8F48]/10 border-2 border-[#BC8F48]/30 rounded-2xl px-6 py-4 md:px-8 md:py-5 mb-6">
+                <p className="text-[10px] md:text-xs text-[#BC8F48] uppercase tracking-widest font-bold mb-1">Kode Booking Anda</p>
+                <p className="text-2xl md:text-4xl font-mono font-bold text-[#BC8F48] tracking-wider">{currentBooking.bookingCode}</p>
+              </div>
+            )}
+            
             <p className="text-slate-500 max-w-lg mx-auto text-sm md:text-lg leading-relaxed">
-              Terima kasih telah memilih Omah Turu. Manajer properti kami akan menghubungi Anda dalam 2 jam untuk finalisasi itinerary.
+              Terima kasih telah memesan kamar di Omah Turu. Simpan kode booking Anda sebagai bukti reservasi. Konfirmasi pemesanan akan dikirim ke email Anda.
             </p>
+            
+            {/* Booking Summary */}
+            {currentBooking && (
+              <div className="mt-6 bg-white border border-slate-200 rounded-2xl p-4 md:p-6 max-w-md w-full text-left">
+                <h3 className="text-sm font-bold text-slate-800 mb-3 pb-2 border-b border-slate-100">Detail Pemesanan</h3>
+                <div className="space-y-2 text-xs md:text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Properti</span>
+                    <span className="font-medium text-slate-800">{currentBooking.villaName}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Kamar</span>
+                    <span className="font-medium text-slate-800">{currentBooking.suiteName}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Check-in</span>
+                    <span className="font-medium text-slate-800">{currentBooking.arrivalDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Check-out</span>
+                    <span className="font-medium text-slate-800">{currentBooking.departureDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                  </div>
+                  <div className="flex justify-between pt-2 border-t border-slate-100">
+                    <span className="text-slate-500">Total</span>
+                    <span className="font-bold text-[#BC8F48]">Rp {currentBooking.total.toLocaleString('id-ID')}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            
             <button 
-              onClick={() => setCurrentPage('home')}
+              onClick={() => {
+                setCurrentBooking(null);
+                setCurrentPage('home');
+              }}
               className="mt-8 md:mt-12 bg-[#4A3426] text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-bold shadow-xl active:scale-95 transition-all text-sm md:text-base"
             >
-              Return Home
+              Kembali ke Beranda
             </button>
           </div>
         );
@@ -258,7 +365,7 @@ const App: React.FC = () => {
   };
 
   // Pages that should hide footer
-  const hideFooterPages = ['profile', 'signin', 'signup', 'checkout-rooms', 'suite-detail', 'checkout-details', 'payment', 'confirmation'];
+  const hideFooterPages = ['profile', 'signin', 'signup', 'checkout-rooms', 'suite-detail', 'checkout-details', 'payment', 'confirmation', 'booking-history', 'active-bookings', 'favorite-rooms'];
   const shouldShowFooter = !hideFooterPages.includes(currentPage);
 
   return (

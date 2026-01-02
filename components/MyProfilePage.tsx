@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import { User, Camera, Mail, Shield, CreditCard, LogOut, ArrowLeft, Check, Trash2, ChevronRight, Bell, HelpCircle, Info, Heart, Bookmark, Clock, Settings } from 'lucide-react';
+import { User, Camera, Mail, Shield, CreditCard, LogOut, ArrowLeft, Check, Trash2, ChevronRight, Bell, HelpCircle, Info, Heart, Bookmark, Clock, Settings, Calendar, MapPin, Phone } from 'lucide-react';
 import { User as UserType } from '../types';
 
 interface MyProfilePageProps {
@@ -8,9 +8,10 @@ interface MyProfilePageProps {
   onUpdate: (updatedUser: UserType) => void;
   onLogout: () => void;
   onBack: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout, onBack }) => {
+const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout, onBack, onNavigate }) => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [email, setEmail] = useState(user.email);
@@ -58,7 +59,7 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
           >
             <ArrowLeft size={24} />
           </button>
-          <h1 className="text-lg font-semibold text-slate-900">Settings</h1>
+          <h1 className="text-lg font-semibold text-slate-900">Pengaturan</h1>
           <div className="w-10"></div>
         </div>
 
@@ -86,7 +87,7 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
             <div className="flex-grow">
               <h2 className="text-base font-semibold text-slate-900">{firstName} {lastName}</h2>
               <p className="text-sm text-slate-500">{email}</p>
-              <p className="text-xs text-[#4A3426] font-medium mt-0.5">{user.points} Points</p>
+              <p className="text-xs text-[#BC8F48] font-medium mt-0.5">Member Omah Turu</p>
             </div>
             <button 
               onClick={() => setActiveSection(activeSection === 'edit' ? null : 'edit')}
@@ -104,14 +105,14 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
                   type="text" 
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  placeholder="First name"
+                  placeholder="Nama depan"
                   className="bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A3426]/20"
                 />
                 <input 
                   type="text" 
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
-                  placeholder="Last name"
+                  placeholder="Nama belakang"
                   className="bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A3426]/20"
                 />
               </div>
@@ -127,7 +128,7 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
                 disabled={isSaving}
                 className="w-full bg-[#4A3426] text-white py-3 rounded-xl font-semibold text-sm active:scale-[0.98] transition-all disabled:opacity-50"
               >
-                {isSaving ? 'Saving...' : (showSuccess ? '✓ Saved' : 'Save Changes')}
+                {isSaving ? 'Menyimpan...' : (showSuccess ? '✓ Tersimpan' : 'Simpan Perubahan')}
               </button>
             </div>
           )}
@@ -135,29 +136,36 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
 
         {/* Settings Sections */}
         <div className="space-y-4">
-          {/* Account Section */}
-          <SettingsSection title="Account">
-            <SettingsItem icon={<User size={20} />} label="Personal Information" />
-            <SettingsItem icon={<Shield size={20} />} label="Security & Privacy" />
-            <SettingsItem icon={<Bell size={20} />} label="Notifications" />
+          {/* Reservasi Section */}
+          <SettingsSection title="Reservasi">
+            <SettingsItem icon={<Calendar size={20} />} label="Riwayat Reservasi" onClick={() => onNavigate?.('booking-history')} />
+            <SettingsItem icon={<Clock size={20} />} label="Reservasi Aktif" onClick={() => onNavigate?.('active-bookings')} />
+            <SettingsItem icon={<Bookmark size={20} />} label="Kamar Favorit" onClick={() => onNavigate?.('favorite-rooms')} />
           </SettingsSection>
 
-          {/* Payments Section */}
-          <SettingsSection title="Payments">
-            <SettingsItem icon={<CreditCard size={20} />} label="Payment Methods" />
-            <SettingsItem icon={<Clock size={20} />} label="Booking History" />
-            <SettingsItem icon={<Bookmark size={20} />} label="Saved Properties" />
+          {/* Akun Section */}
+          <SettingsSection title="Akun">
+            <SettingsItem icon={<User size={20} />} label="Informasi Pribadi" />
+            <SettingsItem icon={<Phone size={20} />} label="Nomor Telepon" />
+            <SettingsItem icon={<Shield size={20} />} label="Keamanan & Kata Sandi" />
           </SettingsSection>
 
-          {/* Preferences Section */}
-          <SettingsSection title="Preferences">
-            <SettingsItem icon={<Heart size={20} />} label="Favorites" />
-            <SettingsItem icon={<Settings size={20} />} label="App Settings" />
+          {/* Pembayaran Section */}
+          <SettingsSection title="Pembayaran">
+            <SettingsItem icon={<CreditCard size={20} />} label="Metode Pembayaran" />
           </SettingsSection>
 
-          {/* Support Section */}
-          <SettingsSection title="Support">
-            <SettingsItem icon={<HelpCircle size={20} />} label="Help Center" />
+          {/* Notifikasi Section */}
+          <SettingsSection title="Notifikasi">
+            <SettingsItem icon={<Bell size={20} />} label="Pengaturan Notifikasi" />
+            <SettingsItem icon={<Mail size={20} />} label="Email & Promo" />
+          </SettingsSection>
+
+          {/* Bantuan Section */}
+          <SettingsSection title="Bantuan">
+            <SettingsItem icon={<HelpCircle size={20} />} label="Pusat Bantuan" />
+            <SettingsItem icon={<Phone size={20} />} label="Hubungi Kami" />
+            <SettingsItem icon={<MapPin size={20} />} label="Lokasi Villa" />
             <SettingsItem icon={<Info size={20} />} label="Tentang Omah Turu" />
           </SettingsSection>
 
@@ -168,12 +176,12 @@ const MyProfilePage: React.FC<MyProfilePageProps> = ({ user, onUpdate, onLogout,
               className="w-full flex items-center gap-4 px-4 py-4 text-red-500 hover:bg-red-50 transition-colors"
             >
               <LogOut size={20} />
-              <span className="text-sm font-medium">Log Out</span>
+              <span className="text-sm font-medium">Keluar</span>
             </button>
           </div>
 
           <button className="w-full text-center text-red-400 text-xs font-medium py-4 hover:text-red-500 transition-colors">
-            Delete Account
+            Hapus Akun
           </button>
         </div>
 
@@ -193,8 +201,11 @@ const SettingsSection = ({ title, children }: { title: string, children: React.R
   </div>
 );
 
-const SettingsItem = ({ icon, label, value, danger = false }: { icon: React.ReactNode, label: string, value?: string, danger?: boolean }) => (
-  <button className={`w-full flex items-center gap-4 px-4 py-3.5 hover:bg-slate-50 transition-colors ${danger ? 'text-red-500' : ''}`}>
+const SettingsItem = ({ icon, label, value, danger = false, onClick }: { icon: React.ReactNode, label: string, value?: string, danger?: boolean, onClick?: () => void }) => (
+  <button 
+    onClick={onClick}
+    className={`w-full flex items-center gap-4 px-4 py-3.5 hover:bg-slate-50 transition-colors ${danger ? 'text-red-500' : ''}`}
+  >
     <span className={danger ? 'text-red-500' : 'text-slate-400'}>{icon}</span>
     <span className={`flex-grow text-left text-sm ${danger ? 'text-red-500 font-medium' : 'text-slate-700'}`}>{label}</span>
     {value && <span className="text-sm text-slate-400">{value}</span>}

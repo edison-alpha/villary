@@ -78,25 +78,25 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
             onClick={onBack}
             className="group flex items-center gap-2 md:gap-3 text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] hover:text-[#BC8F48] transition-colors mb-4 md:mb-8"
           >
-            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return to Estate
+            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Kembali ke Properti
           </button>
-          <h2 className="text-3xl md:text-6xl font-serif text-[#BC8F48] leading-tight">Your Private <br className="hidden md:block" /> Sanctuary Awaits</h2>
-          <p className="text-slate-400 mt-2 md:mt-4 font-medium tracking-wide text-sm md:text-base">Handpicked selection for your stay in {villa.location}</p>
+          <h2 className="text-3xl md:text-6xl font-serif text-[#BC8F48] leading-tight">Tempat Istirahat <br className="hidden md:block" /> Pribadi Anda Menanti</h2>
+          <p className="text-slate-400 mt-2 md:mt-4 font-medium tracking-wide text-sm md:text-base">Pilihan terbaik untuk menginap di {villa.location}</p>
         </div>
 
         <div className="flex items-center gap-6 md:gap-12 bg-white px-6 md:px-10 py-4 md:py-6 rounded-2xl md:rounded-[2.5rem] shadow-xl border border-slate-50 w-full lg:w-auto">
           <div className="flex flex-col gap-1 md:gap-2 flex-1 lg:flex-none">
             <span className="text-[8px] md:text-[9px] font-black text-[#BC8F48] uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center gap-1 md:gap-2">
-                <Calendar size={10} /> Stay Interval
+                <Calendar size={10} /> Periode Menginap
             </span>
             <span className="text-xs md:text-sm font-bold text-slate-800">{formatDateRange(arrivalDate, departureDate)}</span>
           </div>
           <div className="w-px h-10 md:h-12 bg-slate-100"></div>
           <div className="flex flex-col gap-1 md:gap-2 flex-1 lg:flex-none">
             <span className="text-[8px] md:text-[9px] font-black text-[#BC8F48] uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center gap-1 md:gap-2">
-                <Users size={10} /> Party Size
+                <Users size={10} /> Jumlah Tamu
             </span>
-            <span className="text-xs md:text-sm font-bold text-slate-800">2 Adults, 1 Minor</span>
+            <span className="text-xs md:text-sm font-bold text-slate-800">2 Dewasa, 1 Anak</span>
           </div>
         </div>
       </div>
@@ -119,8 +119,8 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3s]" 
                   />
                   <div className="absolute top-4 left-4 md:top-10 md:left-10 flex flex-wrap gap-2 md:gap-3">
-                    <span className="bg-white/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#BC8F48] shadow-lg">Heritage Suite</span>
-                    <span className="bg-[#BC8F48]/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white shadow-lg">Best Value</span>
+                    <span className="bg-white/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#BC8F48] shadow-lg">Suite Heritage</span>
+                    <span className="bg-[#BC8F48]/90 backdrop-blur-xl px-3 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white shadow-lg">Terbaik</span>
                   </div>
                 </div>
 
@@ -139,14 +139,14 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
                     onClick={() => onViewDetails?.(suite)}
                     className="group flex items-center gap-2 md:gap-3 text-[#BC8F48] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all border-b-2 border-[#BC8F48]/20 pb-2"
                   >
-                    View Experience <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    Lihat Detail <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
 
               <div className="lg:col-span-4 bg-[#f8fafb] p-6 md:p-16 border-t lg:border-t-0 lg:border-l border-slate-100 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] md:tracking-[0.4em] mb-6 md:mb-10">Rate Inclusion</h4>
+                  <h4 className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] md:tracking-[0.4em] mb-6 md:mb-10">Termasuk</h4>
                   <div className="bg-white rounded-2xl md:rounded-[2.5rem] p-6 md:p-10 border border-slate-100 shadow-sm mb-6 md:mb-10">
                     <ul className="space-y-4 md:space-y-6">
                       {suite.inclusions.slice(0, 4).map((inc, i) => (
@@ -163,10 +163,10 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
 
                 <div className="text-center">
                     <div className="mb-6 md:mb-10">
-                        <p className="text-[9px] md:text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] md:tracking-[0.4em] mb-2 md:mb-4">Starting At</p>
+                        <p className="text-[9px] md:text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] md:tracking-[0.4em] mb-2 md:mb-4">Mulai Dari</p>
                         <div className="flex items-center justify-center gap-2 md:gap-3">
-                            <span className="text-3xl md:text-5xl font-serif font-bold text-[#BC8F48]">${suite.basePrice.toLocaleString()}</span>
-                            <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest">/ Night</span>
+                            <span className="text-3xl md:text-5xl font-serif font-bold text-[#BC8F48]">Rp {suite.basePrice.toLocaleString('id-ID')}</span>
+                            <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest">/ Malam</span>
                         </div>
                     </div>
                     <button 
@@ -178,8 +178,8 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
                         }`}
                     >
                         {selectedSuiteId === suite.id ? (
-                            <span className="flex items-center justify-center gap-2 md:gap-3"><Check size={18} /> Selected</span>
-                        ) : 'Reserve Suite'}
+                            <span className="flex items-center justify-center gap-2 md:gap-3"><Check size={18} /> Terpilih</span>
+                        ) : 'Pilih Suite'}
                     </button>
                 </div>
               </div>
@@ -190,41 +190,41 @@ const RoomSelectionPage: React.FC<RoomSelectionPageProps> = ({
 
       {/* 4. Sticky Bottom Summary Bar - Mobile Optimized */}
       {selectedSuiteId && (
-        <div className="fixed bottom-20 lg:bottom-0 left-0 right-0 z-[90] p-3 md:p-0 md:bottom-12 md:flex md:justify-center md:px-6">
-            <div className="bg-slate-900/95 backdrop-blur-2xl text-white px-4 md:px-12 py-3 md:py-8 rounded-2xl md:rounded-[3.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-3 md:gap-24 max-w-7xl w-full border border-white/10">
-                <div className="flex items-center gap-3 md:gap-8 w-full md:w-auto">
-                    <div className="w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-[1.5rem] overflow-hidden border-2 border-white/20 shrink-0">
+        <div className="fixed bottom-20 lg:bottom-0 left-0 right-0 z-[90] p-3 md:p-4 md:bottom-4 md:flex md:justify-center md:px-6">
+            <div className="bg-slate-900/95 backdrop-blur-2xl text-white px-4 md:px-8 py-3 md:py-4 rounded-2xl md:rounded-full shadow-2xl flex flex-col md:flex-row items-center gap-3 md:gap-8 max-w-4xl w-full border border-white/10">
+                <div className="flex items-center gap-3 md:gap-4 w-full md:w-auto">
+                    <div className="w-11 h-11 md:w-10 md:h-10 rounded-xl md:rounded-lg overflow-hidden border-2 border-white/20 shrink-0">
                         <img 
                             src={villa.suites?.find(s => s.id === selectedSuiteId)?.image} 
                             className="w-full h-full object-cover" 
                         />
                     </div>
                     <div className="flex-grow md:flex-grow-0 min-w-0">
-                        <p className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-white/40 mb-0.5 md:mb-1">Selected</p>
-                        <p className="text-sm md:text-lg font-serif font-bold tracking-wide truncate">{villa.suites?.find(s => s.id === selectedSuiteId)?.name}</p>
+                        <p className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-white/40 mb-0.5">Terpilih</p>
+                        <p className="text-sm md:text-sm font-serif font-bold tracking-wide truncate">{villa.suites?.find(s => s.id === selectedSuiteId)?.name}</p>
                     </div>
                     <div className="md:hidden text-right shrink-0">
-                        <p className="text-[8px] font-black uppercase tracking-[0.2em] text-white/40">{nights} Nights</p>
+                        <p className="text-[8px] font-black uppercase tracking-[0.2em] text-white/40">{nights} Malam</p>
                         <p className="text-lg font-serif font-bold">
-                            ${((villa.suites?.find(s => s.id === selectedSuiteId)?.basePrice || 0) * nights).toLocaleString()}
+                            Rp {((villa.suites?.find(s => s.id === selectedSuiteId)?.basePrice || 0) * nights).toLocaleString('id-ID')}
                         </p>
                     </div>
                 </div>
 
-                <div className="hidden md:block w-px h-12 bg-white/10"></div>
+                <div className="hidden md:block w-px h-8 bg-white/10"></div>
                 
                 <div className="hidden md:block flex-grow text-center md:text-left">
-                    <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mb-1">Investment for {nights} Nights</p>
-                    <p className="text-4xl font-serif font-bold">
-                        ${((villa.suites?.find(s => s.id === selectedSuiteId)?.basePrice || 0) * nights).toLocaleString()}
+                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40 mb-0.5">Total {nights} Malam</p>
+                    <p className="text-xl font-serif font-bold">
+                        Rp {((villa.suites?.find(s => s.id === selectedSuiteId)?.basePrice || 0) * nights).toLocaleString('id-ID')}
                     </p>
                 </div>
 
                 <button 
                     onClick={() => onProceed(villa.suites!.find(s => s.id === selectedSuiteId)!)}
-                    className="w-full md:w-auto bg-[#BC8F48] text-white px-6 md:px-16 py-3 md:py-6 rounded-xl md:rounded-2xl font-bold md:font-black uppercase tracking-[0.15em] md:tracking-[0.3em] hover:bg-[#A67B3D] transition-all flex items-center justify-center gap-2 md:gap-4 group shadow-2xl active:scale-95 text-xs md:text-base"
+                    className="w-full md:w-auto bg-[#BC8F48] text-white px-6 md:px-8 py-3 md:py-3 rounded-xl md:rounded-full font-bold uppercase tracking-[0.15em] md:tracking-[0.1em] hover:bg-[#A67B3D] transition-all flex items-center justify-center gap-2 group shadow-xl active:scale-95 text-xs"
                 >
-                    Complete Booking <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    Lanjutkan Pemesanan <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </button>
             </div>
         </div>

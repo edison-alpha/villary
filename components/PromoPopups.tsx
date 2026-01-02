@@ -81,8 +81,8 @@ export const MobileRatePopup: React.FC<RatePopupProps> = ({ isVisible, price, on
               <div className="flex items-center gap-0.5">
                 {[1,2,3,4,5].map(i => <Star key={i} size={10} className="fill-amber-400 text-amber-400" />)}
               </div>
-              <span className="text-base font-bold text-[#BC8F48]">${price.toLocaleString()}</span>
-              <span className="text-[10px] text-slate-400">/night</span>
+              <span className="text-base font-bold text-[#BC8F48]">Rp {price.toLocaleString('id-ID')}</span>
+              <span className="text-[10px] text-slate-400">/malam</span>
             </div>
             <div className="flex items-center gap-1.5">
               <button 
@@ -115,8 +115,8 @@ export const MobileRatePopup: React.FC<RatePopupProps> = ({ isVisible, price, on
             {/* Header */}
             <div className="bg-[#BC8F48] text-white px-4 py-3 flex items-center justify-between">
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-70">Exclusive Daily Rate</p>
-                <p className="text-xl font-serif font-bold">${price.toLocaleString()} <span className="text-xs opacity-50 font-sans">/night</span></p>
+                <p className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-70">Tarif Harian Eksklusif</p>
+                <p className="text-xl font-serif font-bold">Rp {price.toLocaleString('id-ID')} <span className="text-xs opacity-50 font-sans">/malam</span></p>
               </div>
               <button 
                 onClick={() => setIsExpanded(false)}
@@ -287,7 +287,7 @@ export const LimitedOfferPopup: React.FC<LimitedOfferPopupProps> = ({ isVisible,
         <div className="p-5 text-center">
           <div className="inline-flex items-center gap-1.5 bg-green-50 text-green-600 px-3 py-1 rounded-full mb-3">
             <Percent size={14} />
-            <span className="text-xs font-bold">Save $500</span>
+            <span className="text-xs font-bold">Hemat Rp 500.000</span>
           </div>
           
           <h3 className="text-lg font-semibold text-slate-800 mb-1.5">Flash Sale!</h3>

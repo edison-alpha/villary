@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Search, Calendar, MessageCircle, User } from 'lucide-react';
+import { Home, CalendarCheck, Clock, MessageCircle, User } from 'lucide-react';
 
 interface MobileBottomNavProps {
   currentPage: string;
@@ -16,7 +16,7 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   onChat,
   userAvatar 
 }) => {
-  const isActive = (page: string) => currentPage === page;
+  const isActive = (pages: string[]) => pages.includes(currentPage);
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[100] lg:hidden">
@@ -33,99 +33,109 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           {/* Home */}
           <button 
             onClick={() => onNavigate('home')}
-            className={`relative flex items-center justify-center transition-all duration-300 ${
-              isActive('home') 
-                ? 'bg-white/20 backdrop-blur-xl rounded-2xl px-5 py-3' 
+            className={`relative flex flex-col items-center justify-center transition-all duration-300 ${
+              isActive(['home']) 
+                ? 'bg-white/20 backdrop-blur-xl rounded-2xl px-4 py-2' 
                 : 'p-3 hover:bg-white/10 rounded-xl'
             }`}
-            style={isActive('home') ? {
+            style={isActive(['home']) ? {
               boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.25), 0 4px 12px rgba(0,0,0,0.2)',
               background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.08) 100%)'
             } : {}}
           >
             <Home 
-              size={22} 
-              className={isActive('home') ? 'text-white' : 'text-white/70'} 
-              fill={isActive('home') ? 'white' : 'none'}
-              strokeWidth={isActive('home') ? 2.5 : 1.8}
+              size={20} 
+              className={isActive(['home']) ? 'text-white' : 'text-white/70'} 
+              fill={isActive(['home']) ? 'white' : 'none'}
+              strokeWidth={isActive(['home']) ? 2.5 : 1.8}
             />
+            <span className={`text-[9px] mt-1 font-medium ${isActive(['home']) ? 'text-white' : 'text-white/60'}`}>Beranda</span>
           </button>
 
-          {/* Search */}
-          <button 
-            onClick={onSearch}
-            className={`relative flex items-center justify-center transition-all duration-300 ${
-              isActive('search') 
-                ? 'bg-white/20 backdrop-blur-xl rounded-2xl px-5 py-3' 
-                : 'p-3 hover:bg-white/10 rounded-xl'
-            }`}
-            style={isActive('search') ? {
-              boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.25), 0 4px 12px rgba(0,0,0,0.2)',
-              background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.08) 100%)'
-            } : {}}
-          >
-            <Search 
-              size={22} 
-              className={isActive('search') ? 'text-white' : 'text-white/70'} 
-              strokeWidth={isActive('search') ? 2.5 : 1.8}
-            />
-          </button>
-
-          {/* Booking / Calendar - Center Icon */}
+          {/* Pesan Kamar */}
           <button 
             onClick={() => onNavigate('checkout-rooms')}
-            className={`relative flex items-center justify-center transition-all duration-300 ${
-              isActive('checkout-rooms') || isActive('checkout-details') || isActive('payment')
-                ? 'bg-white/20 backdrop-blur-xl rounded-2xl px-5 py-3' 
+            className={`relative flex flex-col items-center justify-center transition-all duration-300 ${
+              isActive(['checkout-rooms', 'suite-detail', 'checkout-details', 'payment']) 
+                ? 'bg-white/20 backdrop-blur-xl rounded-2xl px-4 py-2' 
                 : 'p-3 hover:bg-white/10 rounded-xl'
             }`}
-            style={(isActive('checkout-rooms') || isActive('checkout-details') || isActive('payment')) ? {
+            style={isActive(['checkout-rooms', 'suite-detail', 'checkout-details', 'payment']) ? {
               boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.25), 0 4px 12px rgba(0,0,0,0.2)',
               background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.08) 100%)'
             } : {}}
           >
-            <Calendar 
-              size={22} 
-              className={(isActive('checkout-rooms') || isActive('checkout-details') || isActive('payment')) ? 'text-white' : 'text-white/70'} 
-              strokeWidth={(isActive('checkout-rooms') || isActive('checkout-details') || isActive('payment')) ? 2.5 : 1.8}
+            <CalendarCheck 
+              size={20} 
+              className={isActive(['checkout-rooms', 'suite-detail', 'checkout-details', 'payment']) ? 'text-white' : 'text-white/70'} 
+              strokeWidth={isActive(['checkout-rooms', 'suite-detail', 'checkout-details', 'payment']) ? 2.5 : 1.8}
             />
+            <span className={`text-[9px] mt-1 font-medium ${isActive(['checkout-rooms', 'suite-detail', 'checkout-details', 'payment']) ? 'text-white' : 'text-white/60'}`}>Pesan</span>
+          </button>
+
+          {/* Reservasi Aktif */}
+          <button 
+            onClick={() => onNavigate('active-bookings')}
+            className={`relative flex flex-col items-center justify-center transition-all duration-300 ${
+              isActive(['active-bookings', 'booking-history']) 
+                ? 'bg-white/20 backdrop-blur-xl rounded-2xl px-4 py-2' 
+                : 'p-3 hover:bg-white/10 rounded-xl'
+            }`}
+            style={isActive(['active-bookings', 'booking-history']) ? {
+              boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.25), 0 4px 12px rgba(0,0,0,0.2)',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.08) 100%)'
+            } : {}}
+          >
+            <Clock 
+              size={20} 
+              className={isActive(['active-bookings', 'booking-history']) ? 'text-white' : 'text-white/70'} 
+              strokeWidth={isActive(['active-bookings', 'booking-history']) ? 2.5 : 1.8}
+            />
+            <span className={`text-[9px] mt-1 font-medium ${isActive(['active-bookings', 'booking-history']) ? 'text-white' : 'text-white/60'}`}>Reservasi</span>
           </button>
 
           {/* Chat / Concierge */}
           <button 
             onClick={onChat}
-            className="relative flex items-center justify-center transition-all duration-300 p-3 hover:bg-white/10 rounded-xl"
+            className="relative flex flex-col items-center justify-center transition-all duration-300 p-3 hover:bg-white/10 rounded-xl"
           >
             <MessageCircle 
-              size={22} 
+              size={20} 
               className="text-white/70" 
               strokeWidth={1.8}
             />
+            <span className="text-[9px] mt-1 font-medium text-white/60">Bantuan</span>
           </button>
 
           {/* Profile */}
           <button 
             onClick={() => onNavigate('profile')}
-            className={`relative flex items-center justify-center transition-all duration-300 p-1.5 ${
-              isActive('profile') || isActive('signin') || isActive('signup')
-                ? 'bg-white/15 rounded-xl' 
-                : 'hover:bg-white/10 rounded-xl'
+            className={`relative flex flex-col items-center justify-center transition-all duration-300 ${
+              isActive(['profile', 'signin', 'signup', 'favorite-rooms'])
+                ? 'bg-white/15 rounded-xl px-2 py-1' 
+                : 'hover:bg-white/10 rounded-xl p-1'
             }`}
           >
             {userAvatar ? (
-              <div className={`w-8 h-8 rounded-full overflow-hidden transition-all ${
-                isActive('profile') ? 'ring-2 ring-white/60' : 'ring-1 ring-white/30'
-              }`}>
-                <img src={userAvatar} alt="Profile" className="w-full h-full object-cover" />
-              </div>
+              <>
+                <div className={`w-7 h-7 rounded-full overflow-hidden transition-all ${
+                  isActive(['profile', 'favorite-rooms']) ? 'ring-2 ring-white/60' : 'ring-1 ring-white/30'
+                }`}>
+                  <img src={userAvatar} alt="Profile" className="w-full h-full object-cover" />
+                </div>
+                <span className={`text-[9px] mt-1 font-medium ${isActive(['profile', 'favorite-rooms']) ? 'text-white' : 'text-white/60'}`}>Akun</span>
+              </>
             ) : (
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-                isActive('profile') || isActive('signin') 
-                  ? 'bg-white' 
-                  : 'bg-white/20'
-              }`}>
-                <User size={16} className={isActive('profile') || isActive('signin') ? 'text-[#4A3426]' : 'text-white/80'} />
-              </div>
+              <>
+                <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
+                  isActive(['profile', 'signin', 'signup']) 
+                    ? 'bg-white' 
+                    : 'bg-white/20'
+                }`}>
+                  <User size={14} className={isActive(['profile', 'signin', 'signup']) ? 'text-[#4A3426]' : 'text-white/80'} />
+                </div>
+                <span className={`text-[9px] mt-1 font-medium ${isActive(['profile', 'signin', 'signup']) ? 'text-white' : 'text-white/60'}`}>Akun</span>
+              </>
             )}
           </button>
         </div>

@@ -68,7 +68,7 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
           onClick={onBack}
           className="flex items-center gap-2 text-slate-400 hover:text-[#BC8F48] mb-4 md:mb-6 text-xs font-bold uppercase tracking-widest transition-colors"
         >
-          <ChevronLeft size={14} /> Back
+          <ChevronLeft size={14} /> Kembali
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
@@ -78,7 +78,7 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
             <div className="bg-amber-50 border border-amber-200 rounded-xl md:rounded-2xl p-3 md:p-4 flex items-center gap-3">
               <Clock size={18} className="text-amber-600 shrink-0" />
               <div className="flex-grow">
-                <p className="text-[10px] md:text-xs font-bold text-amber-900">Complete within</p>
+                <p className="text-[10px] md:text-xs font-bold text-amber-900">Selesaikan dalam</p>
                 <p className="text-lg md:text-xl font-mono font-bold text-amber-600">{formatTime(timeLeft)}</p>
               </div>
             </div>
@@ -122,8 +122,8 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
                 </div>
                 
                 <div className="pt-3 border-t border-white/20">
-                  <p className="text-[8px] md:text-[9px] uppercase tracking-widest opacity-60 mb-1">Total Payment</p>
-                  <p className="text-xl md:text-2xl font-bold">USD ${total.toLocaleString()}</p>
+                  <p className="text-[8px] md:text-[9px] uppercase tracking-widest opacity-60 mb-1">Total Pembayaran</p>
+                  <p className="text-xl md:text-2xl font-bold">Rp {total.toLocaleString('id-ID')}</p>
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
             {/* Payment Instructions */}
             <div className="bg-white rounded-xl md:rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
               <div className="p-4 md:p-6">
-                <h3 className="text-base md:text-lg font-serif text-slate-800 font-bold mb-3 md:mb-4">How to Pay</h3>
+                <h3 className="text-base md:text-lg font-serif text-slate-800 font-bold mb-3 md:mb-4">Cara Pembayaran</h3>
                 
                 {/* Tabs */}
                 <div className="flex gap-2 mb-3 md:mb-4">
@@ -214,11 +214,11 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
             <div className="bg-blue-50 border border-blue-200 rounded-lg md:rounded-xl p-3 md:p-4 flex gap-3">
               <Info size={14} className="text-blue-600 shrink-0 mt-0.5" />
               <div className="text-[10px] md:text-xs text-blue-900">
-                <p className="font-bold mb-1">Important</p>
+                <p className="font-bold mb-1">Penting</p>
                 <ul className="space-y-0.5 text-blue-800">
-                  <li>• Auto-verified within 5-10 minutes</li>
-                  <li>• Confirmation sent via email</li>
-                  <li>• VA expires in 24 hours</li>
+                  <li>• Verifikasi otomatis dalam 5-10 menit</li>
+                  <li>• Konfirmasi dikirim via email</li>
+                  <li>• VA kadaluarsa dalam 24 jam</li>
                 </ul>
               </div>
             </div>
@@ -227,10 +227,10 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
           {/* RIGHT: Booking Summary */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-xl md:rounded-2xl shadow-lg border border-slate-100 p-4 md:p-6 sticky top-4 md:top-8">
-              <h3 className="text-sm font-serif font-bold text-slate-800 mb-3 md:mb-4 pb-3 border-b border-slate-100">Booking Summary</h3>
+              <h3 className="text-sm font-serif font-bold text-slate-800 mb-3 md:mb-4 pb-3 border-b border-slate-100">Ringkasan Pemesanan</h3>
               <div className="space-y-3 text-xs mb-4 md:mb-6">
                 <div>
-                  <p className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-wider mb-1">Property</p>
+                  <p className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-wider mb-1">Properti</p>
                   <p className="font-bold text-slate-800 text-sm">{villa.name}</p>
                 </div>
                 <div>
@@ -239,14 +239,14 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
                 </div>
                 <div className="pt-3 border-t border-slate-100">
                   <p className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-wider mb-1">Total</p>
-                  <p className="text-xl md:text-2xl font-bold text-[#BC8F48]">${total.toLocaleString()}</p>
-                  <p className="text-[8px] md:text-[9px] text-slate-400 mt-0.5">Tax included</p>
+                  <p className="text-xl md:text-2xl font-bold text-[#BC8F48]">Rp {total.toLocaleString('id-ID')}</p>
+                  <p className="text-[8px] md:text-[9px] text-slate-400 mt-0.5">Termasuk pajak</p>
                 </div>
               </div>
 
               {/* Payment Methods */}
               <div className="mb-4 md:mb-6 pb-4 md:pb-6 border-b border-slate-100">
-                <p className="text-[8px] md:text-[9px] text-slate-400 uppercase tracking-wider mb-2">Payment Method</p>
+                <p className="text-[8px] md:text-[9px] text-slate-400 uppercase tracking-wider mb-2">Metode Pembayaran</p>
                 <div className="flex gap-2 opacity-40">
                   <CreditCard size={18} className="text-slate-400" />
                   <CreditCard size={18} className="text-slate-400" />
@@ -259,7 +259,7 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ villa, suite, total, onBack, 
                 onClick={onComplete}
                 className="w-full bg-[#BC8F48] text-white py-3.5 md:py-4 rounded-xl font-bold text-xs hover:bg-[#A67B3D] transition-all shadow-lg shadow-[#BC8F48]/20 uppercase tracking-widest active:scale-95"
               >
-                I Have Paid
+                Saya Sudah Bayar
               </button>
             </div>
           </div>

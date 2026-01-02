@@ -54,3 +54,19 @@ export interface ChatMessage {
   role: 'user' | 'model';
   text: string;
 }
+
+export interface Booking {
+  id: string;
+  bookingCode: string;
+  villaId: string;
+  villaName: string;
+  suiteId: string;
+  suiteName: string;
+  arrivalDate: Date;
+  departureDate: Date;
+  total: number;
+  status: 'pending' | 'confirmed' | 'cancelled';
+  createdAt: Date;
+  guestName?: string;
+  guestEmail?: string;
+}

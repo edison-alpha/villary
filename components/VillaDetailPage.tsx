@@ -43,7 +43,7 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
             
             {/* Practical Information Section */}
             <div className="scroll-mt-32">
-              <h3 className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-6 md:mb-12">Practical Information</h3>
+              <h3 className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-6 md:mb-12">Informasi Praktis</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-16 md:gap-y-10">
                 <InfoItem icon={<MapPin size={16}/>} label="Address" value={PRACTICAL_INFO.address} />
                 <InfoItem icon={<Globe size={16}/>} label="Internet" value={`Public: ${PRACTICAL_INFO.internet.public}, Room: ${PRACTICAL_INFO.internet.room}`} />
@@ -58,7 +58,7 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
 
             {/* Inclusions Section */}
             <div className="bg-slate-50 rounded-2xl md:rounded-[4rem] p-6 md:p-16">
-              <h3 className="text-xl md:text-2xl font-serif text-[#4A3426] mb-6 md:mb-10">Always included in this estate</h3>
+              <h3 className="text-xl md:text-2xl font-serif text-[#4A3426] mb-6 md:mb-10">Selalu termasuk di properti ini</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {ESTATE_CONTENT.alwaysIncluded.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 md:gap-4 text-sm text-slate-600">
@@ -72,7 +72,7 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
             {/* Accordion Sections: Dining & Leisure */}
             <div className="space-y-2 md:space-y-4">
                <AccordionItem 
-                 title="Restaurants & Bars" 
+                 title="Restoran & Bar" 
                  isOpen={openSection === 'dining'} 
                  onClick={() => toggleSection('dining')}
                >
@@ -87,7 +87,7 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
                </AccordionItem>
 
                <AccordionItem 
-                 title="Spa & Leisure" 
+                 title="Spa & Rekreasi" 
                  isOpen={openSection === 'leisure'} 
                  onClick={() => toggleSection('leisure')}
                >
@@ -106,21 +106,21 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
           {/* Right Column: Booking Sidebar - Hidden on Mobile */}
           <div className="lg:col-span-4 hidden lg:block">
             <div className="sticky top-28 bg-[#4A3426] text-white rounded-[3rem] p-12 shadow-2xl">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-60 mb-2 text-center">Exclusive Daily Rate</p>
-              <h4 className="text-4xl font-serif font-bold text-center mb-10">${villa.price.toLocaleString()} <span className="text-lg opacity-40 font-sans">/night</span></h4>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-60 mb-2 text-center">Tarif Harian Eksklusif</p>
+              <h4 className="text-4xl font-serif font-bold text-center mb-10">Rp {villa.price.toLocaleString('id-ID')} <span className="text-lg opacity-40 font-sans">/malam</span></h4>
               
               <div className="space-y-6 mb-10">
                 <div className="flex justify-between items-center text-sm border-b border-white/10 pb-4">
-                  <span className="opacity-60">Estate Manager</span>
-                  <span className="font-bold">24/7 Priority</span>
+                  <span className="opacity-60">Pengelola</span>
+                  <span className="font-bold">24/7 Prioritas</span>
                 </div>
                 <div className="flex justify-between items-center text-sm border-b border-white/10 pb-4">
-                  <span className="opacity-60">Breakfast</span>
-                  <span className="font-bold">Included</span>
+                  <span className="opacity-60">Sarapan</span>
+                  <span className="font-bold">Termasuk</span>
                 </div>
                 <div className="flex justify-between items-center text-sm border-b border-white/10 pb-4">
-                  <span className="opacity-60">Cancellation</span>
-                  <span className="font-bold">Flexible</span>
+                  <span className="opacity-60">Pembatalan</span>
+                  <span className="font-bold">Fleksibel</span>
                 </div>
               </div>
 
@@ -128,7 +128,7 @@ const VillaDetailPage: React.FC<VillaDetailPageProps> = ({ villa, onBookNow }) =
                 onClick={onBookNow}
                 className="w-full bg-white text-[#4A3426] py-5 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all"
               >
-                Check Availability
+                Cek Ketersediaan
               </button>
             </div>
           </div>

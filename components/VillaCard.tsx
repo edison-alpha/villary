@@ -27,7 +27,7 @@ const VillaCard: React.FC<VillaCardProps> = ({ villa, onClick }) => {
       {/* Prime Pick Badge */}
       <div className="absolute top-8 left-8 bg-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
         <Star size={16} className="fill-yellow-400 text-yellow-400" />
-        <span className="text-slate-800 text-xs font-bold font-sans">Prime Pick</span>
+        <span className="text-slate-800 text-xs font-bold font-sans">Pilihan Utama</span>
       </div>
 
       {/* Content Container */}
@@ -36,7 +36,7 @@ const VillaCard: React.FC<VillaCardProps> = ({ villa, onClick }) => {
         <div className="flex justify-between items-end gap-4">
           <div className="flex-1">
             <h3 className="text-3xl font-bold text-white mb-2 tracking-tight">
-              List: ${villa.price.toLocaleString()}
+              Rp {villa.price.toLocaleString('id-ID')}
             </h3>
             <p className="text-white/70 text-sm leading-relaxed max-w-[200px]">
               {villa.name}...<br />
@@ -48,12 +48,12 @@ const VillaCard: React.FC<VillaCardProps> = ({ villa, onClick }) => {
           <div className="flex gap-6 items-center border-l border-white/20 pl-6 h-12 shrink-0">
             <div className="text-center">
               <p className="text-white font-bold text-lg">{villa.livingArea} m²</p>
-              <p className="text-white/40 text-[10px] uppercase tracking-widest">Living</p>
+              <p className="text-white/40 text-[10px] uppercase tracking-widest">Luas</p>
             </div>
             <div className="w-px h-8 bg-white/20"></div>
             <div className="text-center">
               <p className="text-white font-bold text-lg">{villa.bedrooms}</p>
-              <p className="text-white/40 text-[10px] uppercase tracking-widest">Rooms</p>
+              <p className="text-white/40 text-[10px] uppercase tracking-widest">Kamar</p>
             </div>
           </div>
         </div>

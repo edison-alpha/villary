@@ -95,7 +95,7 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
 
             {/* Personal Details Form */}
             <section className="bg-white rounded-[3rem] p-10 md:p-14 shadow-sm border border-slate-100">
-              <h2 className="text-3xl font-serif text-slate-800 mb-8">Personal details</h2>
+              <h2 className="text-3xl font-serif text-slate-800 mb-8">Data Pribadi</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
@@ -159,17 +159,17 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
 
               <div className="mt-8 flex items-center gap-4">
                 <input type="checkbox" id="bookingForSomeone" className="w-5 h-5 rounded border-slate-300 text-[#BC8F48] focus:ring-[#BC8F48]" />
-                <label htmlFor="bookingForSomeone" className="text-sm text-slate-600 font-medium">I am booking for someone else</label>
+                <label htmlFor="bookingForSomeone" className="text-sm text-slate-600 font-medium">Saya memesan untuk orang lain</label>
               </div>
             </section>
 
             {/* Special Requests Section */}
             <section className="bg-white rounded-[3rem] p-10 md:p-14 shadow-sm border border-slate-100">
-              <h2 className="text-3xl font-serif text-slate-800 mb-4">Special requests</h2>
-              <p className="text-slate-400 text-sm mb-8">Please let us know of any additional requests to help us ensure you have a comfortable stay</p>
+              <h2 className="text-3xl font-serif text-slate-800 mb-4">Permintaan Khusus</h2>
+              <p className="text-slate-400 text-sm mb-8">Silakan beritahu kami permintaan tambahan untuk memastikan Anda menginap dengan nyaman</p>
               <textarea 
                 className="w-full bg-slate-50 border border-slate-100 rounded-[2rem] p-8 text-sm focus:outline-none focus:border-[#BC8F48] min-h-[150px]"
-                placeholder="Type in your special requests and we will do our best to try to accommodate them."
+                placeholder="Ketik permintaan khusus Anda dan kami akan berusaha memenuhinya."
               ></textarea>
             </section>
 
@@ -178,7 +178,7 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
               onClick={onComplete}
               className="w-full bg-[#BC8F48] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#A67B3D] transition-all shadow-2xl shadow-[#BC8F48]/20 uppercase tracking-widest"
             >
-              Proceed to final step
+              Lanjut ke Langkah Terakhir
             </button>
           </div>
 
@@ -186,7 +186,7 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
           <div className="lg:col-span-5 lg:sticky lg:top-8">
             <div className="bg-white rounded-[3rem] shadow-xl border border-slate-100 overflow-hidden">
               <div className="p-10">
-                <h3 className="text-xl font-serif font-bold text-slate-800 mb-8 border-b border-slate-50 pb-6">Booking summary</h3>
+                <h3 className="text-xl font-serif font-bold text-slate-800 mb-8 border-b border-slate-50 pb-6">Ringkasan Pemesanan</h3>
                 
                 <div className="flex flex-col items-center mb-10">
                   <div className="flex gap-1 mb-2">
@@ -215,23 +215,23 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
                     </div>
                   </div>
                   <div className="border-t border-slate-200 pt-4 flex justify-between items-center text-xs">
-                    <span className="text-slate-500 font-medium">Duration</span>
-                    <span className="font-bold text-slate-800">{nights} Nights</span>
+                    <span className="text-slate-500 font-medium">Durasi</span>
+                    <span className="font-bold text-slate-800">{nights} Malam</span>
                   </div>
                 </div>
 
                 <div className="space-y-6 mb-10">
                   <div className="flex flex-col gap-2">
-                    <p className="text-slate-400 font-bold uppercase tracking-widest text-[9px]">Sanctuary Type</p>
+                    <p className="text-slate-400 font-bold uppercase tracking-widest text-[9px]">Tipe Kamar</p>
                     <div className="flex justify-between items-start">
                       <div>
                         <p className="font-bold text-slate-800">{suite.name}</p>
                         <p className="text-[10px] text-slate-500 italic mt-0.5">{suite.view}</p>
                       </div>
-                      <span className="font-bold text-slate-800">${total.toLocaleString()}</span>
+                      <span className="font-bold text-slate-800">Rp {total.toLocaleString('id-ID')}</span>
                     </div>
                     <div className="flex items-center gap-2 mt-2 bg-green-50 text-green-700 px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider">
-                      <Clock size={12} /> Free cancellation available
+                      <Clock size={12} /> Pembatalan gratis tersedia
                     </div>
                   </div>
                 </div>
@@ -240,15 +240,15 @@ const CheckoutDetailsPage: React.FC<CheckoutDetailsPageProps> = ({
                   <div className="flex justify-between items-end">
                     <div>
                       <h5 className="text-lg font-serif text-slate-800 font-bold">Total</h5>
-                      <p className="text-[9px] text-slate-400 uppercase tracking-widest font-bold">(Tax included)</p>
+                      <p className="text-[9px] text-slate-400 uppercase tracking-widest font-bold">(Termasuk pajak)</p>
                     </div>
-                    <span className="text-3xl font-serif font-bold text-[#BC8F48]">${total.toLocaleString()}</span>
+                    <span className="text-3xl font-serif font-bold text-[#BC8F48]">Rp {total.toLocaleString('id-ID')}</span>
                   </div>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-slate-50 flex items-center gap-3 text-slate-400 text-[10px] font-bold uppercase tracking-widest">
                   <Info size={14} className="text-[#BC8F48]" />
-                  <span>Currency: Hotel rate in USD</span>
+                  <span>Mata Uang: Rupiah (IDR)</span>
                 </div>
               </div>
             </div>
